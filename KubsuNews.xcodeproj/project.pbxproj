@@ -1,0 +1,806 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		43C125C90968642E4642AA56 /* Pods_KubsuNewsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D92115818D42B4DAB9D2477 /* Pods_KubsuNewsTests.framework */; };
+		541CFFEEB27745A422C6E0E8 /* Pods_KubsuNews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC48463F110BD9A733705AC7 /* Pods_KubsuNews.framework */; };
+		9ED4BAF1C4E4BEF9BF8C4A57 /* Pods_KubsuNewsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229DD34C934846483D908020 /* Pods_KubsuNewsUITests.framework */; };
+		FD01E9E71E8448790005B456 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FD01E9E61E8448790005B456 /* main.m */; };
+		FD01E9EA1E8448790005B456 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD01E9E91E8448790005B456 /* AppDelegate.m */; };
+		FD01E9ED1E8448790005B456 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD01E9EC1E8448790005B456 /* ViewController.m */; };
+		FD01E9F01E8448790005B456 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD01E9EE1E8448790005B456 /* Main.storyboard */; };
+		FD01E9F21E8448790005B456 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD01E9F11E8448790005B456 /* Assets.xcassets */; };
+		FD01E9F51E8448790005B456 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD01E9F31E8448790005B456 /* LaunchScreen.storyboard */; };
+		FD01EA001E8448790005B456 /* KubsuNewsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FD01E9FF1E8448790005B456 /* KubsuNewsTests.m */; };
+		FD01EA0B1E8448790005B456 /* KubsuNewsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = FD01EA0A1E8448790005B456 /* KubsuNewsUITests.m */; };
+		FD01EA1A1E8448930005B456 /* KUNewsItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FD01EA191E8448930005B456 /* KUNewsItem.m */; };
+		FD01EA1E1E84499D0005B456 /* KUDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD01EA1D1E84499D0005B456 /* KUDataController.m */; };
+		FD145E9C1E86BF9F000F6B53 /* KUUINewsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD145E9B1E86BF9F000F6B53 /* KUUINewsTableViewController.m */; };
+		FD145EA11E86BFCF000F6B53 /* KUUITableViewNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD145E9F1E86BFCF000F6B53 /* KUUITableViewNewsCell.m */; };
+		FD145EA21E86BFCF000F6B53 /* KUUITableViewNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD145EA01E86BFCF000F6B53 /* KUUITableViewNewsCell.xib */; };
+		FD9D04521E86E6790089352C /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD9D04511E86E6790089352C /* SDWebImage.framework */; };
+		FD9D04561E86E8F60089352C /* XLPagerTabStrip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD9D04551E86E8F60089352C /* XLPagerTabStrip.framework */; };
+		FD9D045C1E86F3550089352C /* KUUINavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9D045B1E86F3550089352C /* KUUINavigationController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FD01E9FC1E8448790005B456 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FD01E9DA1E8448790005B456 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FD01E9E11E8448790005B456;
+			remoteInfo = KubsuNews;
+		};
+		FD01EA071E8448790005B456 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FD01E9DA1E8448790005B456 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FD01E9E11E8448790005B456;
+			remoteInfo = KubsuNews;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		05AAA99EA71D182F452B18DD /* Pods-KubsuNewsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KubsuNewsUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KubsuNewsUITests/Pods-KubsuNewsUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		229DD34C934846483D908020 /* Pods_KubsuNewsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KubsuNewsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2417C83616EFB6C5C3814F73 /* Pods-KubsuNews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KubsuNews.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KubsuNews/Pods-KubsuNews.debug.xcconfig"; sourceTree = "<group>"; };
+		4C4B97A866FE206436751947 /* Pods-KubsuNewsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KubsuNewsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KubsuNewsTests/Pods-KubsuNewsTests.release.xcconfig"; sourceTree = "<group>"; };
+		793221AB1BBA13AC8B060FC6 /* Pods-KubsuNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KubsuNews.release.xcconfig"; path = "Pods/Target Support Files/Pods-KubsuNews/Pods-KubsuNews.release.xcconfig"; sourceTree = "<group>"; };
+		7D92115818D42B4DAB9D2477 /* Pods_KubsuNewsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KubsuNewsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7DC23B57646E9F0BDAABA4DF /* Pods-KubsuNewsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KubsuNewsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KubsuNewsUITests/Pods-KubsuNewsUITests.release.xcconfig"; sourceTree = "<group>"; };
+		BC48463F110BD9A733705AC7 /* Pods_KubsuNews.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KubsuNews.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9EBE6A2496A97B722A55D58 /* Pods-KubsuNewsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KubsuNewsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KubsuNewsTests/Pods-KubsuNewsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		FD01E9E21E8448790005B456 /* KubsuNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KubsuNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD01E9E61E8448790005B456 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FD01E9E81E8448790005B456 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		FD01E9E91E8448790005B456 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		FD01E9EB1E8448790005B456 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		FD01E9EC1E8448790005B456 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		FD01E9EF1E8448790005B456 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FD01E9F11E8448790005B456 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FD01E9F41E8448790005B456 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FD01E9F61E8448790005B456 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FD01E9FB1E8448790005B456 /* KubsuNewsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KubsuNewsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD01E9FF1E8448790005B456 /* KubsuNewsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KubsuNewsTests.m; sourceTree = "<group>"; };
+		FD01EA011E8448790005B456 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FD01EA061E8448790005B456 /* KubsuNewsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KubsuNewsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD01EA0A1E8448790005B456 /* KubsuNewsUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KubsuNewsUITests.m; sourceTree = "<group>"; };
+		FD01EA0C1E8448790005B456 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FD01EA181E8448930005B456 /* KUNewsItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUNewsItem.h; sourceTree = "<group>"; };
+		FD01EA191E8448930005B456 /* KUNewsItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUNewsItem.m; sourceTree = "<group>"; };
+		FD01EA1C1E84499D0005B456 /* KUDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUDataController.h; sourceTree = "<group>"; };
+		FD01EA1D1E84499D0005B456 /* KUDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUDataController.m; sourceTree = "<group>"; };
+		FD145E9A1E86BF9F000F6B53 /* KUUINewsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUUINewsTableViewController.h; sourceTree = "<group>"; };
+		FD145E9B1E86BF9F000F6B53 /* KUUINewsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUUINewsTableViewController.m; sourceTree = "<group>"; };
+		FD145E9E1E86BFCF000F6B53 /* KUUITableViewNewsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUUITableViewNewsCell.h; sourceTree = "<group>"; };
+		FD145E9F1E86BFCF000F6B53 /* KUUITableViewNewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUUITableViewNewsCell.m; sourceTree = "<group>"; };
+		FD145EA01E86BFCF000F6B53 /* KUUITableViewNewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KUUITableViewNewsCell.xib; sourceTree = "<group>"; };
+		FD9D04511E86E6790089352C /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = "Pods/../build/Release-iphoneos/SDWebImage/SDWebImage.framework"; sourceTree = "<group>"; };
+		FD9D04531E86E6870089352C /* PageMenu.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PageMenu.framework; path = "Pods/../build/Release-iphoneos/PageMenu/PageMenu.framework"; sourceTree = "<group>"; };
+		FD9D04551E86E8F60089352C /* XLPagerTabStrip.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XLPagerTabStrip.framework; path = "../../../Library/Developer/Xcode/DerivedData/KubsuNews-aeddnvqvvyenbubedfggexyewykl/Build/Products/Debug-iphonesimulator/XLPagerTabStrip/XLPagerTabStrip.framework"; sourceTree = "<group>"; };
+		FD9D045A1E86F3550089352C /* KUUINavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUUINavigationController.h; sourceTree = "<group>"; };
+		FD9D045B1E86F3550089352C /* KUUINavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUUINavigationController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FD01E9DF1E8448790005B456 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD9D04561E86E8F60089352C /* XLPagerTabStrip.framework in Frameworks */,
+				FD9D04521E86E6790089352C /* SDWebImage.framework in Frameworks */,
+				541CFFEEB27745A422C6E0E8 /* Pods_KubsuNews.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD01E9F81E8448790005B456 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				43C125C90968642E4642AA56 /* Pods_KubsuNewsTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD01EA031E8448790005B456 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9ED4BAF1C4E4BEF9BF8C4A57 /* Pods_KubsuNewsUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2E6650B8925C1C2CBADA55EC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FD9D04551E86E8F60089352C /* XLPagerTabStrip.framework */,
+				FD9D04531E86E6870089352C /* PageMenu.framework */,
+				FD9D04511E86E6790089352C /* SDWebImage.framework */,
+				BC48463F110BD9A733705AC7 /* Pods_KubsuNews.framework */,
+				7D92115818D42B4DAB9D2477 /* Pods_KubsuNewsTests.framework */,
+				229DD34C934846483D908020 /* Pods_KubsuNewsUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EFB4FAA7FCA519DFCDC917EC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2417C83616EFB6C5C3814F73 /* Pods-KubsuNews.debug.xcconfig */,
+				793221AB1BBA13AC8B060FC6 /* Pods-KubsuNews.release.xcconfig */,
+				F9EBE6A2496A97B722A55D58 /* Pods-KubsuNewsTests.debug.xcconfig */,
+				4C4B97A866FE206436751947 /* Pods-KubsuNewsTests.release.xcconfig */,
+				05AAA99EA71D182F452B18DD /* Pods-KubsuNewsUITests.debug.xcconfig */,
+				7DC23B57646E9F0BDAABA4DF /* Pods-KubsuNewsUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		FD01E9D91E8448790005B456 = {
+			isa = PBXGroup;
+			children = (
+				FD01E9E41E8448790005B456 /* KubsuNews */,
+				FD01E9FE1E8448790005B456 /* KubsuNewsTests */,
+				FD01EA091E8448790005B456 /* KubsuNewsUITests */,
+				FD01E9E31E8448790005B456 /* Products */,
+				EFB4FAA7FCA519DFCDC917EC /* Pods */,
+				2E6650B8925C1C2CBADA55EC /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		FD01E9E31E8448790005B456 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FD01E9E21E8448790005B456 /* KubsuNews.app */,
+				FD01E9FB1E8448790005B456 /* KubsuNewsTests.xctest */,
+				FD01EA061E8448790005B456 /* KubsuNewsUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FD01E9E41E8448790005B456 /* KubsuNews */ = {
+			isa = PBXGroup;
+			children = (
+				FD01E9E81E8448790005B456 /* AppDelegate.h */,
+				FD01E9E91E8448790005B456 /* AppDelegate.m */,
+				FD01E9EB1E8448790005B456 /* ViewController.h */,
+				FD01E9EC1E8448790005B456 /* ViewController.m */,
+				FD9D045A1E86F3550089352C /* KUUINavigationController.h */,
+				FD9D045B1E86F3550089352C /* KUUINavigationController.m */,
+				FD145E9D1E86BFA6000F6B53 /* News Table View */,
+				FD01EA1B1E8449730005B456 /* Model */,
+				FD01E9EE1E8448790005B456 /* Main.storyboard */,
+				FD01E9F11E8448790005B456 /* Assets.xcassets */,
+				FD01E9F31E8448790005B456 /* LaunchScreen.storyboard */,
+				FD01E9F61E8448790005B456 /* Info.plist */,
+				FD01E9E51E8448790005B456 /* Supporting Files */,
+			);
+			path = KubsuNews;
+			sourceTree = "<group>";
+		};
+		FD01E9E51E8448790005B456 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FD01E9E61E8448790005B456 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FD01E9FE1E8448790005B456 /* KubsuNewsTests */ = {
+			isa = PBXGroup;
+			children = (
+				FD01E9FF1E8448790005B456 /* KubsuNewsTests.m */,
+				FD01EA011E8448790005B456 /* Info.plist */,
+			);
+			path = KubsuNewsTests;
+			sourceTree = "<group>";
+		};
+		FD01EA091E8448790005B456 /* KubsuNewsUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FD01EA0A1E8448790005B456 /* KubsuNewsUITests.m */,
+				FD01EA0C1E8448790005B456 /* Info.plist */,
+			);
+			path = KubsuNewsUITests;
+			sourceTree = "<group>";
+		};
+		FD01EA1B1E8449730005B456 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FD01EA1C1E84499D0005B456 /* KUDataController.h */,
+				FD01EA1D1E84499D0005B456 /* KUDataController.m */,
+				FD01EA181E8448930005B456 /* KUNewsItem.h */,
+				FD01EA191E8448930005B456 /* KUNewsItem.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		FD145E9D1E86BFA6000F6B53 /* News Table View */ = {
+			isa = PBXGroup;
+			children = (
+				FD145E9A1E86BF9F000F6B53 /* KUUINewsTableViewController.h */,
+				FD145E9B1E86BF9F000F6B53 /* KUUINewsTableViewController.m */,
+				FD145E9E1E86BFCF000F6B53 /* KUUITableViewNewsCell.h */,
+				FD145E9F1E86BFCF000F6B53 /* KUUITableViewNewsCell.m */,
+				FD145EA01E86BFCF000F6B53 /* KUUITableViewNewsCell.xib */,
+			);
+			name = "News Table View";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FD01E9E11E8448790005B456 /* KubsuNews */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FD01EA0F1E8448790005B456 /* Build configuration list for PBXNativeTarget "KubsuNews" */;
+			buildPhases = (
+				B64E7BD959127F2C3AF33D4F /* [CP] Check Pods Manifest.lock */,
+				FD01E9DE1E8448790005B456 /* Sources */,
+				FD01E9DF1E8448790005B456 /* Frameworks */,
+				FD01E9E01E8448790005B456 /* Resources */,
+				895052985FB733099AFAC9F7 /* [CP] Embed Pods Frameworks */,
+				1EBAB17997721B0723592A11 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KubsuNews;
+			productName = KubsuNews;
+			productReference = FD01E9E21E8448790005B456 /* KubsuNews.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FD01E9FA1E8448790005B456 /* KubsuNewsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FD01EA121E8448790005B456 /* Build configuration list for PBXNativeTarget "KubsuNewsTests" */;
+			buildPhases = (
+				B4304881E3C067A88EEA2B18 /* [CP] Check Pods Manifest.lock */,
+				FD01E9F71E8448790005B456 /* Sources */,
+				FD01E9F81E8448790005B456 /* Frameworks */,
+				FD01E9F91E8448790005B456 /* Resources */,
+				B5E65B4F55364FB9A6CE2BBB /* [CP] Embed Pods Frameworks */,
+				16AD4739E02880077B910F6A /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FD01E9FD1E8448790005B456 /* PBXTargetDependency */,
+			);
+			name = KubsuNewsTests;
+			productName = KubsuNewsTests;
+			productReference = FD01E9FB1E8448790005B456 /* KubsuNewsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FD01EA051E8448790005B456 /* KubsuNewsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FD01EA151E8448790005B456 /* Build configuration list for PBXNativeTarget "KubsuNewsUITests" */;
+			buildPhases = (
+				56FD814BB359FCE6209C52C1 /* [CP] Check Pods Manifest.lock */,
+				FD01EA021E8448790005B456 /* Sources */,
+				FD01EA031E8448790005B456 /* Frameworks */,
+				FD01EA041E8448790005B456 /* Resources */,
+				6F48D8D64B817FAD0ED630F8 /* [CP] Embed Pods Frameworks */,
+				13F47125DCB2401054AFE7F7 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FD01EA081E8448790005B456 /* PBXTargetDependency */,
+			);
+			name = KubsuNewsUITests;
+			productName = KubsuNewsUITests;
+			productReference = FD01EA061E8448790005B456 /* KubsuNewsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FD01E9DA1E8448790005B456 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = darkTeam;
+				TargetAttributes = {
+					FD01E9E11E8448790005B456 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 2JJ8VV7365;
+						LastSwiftMigration = 0820;
+						ProvisioningStyle = Automatic;
+					};
+					FD01E9FA1E8448790005B456 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 2JJ8VV7365;
+						ProvisioningStyle = Automatic;
+						TestTargetID = FD01E9E11E8448790005B456;
+					};
+					FD01EA051E8448790005B456 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 2JJ8VV7365;
+						ProvisioningStyle = Automatic;
+						TestTargetID = FD01E9E11E8448790005B456;
+					};
+				};
+			};
+			buildConfigurationList = FD01E9DD1E8448790005B456 /* Build configuration list for PBXProject "KubsuNews" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FD01E9D91E8448790005B456;
+			productRefGroup = FD01E9E31E8448790005B456 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FD01E9E11E8448790005B456 /* KubsuNews */,
+				FD01E9FA1E8448790005B456 /* KubsuNewsTests */,
+				FD01EA051E8448790005B456 /* KubsuNewsUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FD01E9E01E8448790005B456 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD145EA21E86BFCF000F6B53 /* KUUITableViewNewsCell.xib in Resources */,
+				FD01E9F51E8448790005B456 /* LaunchScreen.storyboard in Resources */,
+				FD01E9F21E8448790005B456 /* Assets.xcassets in Resources */,
+				FD01E9F01E8448790005B456 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD01E9F91E8448790005B456 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD01EA041E8448790005B456 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		13F47125DCB2401054AFE7F7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KubsuNewsUITests/Pods-KubsuNewsUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		16AD4739E02880077B910F6A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KubsuNewsTests/Pods-KubsuNewsTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1EBAB17997721B0723592A11 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KubsuNews/Pods-KubsuNews-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		56FD814BB359FCE6209C52C1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6F48D8D64B817FAD0ED630F8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KubsuNewsUITests/Pods-KubsuNewsUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		895052985FB733099AFAC9F7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KubsuNews/Pods-KubsuNews-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B4304881E3C067A88EEA2B18 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B5E65B4F55364FB9A6CE2BBB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KubsuNewsTests/Pods-KubsuNewsTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B64E7BD959127F2C3AF33D4F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FD01E9DE1E8448790005B456 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD145E9C1E86BF9F000F6B53 /* KUUINewsTableViewController.m in Sources */,
+				FD145EA11E86BFCF000F6B53 /* KUUITableViewNewsCell.m in Sources */,
+				FD01EA1E1E84499D0005B456 /* KUDataController.m in Sources */,
+				FD01E9ED1E8448790005B456 /* ViewController.m in Sources */,
+				FD01E9EA1E8448790005B456 /* AppDelegate.m in Sources */,
+				FD01E9E71E8448790005B456 /* main.m in Sources */,
+				FD01EA1A1E8448930005B456 /* KUNewsItem.m in Sources */,
+				FD9D045C1E86F3550089352C /* KUUINavigationController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD01E9F71E8448790005B456 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD01EA001E8448790005B456 /* KubsuNewsTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD01EA021E8448790005B456 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD01EA0B1E8448790005B456 /* KubsuNewsUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FD01E9FD1E8448790005B456 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FD01E9E11E8448790005B456 /* KubsuNews */;
+			targetProxy = FD01E9FC1E8448790005B456 /* PBXContainerItemProxy */;
+		};
+		FD01EA081E8448790005B456 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FD01E9E11E8448790005B456 /* KubsuNews */;
+			targetProxy = FD01EA071E8448790005B456 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FD01E9EE1E8448790005B456 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FD01E9EF1E8448790005B456 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FD01E9F31E8448790005B456 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FD01E9F41E8448790005B456 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FD01EA0D1E8448790005B456 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		FD01EA0E1E8448790005B456 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FD01EA101E8448790005B456 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2417C83616EFB6C5C3814F73 /* Pods-KubsuNews.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 2JJ8VV7365;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Release-iphoneos/SDWebImage",
+					"$(PROJECT_DIR)/build/Release-iphoneos/PageMenu",
+				);
+				INFOPLIST_FILE = KubsuNews/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = KubSu.KubsuNews;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		FD01EA111E8448790005B456 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 793221AB1BBA13AC8B060FC6 /* Pods-KubsuNews.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 2JJ8VV7365;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Release-iphoneos/SDWebImage",
+					"$(PROJECT_DIR)/build/Release-iphoneos/PageMenu",
+				);
+				INFOPLIST_FILE = KubsuNews/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = KubSu.KubsuNews;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		FD01EA131E8448790005B456 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F9EBE6A2496A97B722A55D58 /* Pods-KubsuNewsTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 2JJ8VV7365;
+				INFOPLIST_FILE = KubsuNewsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = KubSu.KubsuNewsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KubsuNews.app/KubsuNews";
+			};
+			name = Debug;
+		};
+		FD01EA141E8448790005B456 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4C4B97A866FE206436751947 /* Pods-KubsuNewsTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 2JJ8VV7365;
+				INFOPLIST_FILE = KubsuNewsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = KubSu.KubsuNewsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KubsuNews.app/KubsuNews";
+			};
+			name = Release;
+		};
+		FD01EA161E8448790005B456 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 05AAA99EA71D182F452B18DD /* Pods-KubsuNewsUITests.debug.xcconfig */;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 2JJ8VV7365;
+				INFOPLIST_FILE = KubsuNewsUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = KubSu.KubsuNewsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = KubsuNews;
+			};
+			name = Debug;
+		};
+		FD01EA171E8448790005B456 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7DC23B57646E9F0BDAABA4DF /* Pods-KubsuNewsUITests.release.xcconfig */;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 2JJ8VV7365;
+				INFOPLIST_FILE = KubsuNewsUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = KubSu.KubsuNewsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = KubsuNews;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FD01E9DD1E8448790005B456 /* Build configuration list for PBXProject "KubsuNews" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD01EA0D1E8448790005B456 /* Debug */,
+				FD01EA0E1E8448790005B456 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FD01EA0F1E8448790005B456 /* Build configuration list for PBXNativeTarget "KubsuNews" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD01EA101E8448790005B456 /* Debug */,
+				FD01EA111E8448790005B456 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FD01EA121E8448790005B456 /* Build configuration list for PBXNativeTarget "KubsuNewsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD01EA131E8448790005B456 /* Debug */,
+				FD01EA141E8448790005B456 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FD01EA151E8448790005B456 /* Build configuration list for PBXNativeTarget "KubsuNewsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD01EA161E8448790005B456 /* Debug */,
+				FD01EA171E8448790005B456 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FD01E9DA1E8448790005B456 /* Project object */;
+}

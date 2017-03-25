@@ -1,0 +1,107 @@
+Podfile.lock
+KubsuNews.xcodeproj/xcuserdata/gianglongtran.xcuserdatad/xcschemes/KubsuNews.xcscheme
+KubsuNews.xcodeproj/xcuserdata/gianglongtran.xcuserdatad/xcschemes/xcschememanagement.plist
+KubsuNews.xcodeproj/xcuserdata/long.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist
+KubsuNews.xcworkspace/contents.xcworkspacedata
+KubsuNews.xcworkspace/xcuserdata/long.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist
+Pods/Manifest.lock
+Pods/Pods.xcodeproj/project.pbxproj
+Pods/Pods.xcodeproj/xcuserdata/long.xcuserdatad/xcschemes/Pods-KubsuNews.xcscheme
+Pods/Pods.xcodeproj/xcuserdata/long.xcuserdatad/xcschemes/Pods-KubsuNewsTests.xcscheme
+Pods/Pods.xcodeproj/xcuserdata/long.xcuserdatad/xcschemes/Pods-KubsuNewsUITests.xcscheme
+Pods/Pods.xcodeproj/xcuserdata/long.xcuserdatad/xcschemes/SDWebImage.xcscheme
+Pods/Pods.xcodeproj/xcuserdata/long.xcuserdatad/xcschemes/xcschememanagement.plist
+Pods/Pods.xcodeproj/xcuserdata/long.xcuserdatad/xcschemes/XLPagerTabStrip.xcscheme
+Pods/SDWebImage/LICENSE
+Pods/SDWebImage/README.md
+Pods/SDWebImage/SDWebImage/NSData+ImageContentType.h
+Pods/SDWebImage/SDWebImage/NSData+ImageContentType.m
+Pods/SDWebImage/SDWebImage/SDImageCache.h
+Pods/SDWebImage/SDWebImage/SDImageCache.m
+Pods/SDWebImage/SDWebImage/SDWebImageCompat.h
+Pods/SDWebImage/SDWebImage/SDWebImageCompat.m
+Pods/SDWebImage/SDWebImage/SDWebImageDecoder.h
+Pods/SDWebImage/SDWebImage/SDWebImageDecoder.m
+Pods/SDWebImage/SDWebImage/SDWebImageDownloader.h
+Pods/SDWebImage/SDWebImage/SDWebImageDownloader.m
+Pods/SDWebImage/SDWebImage/SDWebImageDownloaderOperation.h
+Pods/SDWebImage/SDWebImage/SDWebImageDownloaderOperation.m
+Pods/SDWebImage/SDWebImage/SDWebImageManager.h
+Pods/SDWebImage/SDWebImage/SDWebImageManager.m
+Pods/SDWebImage/SDWebImage/SDWebImageOperation.h
+Pods/SDWebImage/SDWebImage/SDWebImagePrefetcher.h
+Pods/SDWebImage/SDWebImage/SDWebImagePrefetcher.m
+Pods/SDWebImage/SDWebImage/UIButton+WebCache.h
+Pods/SDWebImage/SDWebImage/UIButton+WebCache.m
+Pods/SDWebImage/SDWebImage/UIImage+GIF.h
+Pods/SDWebImage/SDWebImage/UIImage+GIF.m
+Pods/SDWebImage/SDWebImage/UIImage+MultiFormat.h
+Pods/SDWebImage/SDWebImage/UIImage+MultiFormat.m
+Pods/SDWebImage/SDWebImage/UIImageView+HighlightedWebCache.h
+Pods/SDWebImage/SDWebImage/UIImageView+HighlightedWebCache.m
+Pods/SDWebImage/SDWebImage/UIImageView+WebCache.h
+Pods/SDWebImage/SDWebImage/UIImageView+WebCache.m
+Pods/SDWebImage/SDWebImage/UIView+WebCacheOperation.h
+Pods/SDWebImage/SDWebImage/UIView+WebCacheOperation.m
+Pods/Target Support Files/Pods-KubsuNews/Info.plist
+Pods/Target Support Files/Pods-KubsuNews/Pods-KubsuNews-acknowledgements.markdown
+Pods/Target Support Files/Pods-KubsuNews/Pods-KubsuNews-acknowledgements.plist
+Pods/Target Support Files/Pods-KubsuNews/Pods-KubsuNews-dummy.m
+Pods/Target Support Files/Pods-KubsuNews/Pods-KubsuNews-frameworks.sh
+Pods/Target Support Files/Pods-KubsuNews/Pods-KubsuNews-resources.sh
+Pods/Target Support Files/Pods-KubsuNews/Pods-KubsuNews-umbrella.h
+Pods/Target Support Files/Pods-KubsuNews/Pods-KubsuNews.debug.xcconfig
+Pods/Target Support Files/Pods-KubsuNews/Pods-KubsuNews.modulemap
+Pods/Target Support Files/Pods-KubsuNews/Pods-KubsuNews.release.xcconfig
+Pods/Target Support Files/Pods-KubsuNewsTests/Info.plist
+Pods/Target Support Files/Pods-KubsuNewsTests/Pods-KubsuNewsTests-acknowledgements.markdown
+Pods/Target Support Files/Pods-KubsuNewsTests/Pods-KubsuNewsTests-acknowledgements.plist
+Pods/Target Support Files/Pods-KubsuNewsTests/Pods-KubsuNewsTests-dummy.m
+Pods/Target Support Files/Pods-KubsuNewsTests/Pods-KubsuNewsTests-frameworks.sh
+Pods/Target Support Files/Pods-KubsuNewsTests/Pods-KubsuNewsTests-resources.sh
+Pods/Target Support Files/Pods-KubsuNewsTests/Pods-KubsuNewsTests-umbrella.h
+Pods/Target Support Files/Pods-KubsuNewsTests/Pods-KubsuNewsTests.debug.xcconfig
+Pods/Target Support Files/Pods-KubsuNewsTests/Pods-KubsuNewsTests.modulemap
+Pods/Target Support Files/Pods-KubsuNewsTests/Pods-KubsuNewsTests.release.xcconfig
+Pods/Target Support Files/Pods-KubsuNewsUITests/Info.plist
+Pods/Target Support Files/Pods-KubsuNewsUITests/Pods-KubsuNewsUITests-acknowledgements.markdown
+Pods/Target Support Files/Pods-KubsuNewsUITests/Pods-KubsuNewsUITests-acknowledgements.plist
+Pods/Target Support Files/Pods-KubsuNewsUITests/Pods-KubsuNewsUITests-dummy.m
+Pods/Target Support Files/Pods-KubsuNewsUITests/Pods-KubsuNewsUITests-frameworks.sh
+Pods/Target Support Files/Pods-KubsuNewsUITests/Pods-KubsuNewsUITests-resources.sh
+Pods/Target Support Files/Pods-KubsuNewsUITests/Pods-KubsuNewsUITests-umbrella.h
+Pods/Target Support Files/Pods-KubsuNewsUITests/Pods-KubsuNewsUITests.debug.xcconfig
+Pods/Target Support Files/Pods-KubsuNewsUITests/Pods-KubsuNewsUITests.modulemap
+Pods/Target Support Files/Pods-KubsuNewsUITests/Pods-KubsuNewsUITests.release.xcconfig
+Pods/Target Support Files/SDWebImage/Info.plist
+Pods/Target Support Files/SDWebImage/SDWebImage-dummy.m
+Pods/Target Support Files/SDWebImage/SDWebImage-prefix.pch
+Pods/Target Support Files/SDWebImage/SDWebImage-umbrella.h
+Pods/Target Support Files/SDWebImage/SDWebImage.modulemap
+Pods/Target Support Files/SDWebImage/SDWebImage.xcconfig
+Pods/Target Support Files/XLPagerTabStrip/Info.plist
+Pods/Target Support Files/XLPagerTabStrip/XLPagerTabStrip-dummy.m
+Pods/Target Support Files/XLPagerTabStrip/XLPagerTabStrip-prefix.pch
+Pods/Target Support Files/XLPagerTabStrip/XLPagerTabStrip-umbrella.h
+Pods/Target Support Files/XLPagerTabStrip/XLPagerTabStrip.modulemap
+Pods/Target Support Files/XLPagerTabStrip/XLPagerTabStrip.xcconfig
+Pods/XLPagerTabStrip/LICENSE
+Pods/XLPagerTabStrip/README.md
+Pods/XLPagerTabStrip/XLPagerTabStrip/XL/Controllers/XLBarPagerTabStripViewController.h
+Pods/XLPagerTabStrip/XLPagerTabStrip/XL/Controllers/XLBarPagerTabStripViewController.m
+Pods/XLPagerTabStrip/XLPagerTabStrip/XL/Controllers/XLButtonBarPagerTabStripViewController.h
+Pods/XLPagerTabStrip/XLPagerTabStrip/XL/Controllers/XLButtonBarPagerTabStripViewController.m
+Pods/XLPagerTabStrip/XLPagerTabStrip/XL/Controllers/XLPagerTabStripViewController.h
+Pods/XLPagerTabStrip/XLPagerTabStrip/XL/Controllers/XLPagerTabStripViewController.m
+Pods/XLPagerTabStrip/XLPagerTabStrip/XL/Controllers/XLSegmentedPagerTabStripViewController.h
+Pods/XLPagerTabStrip/XLPagerTabStrip/XL/Controllers/XLSegmentedPagerTabStripViewController.m
+Pods/XLPagerTabStrip/XLPagerTabStrip/XL/Controllers/XLTwitterPagerTabStripViewController.h
+Pods/XLPagerTabStrip/XLPagerTabStrip/XL/Controllers/XLTwitterPagerTabStripViewController.m
+Pods/XLPagerTabStrip/XLPagerTabStrip/XL/Views/XLBarView.h
+Pods/XLPagerTabStrip/XLPagerTabStrip/XL/Views/XLBarView.m
+Pods/XLPagerTabStrip/XLPagerTabStrip/XL/Views/XLButtonBarView.h
+Pods/XLPagerTabStrip/XLPagerTabStrip/XL/Views/XLButtonBarView.m
+Pods/XLPagerTabStrip/XLPagerTabStrip/XL/Views/XLButtonBarViewCell.h
+Pods/XLPagerTabStrip/XLPagerTabStrip/XL/Views/XLButtonBarViewCell.m
+Pods/XLPagerTabStrip/XLPagerTabStrip/XL/Views/FXPageControl/FXPageControl.h
+Pods/XLPagerTabStrip/XLPagerTabStrip/XL/Views/FXPageControl/FXPageControl.m
