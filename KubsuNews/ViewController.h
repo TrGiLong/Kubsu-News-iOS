@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+#import "KUDataController.h"
+
+@interface ViewController : UIViewController <KUNewsControllerDataSource>
 
 
 @end
