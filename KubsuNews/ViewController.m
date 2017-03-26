@@ -21,20 +21,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    dataController = [[KUDataController alloc] initWithDelegate:self];
-
+    dataController = [[KUDataController alloc] init];
+    
+    newsTableView = [[KUUINewsTableViewController alloc] initWithStyle:UITableViewStylePlain];
+    [newsTableView.view setFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    [self.view addSubview:newsTableView.view];
+    
+    [newsTableView setDataController:dataController];
 }
 
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
     if (newsTableView == nil) {
-        newsTableView = [[KUUINewsTableViewController alloc] initWithStyle:UITableViewStylePlain];
-        [newsTableView.view setFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-        [self.view addSubview:newsTableView.view];
         
-        
-        [dataController getNews];
         // Do any additional setup after loading the view, typically from a nib.
         
     }
@@ -46,7 +46,5 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)KUDataController:(KUDataController*)controller receiveNewsList:(NSArray <KUNewsItem*>*)items {
-    [newsTableView setItems:items];
-}
+
 @end

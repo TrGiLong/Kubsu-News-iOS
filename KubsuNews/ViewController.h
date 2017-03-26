@@ -10,7 +10,7 @@
 
 #import "KUDataController.h"
 
-@interface ViewController : UIViewController <KUNewsControllerDataSource>
+@interface ViewController : UIViewController 
 
 
 @end

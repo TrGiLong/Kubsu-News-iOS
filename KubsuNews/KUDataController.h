@@ -14,11 +14,13 @@ FOUNDATION_EXPORT NSString *const SERVER_ADRESS;
 
 @protocol KUNewsControllerDataSource <NSObject>
 -(void)KUDataController:(KUDataController*)controller receiveNewsList:(NSArray <KUNewsItem*>*)items;
+-(void)KUDataController:(KUDataController*)controller refrestNews:(NSArray <KUNewsItem*>*)items;
 @end
 
 @interface KUDataController : NSObject <NSURLSessionDelegate>
--(id)initWithDelegate:(id <KUNewsControllerDataSource>)delegate;
--(void)getNews;
+-(void)getNews; //use in develop
+-(void)refrestNews;
+-(void)getMoreNewsOffset:(NSUInteger)offset;
 
-@property (nonatomic,weak) id <KUNewsControllerDataSource> delegate;
+@property (nonatomic,weak) id <KUNewsControllerDataSource> delegateNews;
 @end

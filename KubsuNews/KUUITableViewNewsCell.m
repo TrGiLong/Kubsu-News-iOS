@@ -18,7 +18,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"dd MM yyyy в HH:mm"];
+    [dateFormatter setDateFormat:@"dd MMMM yyyy в HH:mm"];
     
     self.image.layer.cornerRadius = self.image.frame.size.width / 2;
     self.image.layer.masksToBounds = YES;
@@ -35,10 +35,11 @@
     
     [self.image sd_setImageWithURL:aNews.thumbnailLink];
     
+    //Date + tag
     NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:[dateFormatter stringFromDate:aNews.dateTimeInner]];
-    NSString *category = [NSString stringWithFormat:@"  %@ ",aNews.category];
+    NSString *category = [NSString stringWithFormat:@"   %@ ",aNews.category];
     NSMutableAttributedString *attrCategory = [[NSMutableAttributedString alloc] initWithString:category];
-    [attrCategory addAttribute:NSBackgroundColorAttributeName value:[KUUITableViewNewsCell colorFromHexString:(aNews.colorStr)] range:NSMakeRange(1, [category length] -1)];
+    [attrCategory addAttribute:NSBackgroundColorAttributeName value:[KUUITableViewNewsCell colorFromHexString:(aNews.colorStr)] range:NSMakeRange(2, [category length] -2)];
     [attrCategory addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, [category length])];
     [attrStr appendAttributedString:attrCategory];
     [self.info setAttributedText:attrStr];

@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-#import "KUNewsItem.h"
-@interface KUUINewsTableViewController : UITableViewController {
-    NSArray <KUNewsItem*> *items;
+#import "KUDataController.h"
+@interface KUUINewsTableViewController : UITableViewController <KUNewsControllerDataSource> {
+    NSMutableArray <KUNewsItem*> *items;
 }
 
--(void)setItems:(NSArray <KUNewsItem*>*) anItems;
+@property (nonatomic,strong) KUDataController *dataController;
 
 @end

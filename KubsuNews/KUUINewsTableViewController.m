@@ -13,22 +13,39 @@
 @end
 
 NSString *const CELL_NEWS_ITEM = @"CELL_NEWS_ITEM";
-#define DEFAULT_HEIGHT_CELL 88;
+#define DEFAULT_HEIGHT_CELL 88
+#define PRELOAD_NEWS_BEFORE_ENDING_LIST 5
 
-@implementation KUUINewsTableViewController
+@implementation KUUINewsTableViewController {
+    UIRefreshControl *refrestControl;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"KUUITableViewNewsCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:CELL_NEWS_ITEM];
     
+    refrestControl = [[UIRefreshControl alloc] init];
+    [refrestControl setAttributedTitle:[[NSAttributedString alloc] initWithString:@"Loading..."]];
+    [refrestControl addTarget:self action:@selector(refrestNews) forControlEvents:UIControlEventValueChanged];
+    [self.tableView setRefreshControl:refrestControl];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    items = [NSMutableArray array];
 }
 
+-(void)setDataController:(KUDataController *)dataController {
+    dataController.delegateNews = self;
+    _dataController = dataController;
+    [dataController getMoreNewsOffset:0];
+}
+
+-(void)refrestNews {
+    [self.dataController refrestNews];
+}
 
 
 - (void)didReceiveMemoryWarning {
@@ -36,10 +53,6 @@ NSString *const CELL_NEWS_ITEM = @"CELL_NEWS_ITEM";
     // Dispose of any resources that can be recreated.
 }
 
--(void)setItems:(NSArray<KUNewsItem *> *)anItems {
-    items = anItems;
-    [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
-}
 
 #pragma mark - Table view data source
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -64,48 +77,40 @@ NSString *const CELL_NEWS_ITEM = @"CELL_NEWS_ITEM";
 }
 
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+-(void)KUDataController:(KUDataController *)controller receiveNewsList:(NSArray<KUNewsItem *> *)anItems {
+    if ([anItems count] > 0) {
+        
+        NSMutableArray <NSIndexPath*> *listRows = [NSMutableArray arrayWithCapacity:[anItems count]];
+        for (NSInteger row = [items count]; row < [anItems count] + [items count]; row++) {
+            [listRows addObject:[NSIndexPath indexPathForRow:row inSection:0]];
+        }
+        [items addObjectsFromArray:anItems];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView beginUpdates];
+            [self.tableView insertRowsAtIndexPaths:listRows withRowAnimation:UITableViewRowAnimationAutomatic];
+            [self.tableView endUpdates];
+
+        });
+    }
 }
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+-(void)KUDataController:(KUDataController *)controller refrestNews:(NSArray<KUNewsItem *> *)anItems {
+    [items removeAllObjects];
+    [items addObjectsFromArray:anItems];
+    [self.tableView reloadData];
+    [refrestControl endRefreshing];
 }
-*/
 
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    CGFloat currentOffset = scrollView.contentOffset.y;
+    CGFloat maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height;
+    
+    if (maximumOffset - currentOffset <= DEFAULT_HEIGHT_CELL * PRELOAD_NEWS_BEFORE_ENDING_LIST) {
+        [self.dataController getMoreNewsOffset:[items count]];
+    }
 }
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 @end
