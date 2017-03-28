@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "KUNewsItem.h"
+
 @interface KUUITableViewNewsCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *image;
 @property (weak, nonatomic) IBOutlet UILabel *title;

@@ -8,6 +8,8 @@
 
 #import "KUUINewsTableViewController.h"
 #import "KUUITableViewNewsCell.h"
+#import "KUUINewsDetailViewController.h"
+
 @interface KUUINewsTableViewController ()
 
 @end
@@ -18,6 +20,19 @@ NSString *const CELL_NEWS_ITEM = @"CELL_NEWS_ITEM";
 
 @implementation KUUINewsTableViewController {
     UIRefreshControl *refrestControl;
+    id <KUInteractionViewControllerProtocol> delegate;
+    NSUInteger numberOfNews;
+    
+}
+
+-(id)initWithDataController:(KUDataController *)dataController delegate:(id)aDelegate {
+    self = [super initWithStyle:UITableViewStylePlain];
+    if (self) {
+        _dataController = dataController;
+        dataController.delegateNews = self;
+        delegate = aDelegate;
+    }
+    return self;
 }
 
 - (void)viewDidLoad {
@@ -29,12 +44,12 @@ NSString *const CELL_NEWS_ITEM = @"CELL_NEWS_ITEM";
     [refrestControl setAttributedTitle:[[NSAttributedString alloc] initWithString:@"Loading..."]];
     [refrestControl addTarget:self action:@selector(refrestNews) forControlEvents:UIControlEventValueChanged];
     [self.tableView setRefreshControl:refrestControl];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     items = [NSMutableArray array];
+    if (self.dataController != nil) {
+        numberOfNews = 0;
+        [self.dataController getMoreNewsOffset:[items count]];
+    }
 }
 
 -(void)setDataController:(KUDataController *)dataController {
@@ -42,11 +57,6 @@ NSString *const CELL_NEWS_ITEM = @"CELL_NEWS_ITEM";
     _dataController = dataController;
     [dataController getMoreNewsOffset:0];
 }
-
--(void)refrestNews {
-    [self.dataController refrestNews];
-}
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -78,31 +88,49 @@ NSString *const CELL_NEWS_ITEM = @"CELL_NEWS_ITEM";
 
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ([delegate conformsToProtocol:@protocol(KUInteractionViewControllerProtocol)]) {
+        KUUINewsDetailViewController *detailVC = [[KUUINewsDetailViewController alloc] initWithNews:[items objectAtIndex:indexPath.row]];
+        
+        if ([delegate conformsToProtocol:@protocol(KUInteractionViewControllerProtocol)]) {
+            [delegate viewController:self present:detailVC completion:nil];
+        }
+        
+    }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+-(void)KUDataController:(KUDataController *)controller numberOfNews:(NSUInteger)anNumberOfNews {
+    numberOfNews = anNumberOfNews;
+    [self.dataController getMoreNewsOffset:[items count]];
 }
 
 -(void)KUDataController:(KUDataController *)controller receiveNewsList:(NSArray<KUNewsItem *> *)anItems {
     if ([anItems count] > 0) {
         
-        NSMutableArray <NSIndexPath*> *listRows = [NSMutableArray arrayWithCapacity:[anItems count]];
-        for (NSInteger row = [items count]; row < [anItems count] + [items count]; row++) {
-            [listRows addObject:[NSIndexPath indexPathForRow:row inSection:0]];
-        }
-        [items addObjectsFromArray:anItems];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.tableView beginUpdates];
-            [self.tableView insertRowsAtIndexPaths:listRows withRowAnimation:UITableViewRowAnimationAutomatic];
-            [self.tableView endUpdates];
+        if ([refrestControl isRefreshing]) {
+            [items removeAllObjects];
+            [items addObjectsFromArray:anItems];
+            [self.tableView reloadData];
+            [refrestControl endRefreshing];
+        } else {
+            NSMutableArray <NSIndexPath*> *listRows = [NSMutableArray arrayWithCapacity:[anItems count]];
+            for (NSInteger row = [items count]; row < [anItems count] + [items count]; row++) {
+                [listRows addObject:[NSIndexPath indexPathForRow:row inSection:0]];
+            }
+            [items addObjectsFromArray:anItems];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.tableView beginUpdates];
+                [self.tableView insertRowsAtIndexPaths:listRows withRowAnimation:UITableViewRowAnimationAutomatic];
+                [self.tableView endUpdates];
+            });
 
-        });
+        }
+        
     }
 }
 
--(void)KUDataController:(KUDataController *)controller refrestNews:(NSArray<KUNewsItem *> *)anItems {
-    [items removeAllObjects];
-    [items addObjectsFromArray:anItems];
-    [self.tableView reloadData];
-    [refrestControl endRefreshing];
+-(void)refrestNews {
+    [self.dataController getMoreNewsOffset:0];
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView {

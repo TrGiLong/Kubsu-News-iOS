@@ -9,9 +9,12 @@
 #import <UIKit/UIKit.h>
 
 #import "KUDataController.h"
+#import "KUInteractionViewControllerProtocol.h"
 @interface KUUINewsTableViewController : UITableViewController <KUNewsControllerDataSource> {
     NSMutableArray <KUNewsItem*> *items;
+    
 }
+-(id)initWithDataController:(KUDataController*)dataController delegate:(id <KUInteractionViewControllerProtocol>)delegate;
 
 @property (nonatomic,strong) KUDataController *dataController;
 

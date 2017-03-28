@@ -7,6 +7,7 @@ target 'KubsuNews' do
   # Pods for KubsuNews
 	pod 'SDWebImage', '~>3.8'
 	pod 'XLPagerTabStrip'
+    pod 'GSKStretchyHeaderView'
 
   target 'KubsuNewsTests' do
     inherit! :search_paths

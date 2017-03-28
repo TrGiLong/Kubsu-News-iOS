@@ -10,6 +10,9 @@
 		43C125C90968642E4642AA56 /* Pods_KubsuNewsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D92115818D42B4DAB9D2477 /* Pods_KubsuNewsTests.framework */; };
 		541CFFEEB27745A422C6E0E8 /* Pods_KubsuNews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC48463F110BD9A733705AC7 /* Pods_KubsuNews.framework */; };
 		9ED4BAF1C4E4BEF9BF8C4A57 /* Pods_KubsuNewsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229DD34C934846483D908020 /* Pods_KubsuNewsUITests.framework */; };
+		EC01568A1E88E550002EEE9F /* KUMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0156891E88E550002EEE9F /* KUMainViewController.m */; };
+		EC01568C1E893DEC002EEE9F /* GSKStretchyHeaderView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC01568B1E893DEC002EEE9F /* GSKStretchyHeaderView.framework */; };
+		EC75E9B61E8942460008FEC3 /* KUInteractionViewControllerProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = EC75E9B51E8942460008FEC3 /* KUInteractionViewControllerProtocol.m */; };
 		FD01E9E71E8448790005B456 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FD01E9E61E8448790005B456 /* main.m */; };
 		FD01E9EA1E8448790005B456 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD01E9E91E8448790005B456 /* AppDelegate.m */; };
 		FD01E9ED1E8448790005B456 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD01E9EC1E8448790005B456 /* ViewController.m */; };
@@ -23,6 +26,8 @@
 		FD145E9C1E86BF9F000F6B53 /* KUUINewsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD145E9B1E86BF9F000F6B53 /* KUUINewsTableViewController.m */; };
 		FD145EA11E86BFCF000F6B53 /* KUUITableViewNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD145E9F1E86BFCF000F6B53 /* KUUITableViewNewsCell.m */; };
 		FD145EA21E86BFCF000F6B53 /* KUUITableViewNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD145EA01E86BFCF000F6B53 /* KUUITableViewNewsCell.xib */; };
+		FD6C271F1E8AF71E00B6B7B0 /* KUUIDetailNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD6C271D1E8AF71E00B6B7B0 /* KUUIDetailNewsViewController.m */; };
+		FD6C27201E8AF71E00B6B7B0 /* KUUIDetailNewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD6C271E1E8AF71E00B6B7B0 /* KUUIDetailNewsViewController.xib */; };
 		FD9D04521E86E6790089352C /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD9D04511E86E6790089352C /* SDWebImage.framework */; };
 		FD9D04561E86E8F60089352C /* XLPagerTabStrip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD9D04551E86E8F60089352C /* XLPagerTabStrip.framework */; };
 		FD9D045C1E86F3550089352C /* KUUINavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9D045B1E86F3550089352C /* KUUINavigationController.m */; };
@@ -54,6 +59,11 @@
 		7D92115818D42B4DAB9D2477 /* Pods_KubsuNewsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KubsuNewsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DC23B57646E9F0BDAABA4DF /* Pods-KubsuNewsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KubsuNewsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KubsuNewsUITests/Pods-KubsuNewsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		BC48463F110BD9A733705AC7 /* Pods_KubsuNews.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KubsuNews.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC0156881E88E550002EEE9F /* KUMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUMainViewController.h; sourceTree = "<group>"; };
+		EC0156891E88E550002EEE9F /* KUMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUMainViewController.m; sourceTree = "<group>"; };
+		EC01568B1E893DEC002EEE9F /* GSKStretchyHeaderView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GSKStretchyHeaderView.framework; path = "Pods/../build/Release-iphoneos/GSKStretchyHeaderView/GSKStretchyHeaderView.framework"; sourceTree = "<group>"; };
+		EC75E9B41E8942460008FEC3 /* KUInteractionViewControllerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUInteractionViewControllerProtocol.h; sourceTree = "<group>"; };
+		EC75E9B51E8942460008FEC3 /* KUInteractionViewControllerProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUInteractionViewControllerProtocol.m; sourceTree = "<group>"; };
 		F9EBE6A2496A97B722A55D58 /* Pods-KubsuNewsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KubsuNewsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KubsuNewsTests/Pods-KubsuNewsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FD01E9E21E8448790005B456 /* KubsuNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KubsuNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD01E9E61E8448790005B456 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -80,6 +90,9 @@
 		FD145E9E1E86BFCF000F6B53 /* KUUITableViewNewsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUUITableViewNewsCell.h; sourceTree = "<group>"; };
 		FD145E9F1E86BFCF000F6B53 /* KUUITableViewNewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUUITableViewNewsCell.m; sourceTree = "<group>"; };
 		FD145EA01E86BFCF000F6B53 /* KUUITableViewNewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KUUITableViewNewsCell.xib; sourceTree = "<group>"; };
+		FD6C271C1E8AF71E00B6B7B0 /* KUUIDetailNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUUIDetailNewsViewController.h; sourceTree = "<group>"; };
+		FD6C271D1E8AF71E00B6B7B0 /* KUUIDetailNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUUIDetailNewsViewController.m; sourceTree = "<group>"; };
+		FD6C271E1E8AF71E00B6B7B0 /* KUUIDetailNewsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KUUIDetailNewsViewController.xib; sourceTree = "<group>"; };
 		FD9D04511E86E6790089352C /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = "Pods/../build/Release-iphoneos/SDWebImage/SDWebImage.framework"; sourceTree = "<group>"; };
 		FD9D04531E86E6870089352C /* PageMenu.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PageMenu.framework; path = "Pods/../build/Release-iphoneos/PageMenu/PageMenu.framework"; sourceTree = "<group>"; };
 		FD9D04551E86E8F60089352C /* XLPagerTabStrip.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XLPagerTabStrip.framework; path = "../../../Library/Developer/Xcode/DerivedData/KubsuNews-aeddnvqvvyenbubedfggexyewykl/Build/Products/Debug-iphonesimulator/XLPagerTabStrip/XLPagerTabStrip.framework"; sourceTree = "<group>"; };
@@ -92,6 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC01568C1E893DEC002EEE9F /* GSKStretchyHeaderView.framework in Frameworks */,
 				FD9D04561E86E8F60089352C /* XLPagerTabStrip.framework in Frameworks */,
 				FD9D04521E86E6790089352C /* SDWebImage.framework in Frameworks */,
 				541CFFEEB27745A422C6E0E8 /* Pods_KubsuNews.framework in Frameworks */,
@@ -120,6 +134,7 @@
 		2E6650B8925C1C2CBADA55EC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EC01568B1E893DEC002EEE9F /* GSKStretchyHeaderView.framework */,
 				FD9D04551E86E8F60089352C /* XLPagerTabStrip.framework */,
 				FD9D04531E86E6870089352C /* PageMenu.framework */,
 				FD9D04511E86E6790089352C /* SDWebImage.framework */,
@@ -128,6 +143,16 @@
 				229DD34C934846483D908020 /* Pods_KubsuNewsUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EC0156841E88E035002EEE9F /* News Detail */ = {
+			isa = PBXGroup;
+			children = (
+				FD6C271C1E8AF71E00B6B7B0 /* KUUIDetailNewsViewController.h */,
+				FD6C271D1E8AF71E00B6B7B0 /* KUUIDetailNewsViewController.m */,
+				FD6C271E1E8AF71E00B6B7B0 /* KUUIDetailNewsViewController.xib */,
+			);
+			name = "News Detail";
 			sourceTree = "<group>";
 		};
 		EFB4FAA7FCA519DFCDC917EC /* Pods */ = {
@@ -172,6 +197,10 @@
 				FD01E9E91E8448790005B456 /* AppDelegate.m */,
 				FD01E9EB1E8448790005B456 /* ViewController.h */,
 				FD01E9EC1E8448790005B456 /* ViewController.m */,
+				EC75E9B41E8942460008FEC3 /* KUInteractionViewControllerProtocol.h */,
+				EC75E9B51E8942460008FEC3 /* KUInteractionViewControllerProtocol.m */,
+				EC0156881E88E550002EEE9F /* KUMainViewController.h */,
+				EC0156891E88E550002EEE9F /* KUMainViewController.m */,
 				FD9D045A1E86F3550089352C /* KUUINavigationController.h */,
 				FD9D045B1E86F3550089352C /* KUUINavigationController.m */,
 				FD145E9D1E86BFA6000F6B53 /* News Table View */,
@@ -230,6 +259,7 @@
 				FD145E9E1E86BFCF000F6B53 /* KUUITableViewNewsCell.h */,
 				FD145E9F1E86BFCF000F6B53 /* KUUITableViewNewsCell.m */,
 				FD145EA01E86BFCF000F6B53 /* KUUITableViewNewsCell.xib */,
+				EC0156841E88E035002EEE9F /* News Detail */,
 			);
 			name = "News Table View";
 			sourceTree = "<group>";
@@ -354,6 +384,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD145EA21E86BFCF000F6B53 /* KUUITableViewNewsCell.xib in Resources */,
+				FD6C27201E8AF71E00B6B7B0 /* KUUIDetailNewsViewController.xib in Resources */,
 				FD01E9F51E8448790005B456 /* LaunchScreen.storyboard in Resources */,
 				FD01E9F21E8448790005B456 /* Assets.xcassets in Resources */,
 				FD01E9F01E8448790005B456 /* Main.storyboard in Resources */,
@@ -434,7 +465,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		6F48D8D64B817FAD0ED630F8 /* [CP] Embed Pods Frameworks */ = {
@@ -479,7 +510,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		B5E65B4F55364FB9A6CE2BBB /* [CP] Embed Pods Frameworks */ = {
@@ -509,7 +540,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -519,14 +550,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC75E9B61E8942460008FEC3 /* KUInteractionViewControllerProtocol.m in Sources */,
 				FD145E9C1E86BF9F000F6B53 /* KUUINewsTableViewController.m in Sources */,
 				FD145EA11E86BFCF000F6B53 /* KUUITableViewNewsCell.m in Sources */,
 				FD01EA1E1E84499D0005B456 /* KUDataController.m in Sources */,
+				EC01568A1E88E550002EEE9F /* KUMainViewController.m in Sources */,
 				FD01E9ED1E8448790005B456 /* ViewController.m in Sources */,
 				FD01E9EA1E8448790005B456 /* AppDelegate.m in Sources */,
 				FD01E9E71E8448790005B456 /* main.m in Sources */,
 				FD01EA1A1E8448930005B456 /* KUNewsItem.m in Sources */,
 				FD9D045C1E86F3550089352C /* KUUINavigationController.m in Sources */,
+				FD6C271F1E8AF71E00B6B7B0 /* KUUIDetailNewsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -679,6 +713,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Release-iphoneos/SDWebImage",
 					"$(PROJECT_DIR)/build/Release-iphoneos/PageMenu",
+					"$(PROJECT_DIR)/build/Release-iphoneos/GSKStretchyHeaderView",
 				);
 				INFOPLIST_FILE = KubsuNews/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -698,6 +733,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Release-iphoneos/SDWebImage",
 					"$(PROJECT_DIR)/build/Release-iphoneos/PageMenu",
+					"$(PROJECT_DIR)/build/Release-iphoneos/GSKStretchyHeaderView",
 				);
 				INFOPLIST_FILE = KubsuNews/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
