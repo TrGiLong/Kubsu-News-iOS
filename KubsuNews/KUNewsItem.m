@@ -32,4 +32,10 @@ NSString *const IMAGES = @"images";
 -(NSString *)description {
     return [NSString stringWithFormat:@"id = %@ \n title = %@ \n publisher = %@ \n thumbnail link = %@ \n image link = %@",self.id_item, self.title, self.publisher, [self.thumbnailLink absoluteString], [self.imageLink absoluteString]];
 }
+
+-(void)appendDetail:(NSDictionary *)aDictionary {
+    _detail = [aDictionary objectForKey:@"body"];
+}
+
+
 @end

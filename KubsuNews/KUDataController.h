@@ -17,10 +17,19 @@ FOUNDATION_EXPORT NSString *const SERVER_ADRESS;
 -(void)KUDataController:(KUDataController*)controller numberOfNews:(NSUInteger)numberOfNews;
 @end
 
+
+@protocol KUNewsDetailControllerDataSource <NSObject>
+-(void)KUDataController:(KUDataController*)controller receiveNewsDetail:(KUNewsItem*)item;
+@end
+
 @interface KUDataController : NSObject <NSURLSessionDelegate>
 -(void)clearCacheNews;
 -(void)getMoreNewsOffset:(NSUInteger)offset;
 -(void)getNumberOfNews;
 
+-(void)getFullNews:(KUNewsItem*)item;
+
 @property (nonatomic,weak) id <KUNewsControllerDataSource> delegateNews;
+@property (nonatomic,weak) id <KUNewsDetailControllerDataSource> delegateDetailNews;
+
 @end

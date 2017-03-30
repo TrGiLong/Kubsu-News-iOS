@@ -8,7 +8,7 @@
 
 #import "KUUINewsTableViewController.h"
 #import "KUUITableViewNewsCell.h"
-#import "KUUINewsDetailViewController.h"
+#import "KUUIDetailNewsViewController.h"
 
 @interface KUUINewsTableViewController ()
 
@@ -47,15 +47,14 @@ NSString *const CELL_NEWS_ITEM = @"CELL_NEWS_ITEM";
     
     items = [NSMutableArray array];
     if (self.dataController != nil) {
-        numberOfNews = 0;
-        [self.dataController getMoreNewsOffset:[items count]];
+        [self refrestNews];
     }
 }
 
 -(void)setDataController:(KUDataController *)dataController {
     dataController.delegateNews = self;
     _dataController = dataController;
-    [dataController getMoreNewsOffset:0];
+    [self refrestNews];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -89,10 +88,11 @@ NSString *const CELL_NEWS_ITEM = @"CELL_NEWS_ITEM";
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([delegate conformsToProtocol:@protocol(KUInteractionViewControllerProtocol)]) {
-        KUUINewsDetailViewController *detailVC = [[KUUINewsDetailViewController alloc] initWithNews:[items objectAtIndex:indexPath.row]];
-        
+        KUNewsItem *itemNews = [items objectAtIndex:indexPath.row];
+        KUUIDetailNewsViewController *detailVC = [[KUUIDetailNewsViewController alloc] initWithNibName:@"KUUIDetailNewsViewController" bundle:[NSBundle mainBundle] news:itemNews dataController:self.dataController];
         if ([delegate conformsToProtocol:@protocol(KUInteractionViewControllerProtocol)]) {
             [delegate viewController:self present:detailVC completion:nil];
+    
         }
         
     }
@@ -101,7 +101,7 @@ NSString *const CELL_NEWS_ITEM = @"CELL_NEWS_ITEM";
 
 -(void)KUDataController:(KUDataController *)controller numberOfNews:(NSUInteger)anNumberOfNews {
     numberOfNews = anNumberOfNews;
-    [self.dataController getMoreNewsOffset:[items count]];
+    [self.dataController getMoreNewsOffset:0];
 }
 
 -(void)KUDataController:(KUDataController *)controller receiveNewsList:(NSArray<KUNewsItem *> *)anItems {
@@ -130,14 +130,15 @@ NSString *const CELL_NEWS_ITEM = @"CELL_NEWS_ITEM";
 }
 
 -(void)refrestNews {
-    [self.dataController getMoreNewsOffset:0];
+    numberOfNews = 0;
+    [self.dataController getNumberOfNews];
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGFloat currentOffset = scrollView.contentOffset.y;
     CGFloat maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height;
     
-    if (maximumOffset - currentOffset <= DEFAULT_HEIGHT_CELL * PRELOAD_NEWS_BEFORE_ENDING_LIST) {
+    if ([items count] < numberOfNews && (maximumOffset - currentOffset <= DEFAULT_HEIGHT_CELL * PRELOAD_NEWS_BEFORE_ENDING_LIST)) {
         [self.dataController getMoreNewsOffset:[items count]];
     }
 }

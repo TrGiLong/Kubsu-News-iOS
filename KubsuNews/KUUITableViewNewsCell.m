@@ -39,7 +39,7 @@
     NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:[dateFormatter stringFromDate:aNews.dateTimeInner]];
     NSString *category = [NSString stringWithFormat:@"   %@ ",aNews.category];
     NSMutableAttributedString *attrCategory = [[NSMutableAttributedString alloc] initWithString:category];
-    [attrCategory addAttribute:NSBackgroundColorAttributeName value:[KUUITableViewNewsCell colorFromHexString:(aNews.colorStr)] range:NSMakeRange(2, [category length] -2)];
+    [attrCategory addAttribute:NSBackgroundColorAttributeName value:[KUUITableViewNewsCell colorFromHexString:(aNews.colorStr)] range:NSMakeRange(2, [aNews.category length] +2)];
     [attrCategory addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, [category length])];
     [attrStr appendAttributedString:attrCategory];
     [self.info setAttributedText:attrStr];
