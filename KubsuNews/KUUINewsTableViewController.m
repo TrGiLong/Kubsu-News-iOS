@@ -38,6 +38,8 @@ NSString *const CELL_NEWS_ITEM = @"CELL_NEWS_ITEM";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.title = @"Новости";
+    
     [self.tableView registerNib:[UINib nibWithNibName:@"KUUITableViewNewsCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:CELL_NEWS_ITEM];
     
     refrestControl = [[UIRefreshControl alloc] init];

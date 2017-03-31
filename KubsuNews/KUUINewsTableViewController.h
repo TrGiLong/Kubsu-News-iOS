@@ -14,6 +14,7 @@
     NSMutableArray <KUNewsItem*> *items;
     
 }
+
 -(id)initWithDataController:(KUDataController*)dataController delegate:(id <KUInteractionViewControllerProtocol>)delegate;
 
 @property (nonatomic,strong) KUDataController *dataController;

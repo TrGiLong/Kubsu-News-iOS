@@ -20,6 +20,7 @@
     KUNewsItem *news;
     
     KUDataController *dataController;
+    UIActivityIndicatorView *activityIndicator;
 }
 
 -(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil news:(KUNewsItem *)aNews dataController:(KUDataController *)aDataController{
@@ -42,26 +43,63 @@
     imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, headerView.frame.size.width, headerView.frame.size.height)];
     [imageView sd_setImageWithURL:news.imageLink];
     imageView.contentMode = UIViewContentModeScaleAspectFill;
+    [imageView setImage:[UIImage imageNamed:@"splash_logo"]];
     [headerView addSubview:imageView];
+    
+    
+    UIBarButtonItem *favoriteButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Favorite"] style:UIBarButtonItemStylePlain target:self action:@selector(favorite)];
+    UIBarButtonItem *shareButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(share)];
+    [self.navigationItem setRightBarButtonItems:@[shareButton,favoriteButton]];
 
     
     [self.titleLabel setText:news.title];
-    [self.author setText:news.publisher];
+    [self.author setText:[NSString stringWithFormat:@"Опубликовал(а) %@,\nчлен Пресс-центра ОСО КубГУ",news.publisher]];
     
-    [dataController getFullNews:news];
+    if (news.detail == nil) {
+        [self setDetailText:@" "];
+        
+        activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        activityIndicator.center = CGPointMake(CGRectGetMidX(self.detailTextView.bounds), self.detailTextView.bounds.size.height/2);
+        [self.detailTextView addSubview:activityIndicator];
+        [activityIndicator startAnimating];
+        
+        [dataController getFullNews:news];
+        
+    } else {
+        [self setDetailText:news.detail];
+    }
+   
+
 }
 
 -(void)KUDataController:(KUDataController *)controller receiveNewsDetail:(KUNewsItem *)itemNews {
-    
-    NSMutableAttributedString *attributedText = [[[NSAttributedString alloc] initWithData:[itemNews.detail dataUsingEncoding:NSUTF8StringEncoding]
-                                                                          options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,
-                                                                                    NSCharacterEncodingDocumentAttribute: @(NSUTF8StringEncoding)}
-                                                               documentAttributes:nil error:nil] mutableCopy];
+    [self setDetailText:itemNews.detail];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [activityIndicator removeFromSuperview];
+        activityIndicator = nil;
+    });
+}
+
+-(void)setDetailText:(NSString*)aText {
+    NSMutableAttributedString *attributedText = [[[NSAttributedString alloc] initWithData:[aText dataUsingEncoding:NSUTF8StringEncoding]
+                                                                                  options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,
+                                                                                            NSCharacterEncodingDocumentAttribute: @(NSUTF8StringEncoding)}
+                                                                       documentAttributes:nil error:nil] mutableCopy];
     [self fixFontSizeForAttributeString:attributedText increase:5];
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.detailTextView setAttributedText:attributedText];
     });
+}
+
+-(void)favorite {
     
+}
+
+-(void)share {
+    NSString *textShare = [NSString stringWithFormat:@"%@\n%@\nОтправлено через #информер_осо",news.title,news.webLink.absoluteString];
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:@[textShare] applicationActivities:nil];
+    activityVC.excludedActivityTypes = @[UIActivityTypePostToFacebook,UIActivityTypePostToTwitter,UIActivityTypeMessage,UIActivityTypeMail,UIActivityTypeAirDrop,UIActivityTypeCopyToPasteboard]; //Exclude whichever aren't relevant
+    [self presentViewController:activityVC animated:YES completion:nil];
 }
 
 -(void)viewDidLayoutSubviews {

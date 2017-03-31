@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 @protocol KUInteractionViewControllerProtocol <NSObject>
--(void)viewController:(UIViewController*)viewControlle present:(UIViewController*)presentViewController completion:(void (^ __nullable)(void))completion;
+-(void)viewController:(UIViewController* _Nullable)viewControlle present:(UIViewController*_Nonnull)presentViewController completion:(void (^ __nullable)(void))completion;
 
 @end

@@ -15,7 +15,6 @@
 		EC75E9B61E8942460008FEC3 /* KUInteractionViewControllerProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = EC75E9B51E8942460008FEC3 /* KUInteractionViewControllerProtocol.m */; };
 		FD01E9E71E8448790005B456 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FD01E9E61E8448790005B456 /* main.m */; };
 		FD01E9EA1E8448790005B456 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD01E9E91E8448790005B456 /* AppDelegate.m */; };
-		FD01E9ED1E8448790005B456 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD01E9EC1E8448790005B456 /* ViewController.m */; };
 		FD01E9F01E8448790005B456 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD01E9EE1E8448790005B456 /* Main.storyboard */; };
 		FD01E9F21E8448790005B456 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD01E9F11E8448790005B456 /* Assets.xcassets */; };
 		FD01E9F51E8448790005B456 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD01E9F31E8448790005B456 /* LaunchScreen.storyboard */; };
@@ -69,8 +68,6 @@
 		FD01E9E61E8448790005B456 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FD01E9E81E8448790005B456 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FD01E9E91E8448790005B456 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		FD01E9EB1E8448790005B456 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		FD01E9EC1E8448790005B456 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		FD01E9EF1E8448790005B456 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FD01E9F11E8448790005B456 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FD01E9F41E8448790005B456 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -195,8 +192,6 @@
 			children = (
 				FD01E9E81E8448790005B456 /* AppDelegate.h */,
 				FD01E9E91E8448790005B456 /* AppDelegate.m */,
-				FD01E9EB1E8448790005B456 /* ViewController.h */,
-				FD01E9EC1E8448790005B456 /* ViewController.m */,
 				EC75E9B41E8942460008FEC3 /* KUInteractionViewControllerProtocol.h */,
 				EC75E9B51E8942460008FEC3 /* KUInteractionViewControllerProtocol.m */,
 				EC0156881E88E550002EEE9F /* KUMainViewController.h */,
@@ -555,7 +550,6 @@
 				FD145EA11E86BFCF000F6B53 /* KUUITableViewNewsCell.m in Sources */,
 				FD01EA1E1E84499D0005B456 /* KUDataController.m in Sources */,
 				EC01568A1E88E550002EEE9F /* KUMainViewController.m in Sources */,
-				FD01E9ED1E8448790005B456 /* ViewController.m in Sources */,
 				FD01E9EA1E8448790005B456 /* AppDelegate.m in Sources */,
 				FD01E9E71E8448790005B456 /* main.m in Sources */,
 				FD01EA1A1E8448930005B456 /* KUNewsItem.m in Sources */,

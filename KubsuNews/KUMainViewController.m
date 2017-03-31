@@ -39,9 +39,13 @@
     }
 }
 
--(void)viewController:(UIViewController *)viewControlle present:(UIViewController *)presentViewController completion:(void (^)(void))completion {
+-(void)viewController:(UIViewController *)viewController present:(UIViewController *)presentViewController completion:(void (^)(void))completion {
     [self.navigationController pushViewController:presentViewController animated:YES];
-    if (completion != NULL) {
+    NSLog(@"%@",viewController.title);
+    if (viewController.title !=nil) {
+        [presentViewController.navigationItem.backBarButtonItem setTitle:viewController.title];
+    }
+        if (completion != NULL) {
         completion();
     }
 }
