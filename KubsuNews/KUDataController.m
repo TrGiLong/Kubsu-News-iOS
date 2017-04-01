@@ -18,6 +18,7 @@
     
     NSOperationQueue *queue;
     
+    NSArray *cache_list_news;
 }
 
 
@@ -38,7 +39,7 @@
 NSString *const ITEMS = @"items";
 NSString *const COUNT = @"count";
 NSString *const CLIENT = @"kubsu_app";
-NSString *const PLATFORM = @"android";
+NSString *const PLATFORM = @"ios";
 NSString *const NUM = @"20";
 NSString *const CASE_NEWS = @"0";
 NSString *const SERVER_ADRESS = @"77.246.159.212";
@@ -53,12 +54,17 @@ NSString *const SERVER_ADRESS = @"77.246.159.212";
 }
 
 -(void)getMoreNewsOffset:(NSUInteger)offset {
+    
     if (newsDataTask == nil) {
         NSString *urlStr = [NSString stringWithFormat:@"http://%@/informer/get.php?datatype=%@&client=%@&platform=%@&num=%@&offset=%lu&timestamp=%@&case=%@&version=%@",SERVER_ADRESS,ITEMS,CLIENT,PLATFORM,NUM,(unsigned long)offset,TIME_STAMP,CASE_NEWS,VERSION];
         
         newsDataTask = [sessionNews dataTaskWithURL:[NSURL URLWithString:urlStr]];
         [newsDataTask resume];
     }
+}
+
+-(NSArray *)getOldNews {
+    return nil;
 }
 
 -(void)clearCacheNews {

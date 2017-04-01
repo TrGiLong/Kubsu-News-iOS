@@ -9,7 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "KUDataController.h"
 
-@interface KUUIDetailNewsViewController : UIViewController  <KUNewsDetailControllerDataSource>
+
+@interface KUUIDetailNewsViewController : UIViewController  <KUNewsDetailControllerDataSource,UIViewControllerTransitioningDelegate> {
+
+    UIImageView *imageView;
+    KUNewsItem *news;
+    
+    KUDataController *dataController;
+}
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;

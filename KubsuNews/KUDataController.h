@@ -24,6 +24,7 @@ FOUNDATION_EXPORT NSString *const SERVER_ADRESS;
 
 @interface KUDataController : NSObject <NSURLSessionDelegate>
 -(void)clearCacheNews;
+-(NSArray*)getOldNews;
 -(void)getMoreNewsOffset:(NSUInteger)offset;
 -(void)getNumberOfNews;
 

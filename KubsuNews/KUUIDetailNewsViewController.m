@@ -7,20 +7,23 @@
 //
 
 #import "KUUIDetailNewsViewController.h"
+
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <GSKStretchyHeaderView/GSKStretchyHeaderView.h>
-@interface KUUIDetailNewsViewController  ()
+#import <Vertigo/TGRImageViewController.h>
+#import <Vertigo/TGRImageZoomAnimationController.h>
+@interface KUUIDetailNewsViewController  () <GSKStretchyHeaderViewStretchDelegate>
 
 @end
 
 @implementation KUUIDetailNewsViewController 
 {
     GSKStretchyHeaderView *headerView;
-    UIImageView *imageView;
-    KUNewsItem *news;
+    UIImage *loadingImage;
     
-    KUDataController *dataController;
     UIActivityIndicatorView *activityIndicator;
+    
+    
 }
 
 -(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil news:(KUNewsItem *)aNews dataController:(KUDataController *)aDataController{
@@ -29,6 +32,8 @@
         news = aNews;
         dataController = aDataController;
         dataController.delegateDetailNews = self;
+        
+      
     }
     return self;
 }
@@ -36,16 +41,28 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
+    
     headerView = [[GSKStretchyHeaderView alloc] initWithFrame:CGRectMake(0, 0, self.scrollView.frame.size.width, 200)];
     headerView.minimumContentHeight = 0;
+    headerView.userInteractionEnabled = YES;
+    headerView.stretchDelegate = self;
     [self.scrollView addSubview:headerView];
     
+    // Loading image
     imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, headerView.frame.size.width, headerView.frame.size.height)];
+    imageView.userInteractionEnabled = YES;
+    [imageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showImage)]];
+    
+    loadingImage = [UIImage imageNamed:@"splash_logo"];
+    [imageView setImage:loadingImage];
+    
     [imageView sd_setImageWithURL:news.imageLink];
     imageView.contentMode = UIViewContentModeScaleAspectFill;
-    [imageView setImage:[UIImage imageNamed:@"splash_logo"]];
-    [headerView addSubview:imageView];
     
+    
+    [headerView addSubview:imageView];
+    // ========================
     
     UIBarButtonItem *favoriteButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Favorite"] style:UIBarButtonItemStylePlain target:self action:@selector(favorite)];
     UIBarButtonItem *shareButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(share)];
@@ -68,16 +85,17 @@
     } else {
         [self setDetailText:news.detail];
     }
-   
-
 }
 
 -(void)KUDataController:(KUDataController *)controller receiveNewsDetail:(KUNewsItem *)itemNews {
-    [self setDetailText:itemNews.detail];
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [activityIndicator removeFromSuperview];
-        activityIndicator = nil;
-    });
+    if (itemNews == news) {
+        [self setDetailText:itemNews.detail];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [activityIndicator removeFromSuperview];
+            activityIndicator = nil;
+        });
+    }
+
 }
 
 -(void)setDetailText:(NSString*)aText {
@@ -120,14 +138,41 @@
     [attrib enumerateAttribute:NSFontAttributeName inRange:NSMakeRange(0, attrib.length) options:0 usingBlock:^(id value, NSRange range, BOOL *stop) {
         if (value) {
             UIFont *oldFont = (UIFont *)value;
-            NSLog(@"%@ %f",oldFont.fontName,oldFont.pointSize);
             
             [attrib removeAttribute:NSFontAttributeName range:range];
             [attrib addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"HelveticaNeue-Light" size:oldFont.pointSize + incSize] range:range];
         }
     }];
     [attrib endEditing];
+    
 }
 
+#pragma mark - header
+
+-(void)stretchyHeaderView:(GSKStretchyHeaderView *)headerView didChangeStretchFactor:(CGFloat)stretchFactor {
+    
+}
+
+#pragma mark - present image
+-(void)showImage {
+    TGRImageViewController *fullScreenImage = [[TGRImageViewController alloc] initWithImage:imageView.image];
+    fullScreenImage.transitioningDelegate = self;
+    
+    [self presentViewController:fullScreenImage animated:YES completion:nil];
+}
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source {
+    if ([presented isKindOfClass:TGRImageViewController.class]) {
+        return [[TGRImageZoomAnimationController alloc] initWithReferenceImageView:imageView];
+    }
+    return nil;
+}
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
+    if ([dismissed isKindOfClass:TGRImageViewController.class]) {
+        return [[TGRImageZoomAnimationController alloc] initWithReferenceImageView:imageView];
+    }
+    return nil;
+}
 @end
 

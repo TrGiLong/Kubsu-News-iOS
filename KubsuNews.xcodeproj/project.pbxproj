@@ -30,6 +30,7 @@
 		FD9D04521E86E6790089352C /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD9D04511E86E6790089352C /* SDWebImage.framework */; };
 		FD9D04561E86E8F60089352C /* XLPagerTabStrip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD9D04551E86E8F60089352C /* XLPagerTabStrip.framework */; };
 		FD9D045C1E86F3550089352C /* KUUINavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9D045B1E86F3550089352C /* KUUINavigationController.m */; };
+		FDAC275E1E9026E1002AF259 /* Vertigo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDAC275D1E9026E1002AF259 /* Vertigo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,8 @@
 		FD9D04551E86E8F60089352C /* XLPagerTabStrip.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XLPagerTabStrip.framework; path = "../../../Library/Developer/Xcode/DerivedData/KubsuNews-aeddnvqvvyenbubedfggexyewykl/Build/Products/Debug-iphonesimulator/XLPagerTabStrip/XLPagerTabStrip.framework"; sourceTree = "<group>"; };
 		FD9D045A1E86F3550089352C /* KUUINavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUUINavigationController.h; sourceTree = "<group>"; };
 		FD9D045B1E86F3550089352C /* KUUINavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUUINavigationController.m; sourceTree = "<group>"; };
+		FDAC27571E901D0D002AF259 /* ASMediaFocusManager.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ASMediaFocusManager.framework; path = "Pods/../build/Debug-iphoneos/ASMediaFocusManager/ASMediaFocusManager.framework"; sourceTree = "<group>"; };
+		FDAC275D1E9026E1002AF259 /* Vertigo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Vertigo.framework; path = "Pods/../build/Debug-iphoneos/Vertigo/Vertigo.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDAC275E1E9026E1002AF259 /* Vertigo.framework in Frameworks */,
 				EC01568C1E893DEC002EEE9F /* GSKStretchyHeaderView.framework in Frameworks */,
 				FD9D04561E86E8F60089352C /* XLPagerTabStrip.framework in Frameworks */,
 				FD9D04521E86E6790089352C /* SDWebImage.framework in Frameworks */,
@@ -131,6 +135,8 @@
 		2E6650B8925C1C2CBADA55EC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FDAC275D1E9026E1002AF259 /* Vertigo.framework */,
+				FDAC27571E901D0D002AF259 /* ASMediaFocusManager.framework */,
 				EC01568B1E893DEC002EEE9F /* GSKStretchyHeaderView.framework */,
 				FD9D04551E86E8F60089352C /* XLPagerTabStrip.framework */,
 				FD9D04531E86E6870089352C /* PageMenu.framework */,
@@ -708,6 +714,8 @@
 					"$(PROJECT_DIR)/build/Release-iphoneos/SDWebImage",
 					"$(PROJECT_DIR)/build/Release-iphoneos/PageMenu",
 					"$(PROJECT_DIR)/build/Release-iphoneos/GSKStretchyHeaderView",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/ASMediaFocusManager",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/Vertigo",
 				);
 				INFOPLIST_FILE = KubsuNews/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -728,6 +736,8 @@
 					"$(PROJECT_DIR)/build/Release-iphoneos/SDWebImage",
 					"$(PROJECT_DIR)/build/Release-iphoneos/PageMenu",
 					"$(PROJECT_DIR)/build/Release-iphoneos/GSKStretchyHeaderView",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/ASMediaFocusManager",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/Vertigo",
 				);
 				INFOPLIST_FILE = KubsuNews/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
