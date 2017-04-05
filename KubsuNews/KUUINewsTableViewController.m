@@ -28,6 +28,8 @@ NSString *const CELL_NEWS_ITEM = @"CELL_NEWS_ITEM";
 -(id)initWithDataController:(KUDataController *)dataController delegate:(id)aDelegate {
     self = [super initWithStyle:UITableViewStylePlain];
     if (self) {
+        self.title = @"Новости";
+        
         _dataController = dataController;
         dataController.delegateNews = self;
         delegate = aDelegate;
@@ -38,7 +40,7 @@ NSString *const CELL_NEWS_ITEM = @"CELL_NEWS_ITEM";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"Новости";
+    
     
     [self.tableView registerNib:[UINib nibWithNibName:@"KUUITableViewNewsCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:CELL_NEWS_ITEM];
     
@@ -103,7 +105,7 @@ NSString *const CELL_NEWS_ITEM = @"CELL_NEWS_ITEM";
 
 -(void)KUDataController:(KUDataController *)controller numberOfNews:(NSUInteger)anNumberOfNews {
     numberOfNews = anNumberOfNews;
-    [self.dataController getMoreNewsOffset:0];
+    [self.dataController getMoreOffset:0 forType:KUTypeDataNews];
 }
 
 -(void)KUDataController:(KUDataController *)controller receiveNewsList:(NSArray<KUNewsItem *> *)anItems {
@@ -133,7 +135,7 @@ NSString *const CELL_NEWS_ITEM = @"CELL_NEWS_ITEM";
 
 -(void)refrestNews {
     numberOfNews = 0;
-    [self.dataController getNumberOfNews];
+    [self.dataController getNumberOfType:KUTypeDataNews];
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView {
@@ -141,7 +143,7 @@ NSString *const CELL_NEWS_ITEM = @"CELL_NEWS_ITEM";
     CGFloat maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height;
     
     if ([items count] < numberOfNews && (maximumOffset - currentOffset <= DEFAULT_HEIGHT_CELL * PRELOAD_NEWS_BEFORE_ENDING_LIST)) {
-        [self.dataController getMoreNewsOffset:[items count]];
+        [self.dataController getMoreOffset:[items count] forType:KUTypeDataNews];
     }
 }
 @end

@@ -24,6 +24,7 @@
 @property (nonatomic,strong,readonly) NSString *category;
 @property (nonatomic,strong,readonly) NSString *colorStr;
 
+
 //@property (nonatomic,strong,readonly) NSDate *datetimeDisplayable;
 //@property (nonatomic,strong,readonly) NSDate *deadlineDisplayable;
 

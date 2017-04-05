@@ -23,7 +23,6 @@
     
     UIActivityIndicatorView *activityIndicator;
     
-    
 }
 
 -(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil news:(KUNewsItem *)aNews dataController:(KUDataController *)aDataController{
@@ -33,7 +32,6 @@
         dataController = aDataController;
         dataController.delegateDetailNews = self;
         
-      
     }
     return self;
 }
@@ -95,7 +93,6 @@
             activityIndicator = nil;
         });
     }
-
 }
 
 -(void)setDetailText:(NSString*)aText {

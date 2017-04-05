@@ -12,6 +12,8 @@
 		9ED4BAF1C4E4BEF9BF8C4A57 /* Pods_KubsuNewsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229DD34C934846483D908020 /* Pods_KubsuNewsUITests.framework */; };
 		EC01568A1E88E550002EEE9F /* KUMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0156891E88E550002EEE9F /* KUMainViewController.m */; };
 		EC01568C1E893DEC002EEE9F /* GSKStretchyHeaderView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC01568B1E893DEC002EEE9F /* GSKStretchyHeaderView.framework */; };
+		EC0545E11E9133A500698CF8 /* KUUIEventDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0545DF1E9133A500698CF8 /* KUUIEventDetailViewController.m */; };
+		EC0545E21E9133A500698CF8 /* KUUIEventDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC0545E01E9133A500698CF8 /* KUUIEventDetailViewController.xib */; };
 		EC75E9B61E8942460008FEC3 /* KUInteractionViewControllerProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = EC75E9B51E8942460008FEC3 /* KUInteractionViewControllerProtocol.m */; };
 		FD01E9E71E8448790005B456 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FD01E9E61E8448790005B456 /* main.m */; };
 		FD01E9EA1E8448790005B456 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD01E9E91E8448790005B456 /* AppDelegate.m */; };
@@ -27,10 +29,15 @@
 		FD145EA21E86BFCF000F6B53 /* KUUITableViewNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD145EA01E86BFCF000F6B53 /* KUUITableViewNewsCell.xib */; };
 		FD6C271F1E8AF71E00B6B7B0 /* KUUIDetailNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD6C271D1E8AF71E00B6B7B0 /* KUUIDetailNewsViewController.m */; };
 		FD6C27201E8AF71E00B6B7B0 /* KUUIDetailNewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD6C271E1E8AF71E00B6B7B0 /* KUUIDetailNewsViewController.xib */; };
+		FD970B9A1E90EB99008C15F6 /* KUUIEventsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD970B981E90EB99008C15F6 /* KUUIEventsCell.xib */; };
+		FD970B9D1E90FA72008C15F6 /* KUEventItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FD970B9C1E90FA72008C15F6 /* KUEventItem.m */; };
 		FD9D04521E86E6790089352C /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD9D04511E86E6790089352C /* SDWebImage.framework */; };
-		FD9D04561E86E8F60089352C /* XLPagerTabStrip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD9D04551E86E8F60089352C /* XLPagerTabStrip.framework */; };
 		FD9D045C1E86F3550089352C /* KUUINavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9D045B1E86F3550089352C /* KUUINavigationController.m */; };
+		FD9DEE741E916BDF00446F7D /* NSDate+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9DEE731E916BDF00446F7D /* NSDate+Utilities.m */; };
+		FDA38B171E957916008DB723 /* KUUIEventsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA38B161E957916008DB723 /* KUUIEventsCell.m */; };
 		FDAC275E1E9026E1002AF259 /* Vertigo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDAC275D1E9026E1002AF259 /* Vertigo.framework */; };
+		FDAC27671E9058F7002AF259 /* GUITabPagerViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDAC27661E9058F7002AF259 /* GUITabPagerViewController.framework */; };
+		FDAC276A1E905A4D002AF259 /* KUUIEventsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDAC27691E905A4D002AF259 /* KUUIEventsTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +69,9 @@
 		EC0156881E88E550002EEE9F /* KUMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUMainViewController.h; sourceTree = "<group>"; };
 		EC0156891E88E550002EEE9F /* KUMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUMainViewController.m; sourceTree = "<group>"; };
 		EC01568B1E893DEC002EEE9F /* GSKStretchyHeaderView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GSKStretchyHeaderView.framework; path = "Pods/../build/Release-iphoneos/GSKStretchyHeaderView/GSKStretchyHeaderView.framework"; sourceTree = "<group>"; };
+		EC0545DE1E9133A500698CF8 /* KUUIEventDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUUIEventDetailViewController.h; sourceTree = "<group>"; };
+		EC0545DF1E9133A500698CF8 /* KUUIEventDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUUIEventDetailViewController.m; sourceTree = "<group>"; };
+		EC0545E01E9133A500698CF8 /* KUUIEventDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KUUIEventDetailViewController.xib; sourceTree = "<group>"; };
 		EC75E9B41E8942460008FEC3 /* KUInteractionViewControllerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUInteractionViewControllerProtocol.h; sourceTree = "<group>"; };
 		EC75E9B51E8942460008FEC3 /* KUInteractionViewControllerProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUInteractionViewControllerProtocol.m; sourceTree = "<group>"; };
 		F9EBE6A2496A97B722A55D58 /* Pods-KubsuNewsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KubsuNewsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KubsuNewsTests/Pods-KubsuNewsTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -91,13 +101,23 @@
 		FD6C271C1E8AF71E00B6B7B0 /* KUUIDetailNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUUIDetailNewsViewController.h; sourceTree = "<group>"; };
 		FD6C271D1E8AF71E00B6B7B0 /* KUUIDetailNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUUIDetailNewsViewController.m; sourceTree = "<group>"; };
 		FD6C271E1E8AF71E00B6B7B0 /* KUUIDetailNewsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KUUIDetailNewsViewController.xib; sourceTree = "<group>"; };
+		FD970B961E90EB99008C15F6 /* KUUIEventsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUUIEventsCell.h; sourceTree = "<group>"; };
+		FD970B981E90EB99008C15F6 /* KUUIEventsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KUUIEventsCell.xib; sourceTree = "<group>"; };
+		FD970B9B1E90FA72008C15F6 /* KUEventItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUEventItem.h; sourceTree = "<group>"; };
+		FD970B9C1E90FA72008C15F6 /* KUEventItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUEventItem.m; sourceTree = "<group>"; };
 		FD9D04511E86E6790089352C /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = "Pods/../build/Release-iphoneos/SDWebImage/SDWebImage.framework"; sourceTree = "<group>"; };
 		FD9D04531E86E6870089352C /* PageMenu.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PageMenu.framework; path = "Pods/../build/Release-iphoneos/PageMenu/PageMenu.framework"; sourceTree = "<group>"; };
 		FD9D04551E86E8F60089352C /* XLPagerTabStrip.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XLPagerTabStrip.framework; path = "../../../Library/Developer/Xcode/DerivedData/KubsuNews-aeddnvqvvyenbubedfggexyewykl/Build/Products/Debug-iphonesimulator/XLPagerTabStrip/XLPagerTabStrip.framework"; sourceTree = "<group>"; };
 		FD9D045A1E86F3550089352C /* KUUINavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUUINavigationController.h; sourceTree = "<group>"; };
 		FD9D045B1E86F3550089352C /* KUUINavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUUINavigationController.m; sourceTree = "<group>"; };
+		FD9DEE721E916BDF00446F7D /* NSDate+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utilities.h"; sourceTree = "<group>"; };
+		FD9DEE731E916BDF00446F7D /* NSDate+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Utilities.m"; sourceTree = "<group>"; };
+		FDA38B161E957916008DB723 /* KUUIEventsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUUIEventsCell.m; sourceTree = "<group>"; };
 		FDAC27571E901D0D002AF259 /* ASMediaFocusManager.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ASMediaFocusManager.framework; path = "Pods/../build/Debug-iphoneos/ASMediaFocusManager/ASMediaFocusManager.framework"; sourceTree = "<group>"; };
 		FDAC275D1E9026E1002AF259 /* Vertigo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Vertigo.framework; path = "Pods/../build/Debug-iphoneos/Vertigo/Vertigo.framework"; sourceTree = "<group>"; };
+		FDAC27661E9058F7002AF259 /* GUITabPagerViewController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GUITabPagerViewController.framework; path = "Pods/../build/Debug-iphoneos/GUITabPagerViewController/GUITabPagerViewController.framework"; sourceTree = "<group>"; };
+		FDAC27681E905A4D002AF259 /* KUUIEventsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUUIEventsTableViewController.h; sourceTree = "<group>"; };
+		FDAC27691E905A4D002AF259 /* KUUIEventsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUUIEventsTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,9 +125,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDAC27671E9058F7002AF259 /* GUITabPagerViewController.framework in Frameworks */,
 				FDAC275E1E9026E1002AF259 /* Vertigo.framework in Frameworks */,
 				EC01568C1E893DEC002EEE9F /* GSKStretchyHeaderView.framework in Frameworks */,
-				FD9D04561E86E8F60089352C /* XLPagerTabStrip.framework in Frameworks */,
 				FD9D04521E86E6790089352C /* SDWebImage.framework in Frameworks */,
 				541CFFEEB27745A422C6E0E8 /* Pods_KubsuNews.framework in Frameworks */,
 			);
@@ -135,6 +155,7 @@
 		2E6650B8925C1C2CBADA55EC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FDAC27661E9058F7002AF259 /* GUITabPagerViewController.framework */,
 				FDAC275D1E9026E1002AF259 /* Vertigo.framework */,
 				FDAC27571E901D0D002AF259 /* ASMediaFocusManager.framework */,
 				EC01568B1E893DEC002EEE9F /* GSKStretchyHeaderView.framework */,
@@ -156,6 +177,16 @@
 				FD6C271E1E8AF71E00B6B7B0 /* KUUIDetailNewsViewController.xib */,
 			);
 			name = "News Detail";
+			sourceTree = "<group>";
+		};
+		EC0545DA1E91317100698CF8 /* KUUIEventsDetailView */ = {
+			isa = PBXGroup;
+			children = (
+				EC0545DE1E9133A500698CF8 /* KUUIEventDetailViewController.h */,
+				EC0545DF1E9133A500698CF8 /* KUUIEventDetailViewController.m */,
+				EC0545E01E9133A500698CF8 /* KUUIEventDetailViewController.xib */,
+			);
+			name = KUUIEventsDetailView;
 			sourceTree = "<group>";
 		};
 		EFB4FAA7FCA519DFCDC917EC /* Pods */ = {
@@ -196,6 +227,7 @@
 		FD01E9E41E8448790005B456 /* KubsuNews */ = {
 			isa = PBXGroup;
 			children = (
+				FD9DEE751E916BE200446F7D /* Library */,
 				FD01E9E81E8448790005B456 /* AppDelegate.h */,
 				FD01E9E91E8448790005B456 /* AppDelegate.m */,
 				EC75E9B41E8942460008FEC3 /* KUInteractionViewControllerProtocol.h */,
@@ -204,6 +236,7 @@
 				EC0156891E88E550002EEE9F /* KUMainViewController.m */,
 				FD9D045A1E86F3550089352C /* KUUINavigationController.h */,
 				FD9D045B1E86F3550089352C /* KUUINavigationController.m */,
+				FD970B951E90E621008C15F6 /* Events Table View */,
 				FD145E9D1E86BFA6000F6B53 /* News Table View */,
 				FD01EA1B1E8449730005B456 /* Model */,
 				FD01E9EE1E8448790005B456 /* Main.storyboard */,
@@ -248,6 +281,8 @@
 				FD01EA1D1E84499D0005B456 /* KUDataController.m */,
 				FD01EA181E8448930005B456 /* KUNewsItem.h */,
 				FD01EA191E8448930005B456 /* KUNewsItem.m */,
+				FD970B9B1E90FA72008C15F6 /* KUEventItem.h */,
+				FD970B9C1E90FA72008C15F6 /* KUEventItem.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -263,6 +298,28 @@
 				EC0156841E88E035002EEE9F /* News Detail */,
 			);
 			name = "News Table View";
+			sourceTree = "<group>";
+		};
+		FD970B951E90E621008C15F6 /* Events Table View */ = {
+			isa = PBXGroup;
+			children = (
+				FDAC27681E905A4D002AF259 /* KUUIEventsTableViewController.h */,
+				FDAC27691E905A4D002AF259 /* KUUIEventsTableViewController.m */,
+				FD970B961E90EB99008C15F6 /* KUUIEventsCell.h */,
+				FDA38B161E957916008DB723 /* KUUIEventsCell.m */,
+				FD970B981E90EB99008C15F6 /* KUUIEventsCell.xib */,
+				EC0545DA1E91317100698CF8 /* KUUIEventsDetailView */,
+			);
+			name = "Events Table View";
+			sourceTree = "<group>";
+		};
+		FD9DEE751E916BE200446F7D /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				FD9DEE721E916BDF00446F7D /* NSDate+Utilities.h */,
+				FD9DEE731E916BDF00446F7D /* NSDate+Utilities.m */,
+			);
+			name = Library;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -384,9 +441,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD970B9A1E90EB99008C15F6 /* KUUIEventsCell.xib in Resources */,
 				FD145EA21E86BFCF000F6B53 /* KUUITableViewNewsCell.xib in Resources */,
 				FD6C27201E8AF71E00B6B7B0 /* KUUIDetailNewsViewController.xib in Resources */,
 				FD01E9F51E8448790005B456 /* LaunchScreen.storyboard in Resources */,
+				EC0545E21E9133A500698CF8 /* KUUIEventDetailViewController.xib in Resources */,
 				FD01E9F21E8448790005B456 /* Assets.xcassets in Resources */,
 				FD01E9F01E8448790005B456 /* Main.storyboard in Resources */,
 			);
@@ -554,10 +613,15 @@
 				EC75E9B61E8942460008FEC3 /* KUInteractionViewControllerProtocol.m in Sources */,
 				FD145E9C1E86BF9F000F6B53 /* KUUINewsTableViewController.m in Sources */,
 				FD145EA11E86BFCF000F6B53 /* KUUITableViewNewsCell.m in Sources */,
+				FD9DEE741E916BDF00446F7D /* NSDate+Utilities.m in Sources */,
 				FD01EA1E1E84499D0005B456 /* KUDataController.m in Sources */,
+				FDAC276A1E905A4D002AF259 /* KUUIEventsTableViewController.m in Sources */,
 				EC01568A1E88E550002EEE9F /* KUMainViewController.m in Sources */,
+				FD970B9D1E90FA72008C15F6 /* KUEventItem.m in Sources */,
+				EC0545E11E9133A500698CF8 /* KUUIEventDetailViewController.m in Sources */,
 				FD01E9EA1E8448790005B456 /* AppDelegate.m in Sources */,
 				FD01E9E71E8448790005B456 /* main.m in Sources */,
+				FDA38B171E957916008DB723 /* KUUIEventsCell.m in Sources */,
 				FD01EA1A1E8448930005B456 /* KUNewsItem.m in Sources */,
 				FD9D045C1E86F3550089352C /* KUUINavigationController.m in Sources */,
 				FD6C271F1E8AF71E00B6B7B0 /* KUUIDetailNewsViewController.m in Sources */,
@@ -716,8 +780,10 @@
 					"$(PROJECT_DIR)/build/Release-iphoneos/GSKStretchyHeaderView",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/ASMediaFocusManager",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/Vertigo",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/GUITabPagerViewController",
 				);
 				INFOPLIST_FILE = KubsuNews/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = KubSu.KubsuNews;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -738,8 +804,10 @@
 					"$(PROJECT_DIR)/build/Release-iphoneos/GSKStretchyHeaderView",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/ASMediaFocusManager",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/Vertigo",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/GUITabPagerViewController",
 				);
 				INFOPLIST_FILE = KubsuNews/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = KubSu.KubsuNews;
 				PRODUCT_NAME = "$(TARGET_NAME)";

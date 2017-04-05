@@ -8,44 +8,48 @@
 
 #import "KUMainViewController.h"
 #import "KUUINewsTableViewController.h"
-#import <XLPagerTabStrip/FXPageControl.h>
+#import "KUUIEventsTableViewController.h"
 @interface KUMainViewController ()
 
 @end
 
 @implementation KUMainViewController{
     KUUINewsTableViewController *newsTableView;
+    KUUIEventsTableViewController *eventsTableView;
     KUDataController *dataController;
+    
+    NSArray <UIViewController*> *views;
 }
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    
     dataController = [[KUDataController alloc] init];
     
+    self.title = @"Информер ОСО";
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor],
+                                                                      NSFontAttributeName : [UIFont systemFontOfSize:20]}];
+    
     newsTableView = [[KUUINewsTableViewController alloc] initWithDataController:dataController delegate:self];
-    [newsTableView.view setFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-    [self.view addSubview:newsTableView.view];
-      
+    eventsTableView = [[KUUIEventsTableViewController alloc] initWithDataController:dataController delegate:self];
+    views = @[newsTableView,eventsTableView];
+    
+    [super viewDidLoad];
+    
+    [self setDataSource:self]; 
+    
 }
 
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    
-    if (newsTableView == nil) {
-        
-        // Do any additional setup after loading the view, typically from a nib.
-        
-    }
+    [self reloadData];
 }
 
 -(void)viewController:(UIViewController *)viewController present:(UIViewController *)presentViewController completion:(void (^)(void))completion {
     [self.navigationController pushViewController:presentViewController animated:YES];
-    NSLog(@"%@",viewController.title);
     if (viewController.title !=nil) {
         [presentViewController.navigationItem.backBarButtonItem setTitle:viewController.title];
     }
-        if (completion != NULL) {
+    
+    if (completion != NULL) {
         completion();
     }
 }
@@ -54,5 +58,32 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - pageView
+-(NSInteger)numberOfViewControllers {
+    return 2;
+}
+-(UIViewController *)viewControllerForIndex:(NSInteger)index {
+    return views[index];
+}
+
+-(NSString *)titleForTabAtIndex:(NSInteger)index {
+    return views[index].title;
+}
+
+- (UIColor *)tabColor {
+    return [UIColor whiteColor];
+}
+- (UIColor *)tabBackgroundColor {
+    return [UIColor colorWithRed:0.23 green:0.35 blue:0.60 alpha:1.0];
+}
+
+- (UIColor *)titleColor {
+    return [UIColor whiteColor];
+}
+
+-(UIFont *)titleFont {
+    return [UIFont systemFontOfSize:17];
 }
 @end

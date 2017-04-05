@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "KUInteractionViewControllerProtocol.h"
-@interface KUMainViewController : UIViewController <KUInteractionViewControllerProtocol>
+#import <GUITabPagerViewController/GUITabPagerViewController.h>
+@interface KUMainViewController : GUITabPagerViewController <KUInteractionViewControllerProtocol,GUITabPagerDataSource>
 
 @end

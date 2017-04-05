@@ -6,9 +6,10 @@ target 'KubsuNews' do
    use_frameworks!
   # Pods for KubsuNews
 	pod 'SDWebImage', '~>3.8'
-	pod 'XLPagerTabStrip'
+	pod 'GUITabPagerViewController'
     pod 'GSKStretchyHeaderView'
     pod 'Vertigo'
+    pod 'BFPaperView'
   target 'KubsuNewsTests' do
     inherit! :search_paths
     # Pods for testing
