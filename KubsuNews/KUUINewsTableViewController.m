@@ -40,8 +40,7 @@ NSString *const CELL_NEWS_ITEM = @"CELL_NEWS_ITEM";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
-    
+    [self.tableView setRowHeight:88];
     [self.tableView registerNib:[UINib nibWithNibName:@"KUUITableViewNewsCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:CELL_NEWS_ITEM];
     
     refrestControl = [[UIRefreshControl alloc] init];
@@ -51,6 +50,7 @@ NSString *const CELL_NEWS_ITEM = @"CELL_NEWS_ITEM";
     
     items = [NSMutableArray array];
     if (self.dataController != nil) {
+        [refrestControl beginRefreshing];
         [self refrestNews];
     }
 }
@@ -73,12 +73,10 @@ NSString *const CELL_NEWS_ITEM = @"CELL_NEWS_ITEM";
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
     return [items count];
 }
 

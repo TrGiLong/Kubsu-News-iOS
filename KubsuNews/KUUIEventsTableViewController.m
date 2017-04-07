@@ -36,6 +36,8 @@ NSString *const CELL_EVENTS = @"cell_events";
     if (self) {
         self.title = @"Мероприятие";
         
+        [self.tableView setRowHeight:88];
+        
         dataController = aDataController;
         dataController.delegateEvents = self;
         delegate = aDelegate;
@@ -48,6 +50,7 @@ NSString *const CELL_EVENTS = @"cell_events";
         
         items = [NSMutableArray array];
         if (dataController != nil) {
+            [refrestControl beginRefreshing];
             [self refrestEvents];
         }
     }

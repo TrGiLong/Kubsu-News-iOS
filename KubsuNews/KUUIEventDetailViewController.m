@@ -16,6 +16,8 @@
     KUEventItem *eventItem;
     KUDataController *dataController;
     
+    NSMutableSet *favouriteNews;
+    NSMutableSet *favouriteEvent;
 }
 
 -(id)initWithEvent:(KUEventItem*)item dataController:(KUDataController*)aDataController {
@@ -38,10 +40,10 @@
     [self.endingDateLabel setText:[NSString stringWithFormat:@"Окончание: %@", [dateFormatterOut stringFromDate:eventItem.endDate]]];
     
     [self.placeLabel setText:eventItem.placeName];
-    [self.adressLabel setText:eventItem.placeAdress];
+    [self.adressButton setTitle:eventItem.placeAdress forState:UIControlStateNormal];
     
     [self.personLabel setText:[eventItem.person length] == 0 ? @"Нет информация" : eventItem.person];
-    [self.phoneNumberLabel setText:[eventItem.phoneNumber length] == 0 ? @"Нет информация" : eventItem.phoneNumber];
+    [self.phoneNumberButton setTitle:[eventItem.phoneNumber length] == 0 ? @"Нет информация" : eventItem.phoneNumber forState:UIControlStateNormal];
     
     if (eventItem.detail == nil) {
         [self.detailLabel setText:@" "];
@@ -89,7 +91,6 @@
         event.calendar = [store defaultCalendarForNewEvents];
         NSError *err = nil;
         [store saveEvent:event span:EKSpanThisEvent commit:YES error:&err];
-        
     }];
 }
 
@@ -100,7 +101,20 @@
     [self presentViewController:activityVC animated:YES completion:nil];
 }
 
+- (IBAction)phoneClick:(id)sender {
+    if ([eventItem.phoneNumber length] > 0) {
+        NSString *phoneNumber = [@"tel://" stringByAppendingString:eventItem.phoneNumber];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
+    }
+    
+}
+
 - (IBAction)openLink:(id)sender {
     [[UIApplication sharedApplication] openURL:eventItem.link];
+}
+- (IBAction)adressClick:(id)sender {
+    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"comgooglemaps://"]]) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"comgooglemaps://?q=%@,%@&zoom=14",eventItem.lat,eventItem.lng]]];
+    }
 }
 @end

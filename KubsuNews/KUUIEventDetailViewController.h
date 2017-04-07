@@ -24,11 +24,15 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingDetailActivity;
 
 @property (weak, nonatomic) IBOutlet UILabel *personLabel;
-@property (weak, nonatomic) IBOutlet UILabel *phoneNumberLabel;
+@property (weak, nonatomic) IBOutlet UIButton *phoneNumberButton;
+- (IBAction)phoneClick:(id)sender;
 - (IBAction)openLink:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UIView *locationView;
 @property (weak, nonatomic) IBOutlet UILabel *placeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *adressLabel;
+@property (weak, nonatomic) IBOutlet UIButton *adressButton;
+- (IBAction)adressClick:(id)sender;
+
+
 @end
 

@@ -31,13 +31,17 @@
 
 -(void)setEvent:(KUEventItem *)item {
     [self.title setText:item.title];
-    
     [self.place setText:item.placeName];
     
     [self.dateStart setText:[outDateFormatter stringFromDate:item.startDate]];
     if ([item.startDate isInPast]) {
-        [self.status setText:@"прошло"];
-        [self.status setBackgroundColor:[UIColor grayColor]];
+        if ([item.endDate isInFuture]) {
+            [self.status setText:@"Идёт"];
+            [self.status setBackgroundColor:[UIColor grayColor]];
+        } else {
+            [self.status setText:@"прошло"];
+            [self.status setBackgroundColor:[UIColor grayColor]];
+        }
     } else if ([item.startDate isToday]) {
         [self.status setText:@"сегодня"];
         [self.status setBackgroundColor:[UIColor orangeColor]];
