@@ -35,8 +35,8 @@
     return self;
 }
 
-//#define VERSION [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]
-#define VERSION @"1080"
+#define VERSION [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]
+#define BUILD [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"]
 #define TIME_STAMP [NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970]]
 NSString *const ITEMS = @"items";
 NSString *const COUNT = @"count";
@@ -75,9 +75,13 @@ NSString *const SERVER_ADRESS = @"77.246.159.212";
 
 #pragma mark - news
 
+-(NSString*)getVersionRequest {
+    return [NSString stringWithFormat:@"%ld",(long)([VERSION doubleValue] * 100000 + [BUILD integerValue])];
+}
+
 -(void)getNumberOfNews {
     if (numberOfNewsTask == nil) {
-        NSString *urlStr = [NSString stringWithFormat:@"http://%@/informer/get.php?datatype=%@&client=%@&platform=%@&timestamp=%@&case=%@&version=%@",SERVER_ADRESS,COUNT,CLIENT,PLATFORM,TIME_STAMP,CASE_NEWS,VERSION];
+        NSString *urlStr = [NSString stringWithFormat:@"http://%@/informer/get.php?datatype=%@&client=%@&platform=%@&timestamp=%@&case=%@&version=%@",SERVER_ADRESS,COUNT,CLIENT,PLATFORM,TIME_STAMP,CASE_NEWS,[self getVersionRequest]];
         
         numberOfNewsTask = [sessionNews dataTaskWithURL:[NSURL URLWithString:urlStr] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
             NSError *tempError;
@@ -94,7 +98,7 @@ NSString *const SERVER_ADRESS = @"77.246.159.212";
 
 -(void)getMoreNewsOffset:(NSUInteger)offset {
     if (newsDataTask == nil) {
-        NSString *urlStr = [NSString stringWithFormat:@"http://%@/informer/get.php?datatype=%@&client=%@&platform=%@&num=%@&offset=%lu&timestamp=%@&case=%@&version=%@",SERVER_ADRESS,ITEMS,CLIENT,PLATFORM,NUM,(unsigned long)offset,TIME_STAMP,CASE_NEWS,VERSION];
+        NSString *urlStr = [NSString stringWithFormat:@"http://%@/informer/get.php?datatype=%@&client=%@&platform=%@&num=%@&offset=%lu&timestamp=%@&case=%@&version=%@",SERVER_ADRESS,ITEMS,CLIENT,PLATFORM,NUM,(unsigned long)offset,TIME_STAMP,CASE_NEWS,[self getVersionRequest]];
         
         newsDataTask = [sessionNews dataTaskWithURL:[NSURL URLWithString:urlStr] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
             NSError *tempError;
@@ -175,7 +179,7 @@ NSString *const TEXT_PARSE = @"TEXT";
 
 -(void)getMoreEventsOffset:(NSUInteger)offset {
     if (eventsDataTask == nil) {
-        NSString *urlStr = [NSString stringWithFormat:@"http://%@/informer/get.php?datatype=%@&client=%@&platform=%@&num=%@&offset=%lu&timestamp=%@&case=%@&version=%@",SERVER_ADRESS,ITEMS,CLIENT,PLATFORM,NUM,(unsigned long)offset,TIME_STAMP,CASE_EVENTS,VERSION];
+        NSString *urlStr = [NSString stringWithFormat:@"http://%@/informer/get.php?datatype=%@&client=%@&platform=%@&num=%@&offset=%lu&timestamp=%@&case=%@&version=%@",SERVER_ADRESS,ITEMS,CLIENT,PLATFORM,NUM,(unsigned long)offset,TIME_STAMP,CASE_EVENTS,[self getVersionRequest]];
         
         eventsDataTask = [sessionNews dataTaskWithURL:[NSURL URLWithString:urlStr] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
             NSError *tempError;
@@ -203,7 +207,7 @@ NSString *const TEXT_PARSE = @"TEXT";
 }
 
 -(void)getFullEvent:(KUEventItem *)event completion:(void (^)(KUEventItem *))completion {
-    NSString *urlStr = [NSString stringWithFormat:@"http://%@/informer/get.php?datatype=%@&client=%@&platform=%@&version=%@&id=%@",SERVER_ADRESS,TEXT,CLIENT,PLATFORM,VERSION,event.idItem]
+    NSString *urlStr = [NSString stringWithFormat:@"http://%@/informer/get.php?datatype=%@&client=%@&platform=%@&version=%@&id=%@",SERVER_ADRESS,TEXT,CLIENT,PLATFORM,[self getVersionRequest],event.idItem]
     ;
     
     NSURLSessionDataTask *detailNewsTask = [sessionNews dataTaskWithURL:[NSURL URLWithString:urlStr] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {

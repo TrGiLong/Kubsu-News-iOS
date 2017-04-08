@@ -144,10 +144,11 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xUv-AG-6bX">
-                                            <rect key="frame" x="54" y="43" width="103" height="17"/>
+                                            <rect key="frame" x="54" y="43" width="97" height="17"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="17" id="paD-aP-5FP"/>
                                             </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <state key="normal" title="Phone Number">
                                                 <color key="titleColor" red="0.35301975388601037" green="0.35301975388601037" blue="0.35301975388601037" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </state>
@@ -193,10 +194,11 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dpk-Nu-CRB">
-                                            <rect key="frame" x="54" y="43" width="48" height="17"/>
+                                            <rect key="frame" x="54" y="43" width="45" height="17"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="17" id="x1z-Qe-DoJ"/>
                                             </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <state key="normal" title="Adress">
                                                 <color key="titleColor" red="0.32185071243523311" green="0.32185071243523311" blue="0.32185071243523311" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </state>

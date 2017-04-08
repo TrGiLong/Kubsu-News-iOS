@@ -9,6 +9,9 @@
 #import "KUMainViewController.h"
 #import "KUUINewsTableViewController.h"
 #import "KUUIEventsTableViewController.h"
+#import "KUUINavigationController.h"
+
+#import "UIViewController+LGSideMenuController.h"
 @interface KUMainViewController ()
 
 @end
@@ -32,10 +35,16 @@
     eventsTableView = [[KUUIEventsTableViewController alloc] initWithDataController:dataController delegate:self];
     views = @[newsTableView,eventsTableView];
     
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Menu"] style:UIBarButtonItemStyleDone target:self action:@selector(leftMene)];
+    
     [super viewDidLoad];
     
     [self setDataSource:self]; 
     
+}
+
+-(void)leftMene {
+    [self showLeftViewAnimated:nil];
 }
 
 -(void)viewDidAppear:(BOOL)animated {

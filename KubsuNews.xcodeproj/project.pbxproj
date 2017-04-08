@@ -38,6 +38,16 @@
 		FDAC275E1E9026E1002AF259 /* Vertigo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDAC275D1E9026E1002AF259 /* Vertigo.framework */; };
 		FDAC27671E9058F7002AF259 /* GUITabPagerViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDAC27661E9058F7002AF259 /* GUITabPagerViewController.framework */; };
 		FDAC276A1E905A4D002AF259 /* KUUIEventsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDAC27691E905A4D002AF259 /* KUUIEventsTableViewController.m */; };
+		FDF304371E994B9D00D8F6B9 /* KUUIMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF304361E994B9D00D8F6B9 /* KUUIMenuViewController.m */; };
+		FDF3044A1E9950EC00D8F6B9 /* LGSideMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF3043D1E9950EC00D8F6B9 /* LGSideMenuController.m */; };
+		FDF3044B1E9950EC00D8F6B9 /* LGSideMenuControllerGesturesHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF3043F1E9950EC00D8F6B9 /* LGSideMenuControllerGesturesHandler.m */; };
+		FDF3044C1E9950EC00D8F6B9 /* LGSideMenuDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF304411E9950EC00D8F6B9 /* LGSideMenuDrawer.m */; };
+		FDF3044D1E9950EC00D8F6B9 /* LGSideMenuHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF304431E9950EC00D8F6B9 /* LGSideMenuHelper.m */; };
+		FDF3044E1E9950EC00D8F6B9 /* LGSideMenuSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF304451E9950EC00D8F6B9 /* LGSideMenuSegue.m */; };
+		FDF3044F1E9950EC00D8F6B9 /* LGSideMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF304471E9950EC00D8F6B9 /* LGSideMenuView.m */; };
+		FDF304501E9950EC00D8F6B9 /* UIViewController+LGSideMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF304491E9950EC00D8F6B9 /* UIViewController+LGSideMenuController.m */; };
+		FDF3045B1E995F8900D8F6B9 /* KUUILeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF304591E995F8900D8F6B9 /* KUUILeftViewController.m */; };
+		FDF3045C1E995F8900D8F6B9 /* KUUILeftViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDF3045A1E995F8900D8F6B9 /* KUUILeftViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,6 +128,25 @@
 		FDAC27661E9058F7002AF259 /* GUITabPagerViewController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GUITabPagerViewController.framework; path = "Pods/../build/Debug-iphoneos/GUITabPagerViewController/GUITabPagerViewController.framework"; sourceTree = "<group>"; };
 		FDAC27681E905A4D002AF259 /* KUUIEventsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUUIEventsTableViewController.h; sourceTree = "<group>"; };
 		FDAC27691E905A4D002AF259 /* KUUIEventsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUUIEventsTableViewController.m; sourceTree = "<group>"; };
+		FDF304351E994B9D00D8F6B9 /* KUUIMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUUIMenuViewController.h; sourceTree = "<group>"; };
+		FDF304361E994B9D00D8F6B9 /* KUUIMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUUIMenuViewController.m; sourceTree = "<group>"; };
+		FDF3043C1E9950EC00D8F6B9 /* LGSideMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGSideMenuController.h; sourceTree = "<group>"; };
+		FDF3043D1E9950EC00D8F6B9 /* LGSideMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGSideMenuController.m; sourceTree = "<group>"; };
+		FDF3043E1E9950EC00D8F6B9 /* LGSideMenuControllerGesturesHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGSideMenuControllerGesturesHandler.h; sourceTree = "<group>"; };
+		FDF3043F1E9950EC00D8F6B9 /* LGSideMenuControllerGesturesHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGSideMenuControllerGesturesHandler.m; sourceTree = "<group>"; };
+		FDF304401E9950EC00D8F6B9 /* LGSideMenuDrawer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGSideMenuDrawer.h; sourceTree = "<group>"; };
+		FDF304411E9950EC00D8F6B9 /* LGSideMenuDrawer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGSideMenuDrawer.m; sourceTree = "<group>"; };
+		FDF304421E9950EC00D8F6B9 /* LGSideMenuHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGSideMenuHelper.h; sourceTree = "<group>"; };
+		FDF304431E9950EC00D8F6B9 /* LGSideMenuHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGSideMenuHelper.m; sourceTree = "<group>"; };
+		FDF304441E9950EC00D8F6B9 /* LGSideMenuSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGSideMenuSegue.h; sourceTree = "<group>"; };
+		FDF304451E9950EC00D8F6B9 /* LGSideMenuSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGSideMenuSegue.m; sourceTree = "<group>"; };
+		FDF304461E9950EC00D8F6B9 /* LGSideMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGSideMenuView.h; sourceTree = "<group>"; };
+		FDF304471E9950EC00D8F6B9 /* LGSideMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGSideMenuView.m; sourceTree = "<group>"; };
+		FDF304481E9950EC00D8F6B9 /* UIViewController+LGSideMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+LGSideMenuController.h"; sourceTree = "<group>"; };
+		FDF304491E9950EC00D8F6B9 /* UIViewController+LGSideMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+LGSideMenuController.m"; sourceTree = "<group>"; };
+		FDF304581E995F8900D8F6B9 /* KUUILeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUUILeftViewController.h; sourceTree = "<group>"; };
+		FDF304591E995F8900D8F6B9 /* KUUILeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUUILeftViewController.m; sourceTree = "<group>"; };
+		FDF3045A1E995F8900D8F6B9 /* KUUILeftViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KUUILeftViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,14 +259,11 @@
 				FD9DEE751E916BE200446F7D /* Library */,
 				FD01E9E81E8448790005B456 /* AppDelegate.h */,
 				FD01E9E91E8448790005B456 /* AppDelegate.m */,
-				EC75E9B41E8942460008FEC3 /* KUInteractionViewControllerProtocol.h */,
-				EC75E9B51E8942460008FEC3 /* KUInteractionViewControllerProtocol.m */,
-				EC0156881E88E550002EEE9F /* KUMainViewController.h */,
-				EC0156891E88E550002EEE9F /* KUMainViewController.m */,
-				FD9D045A1E86F3550089352C /* KUUINavigationController.h */,
-				FD9D045B1E86F3550089352C /* KUUINavigationController.m */,
-				FD970B951E90E621008C15F6 /* Events Table View */,
-				FD145E9D1E86BFA6000F6B53 /* News Table View */,
+				FDF304351E994B9D00D8F6B9 /* KUUIMenuViewController.h */,
+				FDF304361E994B9D00D8F6B9 /* KUUIMenuViewController.m */,
+				FDF304571E995ECD00D8F6B9 /* Left View */,
+				FDF304531E995E9D00D8F6B9 /* NavigationController */,
+				FDF304521E995E8100D8F6B9 /* News and Events */,
 				FD01EA1B1E8449730005B456 /* Model */,
 				FD01E9EE1E8448790005B456 /* Main.storyboard */,
 				FD01E9F11E8448790005B456 /* Assets.xcassets */,
@@ -318,8 +344,62 @@
 			children = (
 				FD9DEE721E916BDF00446F7D /* NSDate+Utilities.h */,
 				FD9DEE731E916BDF00446F7D /* NSDate+Utilities.m */,
+				EC75E9B41E8942460008FEC3 /* KUInteractionViewControllerProtocol.h */,
+				EC75E9B51E8942460008FEC3 /* KUInteractionViewControllerProtocol.m */,
+				FDF304511E9950F400D8F6B9 /* LGSideMenuController */,
 			);
 			name = Library;
+			sourceTree = "<group>";
+		};
+		FDF304511E9950F400D8F6B9 /* LGSideMenuController */ = {
+			isa = PBXGroup;
+			children = (
+				FDF3043C1E9950EC00D8F6B9 /* LGSideMenuController.h */,
+				FDF3043D1E9950EC00D8F6B9 /* LGSideMenuController.m */,
+				FDF3043E1E9950EC00D8F6B9 /* LGSideMenuControllerGesturesHandler.h */,
+				FDF3043F1E9950EC00D8F6B9 /* LGSideMenuControllerGesturesHandler.m */,
+				FDF304401E9950EC00D8F6B9 /* LGSideMenuDrawer.h */,
+				FDF304411E9950EC00D8F6B9 /* LGSideMenuDrawer.m */,
+				FDF304421E9950EC00D8F6B9 /* LGSideMenuHelper.h */,
+				FDF304431E9950EC00D8F6B9 /* LGSideMenuHelper.m */,
+				FDF304441E9950EC00D8F6B9 /* LGSideMenuSegue.h */,
+				FDF304451E9950EC00D8F6B9 /* LGSideMenuSegue.m */,
+				FDF304461E9950EC00D8F6B9 /* LGSideMenuView.h */,
+				FDF304471E9950EC00D8F6B9 /* LGSideMenuView.m */,
+				FDF304481E9950EC00D8F6B9 /* UIViewController+LGSideMenuController.h */,
+				FDF304491E9950EC00D8F6B9 /* UIViewController+LGSideMenuController.m */,
+			);
+			name = LGSideMenuController;
+			sourceTree = "<group>";
+		};
+		FDF304521E995E8100D8F6B9 /* News and Events */ = {
+			isa = PBXGroup;
+			children = (
+				EC0156881E88E550002EEE9F /* KUMainViewController.h */,
+				EC0156891E88E550002EEE9F /* KUMainViewController.m */,
+				FD970B951E90E621008C15F6 /* Events Table View */,
+				FD145E9D1E86BFA6000F6B53 /* News Table View */,
+			);
+			name = "News and Events";
+			sourceTree = "<group>";
+		};
+		FDF304531E995E9D00D8F6B9 /* NavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				FD9D045A1E86F3550089352C /* KUUINavigationController.h */,
+				FD9D045B1E86F3550089352C /* KUUINavigationController.m */,
+			);
+			name = NavigationController;
+			sourceTree = "<group>";
+		};
+		FDF304571E995ECD00D8F6B9 /* Left View */ = {
+			isa = PBXGroup;
+			children = (
+				FDF304581E995F8900D8F6B9 /* KUUILeftViewController.h */,
+				FDF304591E995F8900D8F6B9 /* KUUILeftViewController.m */,
+				FDF3045A1E995F8900D8F6B9 /* KUUILeftViewController.xib */,
+			);
+			name = "Left View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -444,6 +524,7 @@
 				FD970B9A1E90EB99008C15F6 /* KUUIEventsCell.xib in Resources */,
 				FD145EA21E86BFCF000F6B53 /* KUUITableViewNewsCell.xib in Resources */,
 				FD6C27201E8AF71E00B6B7B0 /* KUUIDetailNewsViewController.xib in Resources */,
+				FDF3045C1E995F8900D8F6B9 /* KUUILeftViewController.xib in Resources */,
 				FD01E9F51E8448790005B456 /* LaunchScreen.storyboard in Resources */,
 				EC0545E21E9133A500698CF8 /* KUUIEventDetailViewController.xib in Resources */,
 				FD01E9F21E8448790005B456 /* Assets.xcassets in Resources */,
@@ -614,17 +695,26 @@
 				FD145E9C1E86BF9F000F6B53 /* KUUINewsTableViewController.m in Sources */,
 				FD145EA11E86BFCF000F6B53 /* KUUITableViewNewsCell.m in Sources */,
 				FD9DEE741E916BDF00446F7D /* NSDate+Utilities.m in Sources */,
+				FDF3044A1E9950EC00D8F6B9 /* LGSideMenuController.m in Sources */,
+				FDF3044F1E9950EC00D8F6B9 /* LGSideMenuView.m in Sources */,
 				FD01EA1E1E84499D0005B456 /* KUDataController.m in Sources */,
+				FDF304371E994B9D00D8F6B9 /* KUUIMenuViewController.m in Sources */,
+				FDF3044C1E9950EC00D8F6B9 /* LGSideMenuDrawer.m in Sources */,
 				FDAC276A1E905A4D002AF259 /* KUUIEventsTableViewController.m in Sources */,
 				EC01568A1E88E550002EEE9F /* KUMainViewController.m in Sources */,
+				FDF3045B1E995F8900D8F6B9 /* KUUILeftViewController.m in Sources */,
 				FD970B9D1E90FA72008C15F6 /* KUEventItem.m in Sources */,
 				EC0545E11E9133A500698CF8 /* KUUIEventDetailViewController.m in Sources */,
 				FD01E9EA1E8448790005B456 /* AppDelegate.m in Sources */,
+				FDF304501E9950EC00D8F6B9 /* UIViewController+LGSideMenuController.m in Sources */,
+				FDF3044E1E9950EC00D8F6B9 /* LGSideMenuSegue.m in Sources */,
 				FD01E9E71E8448790005B456 /* main.m in Sources */,
 				FDA38B171E957916008DB723 /* KUUIEventsCell.m in Sources */,
 				FD01EA1A1E8448930005B456 /* KUNewsItem.m in Sources */,
 				FD9D045C1E86F3550089352C /* KUUINavigationController.m in Sources */,
 				FD6C271F1E8AF71E00B6B7B0 /* KUUIDetailNewsViewController.m in Sources */,
+				FDF3044D1E9950EC00D8F6B9 /* LGSideMenuHelper.m in Sources */,
+				FDF3044B1E9950EC00D8F6B9 /* LGSideMenuControllerGesturesHandler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
