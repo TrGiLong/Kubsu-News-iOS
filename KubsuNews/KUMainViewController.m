@@ -25,7 +25,7 @@
 }
 
 - (void)viewDidLoad {
-    dataController = [[KUDataController alloc] init];
+    dataController = [KUDataController sharedDataController];
     
     self.title = @"Информер ОСО";
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor],

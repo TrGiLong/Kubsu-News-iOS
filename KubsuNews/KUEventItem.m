@@ -35,4 +35,7 @@
 -(void)appendDetail:(NSDictionary *)aDictionary {
     _detail = [aDictionary objectForKey:@"body"];;
 }
+-(NSUInteger)hash {
+    return self.idItem.hash;
+}
 @end

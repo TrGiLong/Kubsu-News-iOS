@@ -21,7 +21,7 @@
 }
 
 -(id)initWithEvent:(KUEventItem*)item dataController:(KUDataController*)aDataController {
-    self = [super init];
+    self = [super initWithNibName:@"KUUIEventDetailViewController" bundle:[NSBundle mainBundle]];
     if (self) {
         eventItem = item;
         dataController = aDataController;

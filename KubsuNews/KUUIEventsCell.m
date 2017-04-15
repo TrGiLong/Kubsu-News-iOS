@@ -34,27 +34,32 @@
     [self.place setText:item.placeName];
     
     [self.dateStart setText:[outDateFormatter stringFromDate:item.startDate]];
-    if ([item.startDate isInPast]) {
-        if ([item.endDate isInFuture]) {
-            [self.status setText:@"идёт"];
-            [self.status setBackgroundColor:[UIColor colorWithRed:0.95 green:0.61 blue:0.07 alpha:1.0]];
-        } else {
-            [self.status setText:@"прошло"];
-            [self.status setBackgroundColor:[UIColor grayColor]];
-        }
-    } else if ([item.startDate isToday]) {
-        [self.status setText:@"сегодня"];
-        [self.status setBackgroundColor:[UIColor orangeColor]];
+    if (item.cancel) {
+        [self.status setText:@"отменено"];
+        [self.status setBackgroundColor:[UIColor grayColor]];
     } else {
-        if ([item.startDate isTomorrow]) {
-            [self.status setText:@"завтра"];
-            [self.status setBackgroundColor:[UIColor colorWithRed:0.10 green:0.71 blue:1.00 alpha:1.0]];
-            
+        if ([item.startDate isInPast]) {
+            if ([item.endDate isInFuture]) {
+                [self.status setText:@"идёт"];
+                [self.status setBackgroundColor:[UIColor colorWithRed:0.95 green:0.61 blue:0.07 alpha:1.0]];
+            } else {
+                [self.status setText:@"прошло"];
+                [self.status setBackgroundColor:[UIColor grayColor]];
+            }
+        } else if ([item.startDate isToday]) {
+            [self.status setText:@"сегодня"];
+            [self.status setBackgroundColor:[UIColor orangeColor]];
         } else {
-            [self.status setText:@"скоро"];
-            [self.status setBackgroundColor:[UIColor colorWithRed:0.00 green:0.69 blue:0.42 alpha:1.0]];
+            if ([item.startDate isTomorrow]) {
+                [self.status setText:@"завтра"];
+                [self.status setBackgroundColor:[UIColor colorWithRed:0.10 green:0.71 blue:1.00 alpha:1.0]];
+                
+            } else {
+                [self.status setText:@"скоро"];
+                [self.status setBackgroundColor:[UIColor colorWithRed:0.00 green:0.69 blue:0.42 alpha:1.0]];
+            }
+            
         }
-        
     }
 }
 

@@ -18,6 +18,10 @@
     NSURLSessionDataTask *eventsDataTask;
     NSURLSessionDataTask *numberOfEventsTask;
     
+    NSURLSessionDataTask *listFacultyTask;
+    NSURLSessionDataTask *listDepartmentsTask;
+    NSURLSessionDataTask *listPersonsTask;
+    
     NSOperationQueue *queue;
     
     NSArray *cache_list_news;
@@ -35,6 +39,16 @@
     return self;
 }
 
+
++ (id)sharedDataController {
+    static KUDataController *sharedController = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedController = [[self alloc] init];
+    });
+    return sharedController;
+}
+
 #define VERSION [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]
 #define BUILD [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"]
 #define TIME_STAMP [NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970]]
@@ -45,6 +59,9 @@ NSString *const PLATFORM = @"ios";
 NSString *const NUM = @"20";
 NSString *const CASE_NEWS = @"0";
 NSString *const CASE_EVENTS = @"1";
+NSString *const CASE_FACULTY = @"2";
+NSString *const CASE_DEPARTMENT = @"3";
+NSString *const CASE_PERSON = @"4";
 NSString *const SERVER_ADRESS = @"77.246.159.212";
 
 -(void)getNumberOfType:(KUTypeData)aType {
@@ -73,7 +90,7 @@ NSString *const SERVER_ADRESS = @"77.246.159.212";
     }
 }
 
-#pragma mark - news
+#pragma mark - News
 
 -(NSString*)getVersionRequest {
     return [NSString stringWithFormat:@"%ld",(long)([VERSION doubleValue] * 100000 + [BUILD integerValue])];
@@ -137,8 +154,6 @@ NSString *const RESULT_PARSE = @"result";
     return list;
 }
 
-#pragma mark - detail news
-
 NSString *const TEXT = @"text";
 NSString *const TEXT_PARSE = @"TEXT";
 
@@ -156,7 +171,7 @@ NSString *const TEXT_PARSE = @"TEXT";
     [detailNewsTask resume];
 }
 
-#pragma mark - events
+#pragma mark - Events
 
 -(void)getNumberOfEvents {
     if (numberOfEventsTask == nil) {
@@ -221,5 +236,94 @@ NSString *const TEXT_PARSE = @"TEXT";
         
     }];
     [detailNewsTask resume];
+}
+
+#pragma mark - Faculty Item
+
+-(void)getListFacultyBlock:(void (^)(NSArray<KUFacultyItem *> *))completion {
+    NSString *urlStr = [NSString stringWithFormat:@"http://%@/informer/get.php?datatype=%@&client=%@&platform=%@&case=%@&version=%@",SERVER_ADRESS,ITEMS,CLIENT,PLATFORM,CASE_FACULTY,[self getVersionRequest]];
+    
+    listFacultyTask = [sessionNews dataTaskWithURL:[NSURL URLWithString:urlStr] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        NSError *tempError;
+        NSDictionary *dataDict = (NSDictionary*)[NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&tempError];
+        if ([self.delegateEvents conformsToProtocol:@protocol(KUEventsControllerDataSource)] &&
+            [[dataDict objectForKey:ITEMS_PARSE] count] > 0) {
+            completion([self parseListFaculty:dataDict]);
+            listFacultyTask = nil;
+        }
+    }];
+    [listFacultyTask resume];
+    
+}
+
+-(NSArray <KUFacultyItem*>*)parseListFaculty:(NSDictionary*)dataDict {
+    NSMutableArray <KUFacultyItem*> *list = [NSMutableArray array];
+    NSArray *items = [dataDict objectForKey:ITEMS_PARSE];
+    for (NSDictionary *item in items) {
+        KUFacultyItem *newsItem = [[KUFacultyItem alloc] initWithDictionary:item];
+        if (newsItem) {
+            [list addObject:newsItem];
+        }
+    }
+    return list;
+}
+
+#pragma mark - Department Item
+
+
+-(void)getListDepartmentBlock:(void (^)(NSArray<KUDepartmentItem *> *, NSError*))completion {
+    NSString *urlStr = [NSString stringWithFormat:@"http://%@/informer/get.php?datatype=%@&client=%@&platform=%@&case=%@&version=%@",SERVER_ADRESS,ITEMS,CLIENT,PLATFORM,CASE_DEPARTMENT,[self getVersionRequest]];
+    
+    listDepartmentsTask = [sessionNews dataTaskWithURL:[NSURL URLWithString:urlStr] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        NSError *tempError;
+        NSDictionary *dataDict = (NSDictionary*)[NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&tempError];
+        if ([self.delegateEvents conformsToProtocol:@protocol(KUEventsControllerDataSource)] &&
+            [[dataDict objectForKey:ITEMS_PARSE] count] > 0) {
+            completion([self parseListDepartment:dataDict], error != nil ? error : tempError);
+            listDepartmentsTask = nil;
+        }
+    }];
+    [listDepartmentsTask resume];
+
+}
+
+-(NSArray <KUDepartmentItem*>*)parseListDepartment:(NSDictionary*)dataDict {
+    NSMutableArray <KUDepartmentItem*> *list = [NSMutableArray array];
+    NSArray *items = [dataDict objectForKey:ITEMS_PARSE];
+    for (NSDictionary *item in items) {
+        KUDepartmentItem *newsItem = [[KUDepartmentItem alloc] initWithDictionary:item];
+        if (newsItem) {
+            [list addObject:newsItem];
+        }
+    }
+    return list;
+}
+#pragma mark - List Person
+-(void)getListPersonsBlock:(void (^)(NSArray<KUPersonItem *> * _Nullable, NSError * _Nullable))completion {
+    NSString *urlStr = [NSString stringWithFormat:@"http://%@/informer/get.php?datatype=%@&client=%@&platform=%@&case=%@&version=%@",SERVER_ADRESS,ITEMS,CLIENT,PLATFORM,CASE_PERSON,[self getVersionRequest]];
+    
+    listPersonsTask = [sessionNews dataTaskWithURL:[NSURL URLWithString:urlStr] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        NSError *tempError;
+        NSDictionary *dataDict = (NSDictionary*)[NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&tempError];
+        if ([self.delegateEvents conformsToProtocol:@protocol(KUEventsControllerDataSource)] &&
+            [[dataDict objectForKey:ITEMS_PARSE] count] > 0) {
+            completion([self parseListPerson:dataDict], error != nil ? error : tempError);
+            listPersonsTask = nil;
+        }
+    }];
+    [listPersonsTask resume];
+
+}
+
+-(NSArray <KUPersonItem*>*)parseListPerson:(NSDictionary*)dataDict {
+    NSMutableArray <KUPersonItem*> *list = [NSMutableArray array];
+    NSArray *items = [dataDict objectForKey:ITEMS_PARSE];
+    for (NSDictionary *item in items) {
+        KUPersonItem *newsItem = [[KUPersonItem alloc] initWithDictionary:item];
+        if (newsItem) {
+            [list addObject:newsItem];
+        }
+    }
+    return list;
 }
 @end

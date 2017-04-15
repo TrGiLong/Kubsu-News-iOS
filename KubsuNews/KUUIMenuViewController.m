@@ -26,21 +26,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    newsAndEvents = [[KUMainViewController alloc] init];
-    newsAndEventsNav = [[KUUINavigationController alloc] initWithRootViewController:newsAndEvents];
-    
-    [self setRootViewController:newsAndEventsNav];
-    
-    leftViewController = [[KUUILeftViewController alloc] initWithNibName:@"KUUILeftViewController" bundle:[NSBundle mainBundle]];
-    
-    [self setLeftViewController:leftViewController];
-    
+//    newsAndEvents = [[KUMainViewController alloc] init];
+//    newsAndEventsNav = [[KUUINavigationController alloc] initWithRootViewController:newsAndEvents];
+//    
+//    [self setRootViewController:newsAndEventsNav];
+//    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 
 /*
 #pragma mark - Navigation

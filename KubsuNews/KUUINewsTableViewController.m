@@ -28,11 +28,11 @@ NSString *const CELL_NEWS_ITEM = @"CELL_NEWS_ITEM";
 -(id)initWithDataController:(KUDataController *)dataController delegate:(id)aDelegate {
     self = [super initWithStyle:UITableViewStylePlain];
     if (self) {
-        self.title = @"Новости";
-        
         _dataController = dataController;
         dataController.delegateNews = self;
         delegate = aDelegate;
+        
+        self.title = @"Новости";
     }
     return self;
 }
@@ -46,7 +46,7 @@ NSString *const CELL_NEWS_ITEM = @"CELL_NEWS_ITEM";
     refrestControl = [[UIRefreshControl alloc] init];
     [refrestControl setAttributedTitle:[[NSAttributedString alloc] initWithString:@"Loading..."]];
     [refrestControl addTarget:self action:@selector(refrestNews) forControlEvents:UIControlEventValueChanged];
-    [self.tableView setRefreshControl:refrestControl];
+    [self setRefreshControl:refrestControl];
     
     items = [NSMutableArray array];
     if (self.dataController != nil) {

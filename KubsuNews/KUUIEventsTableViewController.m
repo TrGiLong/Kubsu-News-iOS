@@ -34,25 +34,13 @@ NSString *const CELL_EVENTS = @"cell_events";
 -(id)initWithDataController:(KUDataController*)aDataController delegate:(id <KUInteractionViewControllerProtocol>)aDelegate {
     self = [super init];
     if (self) {
-        self.title = @"Мероприятие";
-        
-        [self.tableView setRowHeight:88];
-        
+       
         dataController = aDataController;
         dataController.delegateEvents = self;
         delegate = aDelegate;
         
-        refrestControl = [[UIRefreshControl alloc] init];
-        [refrestControl setAttributedTitle:[[NSAttributedString alloc] initWithString:@"Loading..."]];
-        [refrestControl addTarget:self action:@selector(refrestEvents) forControlEvents:UIControlEventValueChanged];
-        [self.tableView setRefreshControl:refrestControl];
+        self.title = @"Мероприятие";
         
-        
-        items = [NSMutableArray array];
-        if (dataController != nil) {
-            [refrestControl beginRefreshing];
-            [self refrestEvents];
-        }
     }
     return self;
 }
@@ -60,7 +48,22 @@ NSString *const CELL_EVENTS = @"cell_events";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self.tableView setRowHeight:88];
+    
     [self.tableView registerNib:[UINib nibWithNibName:@"KUUIEventsCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:CELL_EVENTS];
+    
+    refrestControl = [[UIRefreshControl alloc] init];
+    [refrestControl setAttributedTitle:[[NSAttributedString alloc] initWithString:@"Loading..."]];
+    [refrestControl addTarget:self action:@selector(refrestEvents) forControlEvents:UIControlEventValueChanged];
+    [self setRefreshControl:refrestControl];
+    
+    items = [NSMutableArray array];
+    if (dataController != nil) {
+        [refrestControl beginRefreshing];
+        [self refrestEvents];
+    }
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {

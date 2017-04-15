@@ -14,7 +14,10 @@
 		EC01568C1E893DEC002EEE9F /* GSKStretchyHeaderView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC01568B1E893DEC002EEE9F /* GSKStretchyHeaderView.framework */; };
 		EC0545E11E9133A500698CF8 /* KUUIEventDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0545DF1E9133A500698CF8 /* KUUIEventDetailViewController.m */; };
 		EC0545E21E9133A500698CF8 /* KUUIEventDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC0545E01E9133A500698CF8 /* KUUIEventDetailViewController.xib */; };
+		EC0545E61E9B54EE00698CF8 /* KUUIFacultyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0545E51E9B54EE00698CF8 /* KUUIFacultyViewController.m */; };
 		EC75E9B61E8942460008FEC3 /* KUInteractionViewControllerProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = EC75E9B51E8942460008FEC3 /* KUInteractionViewControllerProtocol.m */; };
+		ECA4E3261E9F924200618560 /* KUUIFacultyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA4E3241E9F924200618560 /* KUUIFacultyCell.m */; };
+		ECA4E3271E9F924200618560 /* KUUIFacultyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECA4E3251E9F924200618560 /* KUUIFacultyCell.xib */; };
 		FD01E9E71E8448790005B456 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FD01E9E61E8448790005B456 /* main.m */; };
 		FD01E9EA1E8448790005B456 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD01E9E91E8448790005B456 /* AppDelegate.m */; };
 		FD01E9F01E8448790005B456 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD01E9EE1E8448790005B456 /* Main.storyboard */; };
@@ -27,8 +30,38 @@
 		FD145E9C1E86BF9F000F6B53 /* KUUINewsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD145E9B1E86BF9F000F6B53 /* KUUINewsTableViewController.m */; };
 		FD145EA11E86BFCF000F6B53 /* KUUITableViewNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD145E9F1E86BFCF000F6B53 /* KUUITableViewNewsCell.m */; };
 		FD145EA21E86BFCF000F6B53 /* KUUITableViewNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD145EA01E86BFCF000F6B53 /* KUUITableViewNewsCell.xib */; };
+		FD31E7771EA2AA8100A876AA /* KUUIDepartmentDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD31E7751EA2AA8100A876AA /* KUUIDepartmentDetailViewController.m */; };
+		FD31E7781EA2AA8100A876AA /* KUUIDepartmentDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD31E7761EA2AA8100A876AA /* KUUIDepartmentDetailViewController.xib */; };
+		FD31E77B1EA2C55500A876AA /* KUPersonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FD31E77A1EA2C55500A876AA /* KUPersonItem.m */; };
+		FD31E77F1EA2C80300A876AA /* KUUIPersonsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD31E77E1EA2C80300A876AA /* KUUIPersonsTableViewController.m */; };
+		FD31E7831EA2C90A00A876AA /* KUUIPersonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD31E7811EA2C90A00A876AA /* KUUIPersonCell.m */; };
+		FD31E7841EA2C90A00A876AA /* KUUIPersonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD31E7821EA2C90A00A876AA /* KUUIPersonCell.xib */; };
+		FD31E7881EA2D31700A876AA /* KUUIPersonDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD31E7861EA2D31700A876AA /* KUUIPersonDetailViewController.m */; };
+		FD31E7891EA2D31700A876AA /* KUUIPersonDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD31E7871EA2D31700A876AA /* KUUIPersonDetailViewController.xib */; };
+		FD31E79E1EA2DA5300A876AA /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FD31E78C1EA2DA3A00A876AA /* Roboto-Black.ttf */; };
+		FD31E79F1EA2DA5300A876AA /* Roboto-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FD31E78D1EA2DA3A00A876AA /* Roboto-BlackItalic.ttf */; };
+		FD31E7A01EA2DA5300A876AA /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FD31E78E1EA2DA3A00A876AA /* Roboto-Bold.ttf */; };
+		FD31E7A11EA2DA5300A876AA /* Roboto-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FD31E78F1EA2DA3A00A876AA /* Roboto-BoldItalic.ttf */; };
+		FD31E7A21EA2DA5300A876AA /* Roboto-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FD31E7901EA2DA3A00A876AA /* Roboto-Italic.ttf */; };
+		FD31E7A31EA2DA5300A876AA /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FD31E7911EA2DA3A00A876AA /* Roboto-Light.ttf */; };
+		FD31E7A41EA2DA5300A876AA /* Roboto-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FD31E7921EA2DA3A00A876AA /* Roboto-LightItalic.ttf */; };
+		FD31E7A51EA2DA5300A876AA /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FD31E7931EA2DA3A00A876AA /* Roboto-Medium.ttf */; };
+		FD31E7A61EA2DA5300A876AA /* Roboto-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FD31E7941EA2DA3A00A876AA /* Roboto-MediumItalic.ttf */; };
+		FD31E7A71EA2DA5300A876AA /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FD31E7951EA2DA3A00A876AA /* Roboto-Regular.ttf */; };
+		FD31E7A81EA2DA5300A876AA /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FD31E7961EA2DA3A00A876AA /* Roboto-Thin.ttf */; };
+		FD31E7A91EA2DA5300A876AA /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FD31E7971EA2DA3A00A876AA /* Roboto-ThinItalic.ttf */; };
+		FD31E7AA1EA2DA5300A876AA /* RobotoCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FD31E7981EA2DA3A00A876AA /* RobotoCondensed-Bold.ttf */; };
+		FD31E7AB1EA2DA5300A876AA /* RobotoCondensed-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FD31E7991EA2DA3A00A876AA /* RobotoCondensed-BoldItalic.ttf */; };
+		FD31E7AC1EA2DA5300A876AA /* RobotoCondensed-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FD31E79A1EA2DA3A00A876AA /* RobotoCondensed-Italic.ttf */; };
+		FD31E7AD1EA2DA5300A876AA /* RobotoCondensed-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FD31E79B1EA2DA3A00A876AA /* RobotoCondensed-Light.ttf */; };
+		FD31E7AE1EA2DA5300A876AA /* RobotoCondensed-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FD31E79C1EA2DA3A00A876AA /* RobotoCondensed-LightItalic.ttf */; };
+		FD31E7AF1EA2DA5300A876AA /* RobotoCondensed-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FD31E79D1EA2DA3A00A876AA /* RobotoCondensed-Regular.ttf */; };
 		FD6C271F1E8AF71E00B6B7B0 /* KUUIDetailNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD6C271D1E8AF71E00B6B7B0 /* KUUIDetailNewsViewController.m */; };
 		FD6C27201E8AF71E00B6B7B0 /* KUUIDetailNewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD6C271E1E8AF71E00B6B7B0 /* KUUIDetailNewsViewController.xib */; };
+		FD88113F1EA2A2C1009C079F /* KUUIDepartmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD88113E1EA2A2C1009C079F /* KUUIDepartmentViewController.m */; };
+		FD8811481EA2A339009C079F /* KUUIDepartmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD8811461EA2A339009C079F /* KUUIDepartmentCell.m */; };
+		FD8811491EA2A339009C079F /* KUUIDepartmentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD8811471EA2A339009C079F /* KUUIDepartmentCell.xib */; };
+		FD8D541F1E9F52B500E66684 /* KUInfomationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD8D541E1E9F52B500E66684 /* KUInfomationModel.m */; };
 		FD970B9A1E90EB99008C15F6 /* KUUIEventsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD970B981E90EB99008C15F6 /* KUUIEventsCell.xib */; };
 		FD970B9D1E90FA72008C15F6 /* KUEventItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FD970B9C1E90FA72008C15F6 /* KUEventItem.m */; };
 		FD9D04521E86E6790089352C /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD9D04511E86E6790089352C /* SDWebImage.framework */; };
@@ -38,6 +71,8 @@
 		FDAC275E1E9026E1002AF259 /* Vertigo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDAC275D1E9026E1002AF259 /* Vertigo.framework */; };
 		FDAC27671E9058F7002AF259 /* GUITabPagerViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDAC27661E9058F7002AF259 /* GUITabPagerViewController.framework */; };
 		FDAC276A1E905A4D002AF259 /* KUUIEventsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDAC27691E905A4D002AF259 /* KUUIEventsTableViewController.m */; };
+		FDC63C2D1EA005D600416082 /* KUUIFacultyDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC63C2B1EA005D600416082 /* KUUIFacultyDetailViewController.m */; };
+		FDC63C2E1EA005D600416082 /* KUUIFacultyDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDC63C2C1EA005D600416082 /* KUUIFacultyDetailViewController.xib */; };
 		FDF304371E994B9D00D8F6B9 /* KUUIMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF304361E994B9D00D8F6B9 /* KUUIMenuViewController.m */; };
 		FDF3044A1E9950EC00D8F6B9 /* LGSideMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF3043D1E9950EC00D8F6B9 /* LGSideMenuController.m */; };
 		FDF3044B1E9950EC00D8F6B9 /* LGSideMenuControllerGesturesHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF3043F1E9950EC00D8F6B9 /* LGSideMenuControllerGesturesHandler.m */; };
@@ -82,8 +117,13 @@
 		EC0545DE1E9133A500698CF8 /* KUUIEventDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUUIEventDetailViewController.h; sourceTree = "<group>"; };
 		EC0545DF1E9133A500698CF8 /* KUUIEventDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUUIEventDetailViewController.m; sourceTree = "<group>"; };
 		EC0545E01E9133A500698CF8 /* KUUIEventDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KUUIEventDetailViewController.xib; sourceTree = "<group>"; };
+		EC0545E41E9B54EE00698CF8 /* KUUIFacultyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUUIFacultyViewController.h; sourceTree = "<group>"; };
+		EC0545E51E9B54EE00698CF8 /* KUUIFacultyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUUIFacultyViewController.m; sourceTree = "<group>"; };
 		EC75E9B41E8942460008FEC3 /* KUInteractionViewControllerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUInteractionViewControllerProtocol.h; sourceTree = "<group>"; };
 		EC75E9B51E8942460008FEC3 /* KUInteractionViewControllerProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUInteractionViewControllerProtocol.m; sourceTree = "<group>"; };
+		ECA4E3231E9F924200618560 /* KUUIFacultyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUUIFacultyCell.h; sourceTree = "<group>"; };
+		ECA4E3241E9F924200618560 /* KUUIFacultyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUUIFacultyCell.m; sourceTree = "<group>"; };
+		ECA4E3251E9F924200618560 /* KUUIFacultyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KUUIFacultyCell.xib; sourceTree = "<group>"; };
 		F9EBE6A2496A97B722A55D58 /* Pods-KubsuNewsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KubsuNewsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KubsuNewsTests/Pods-KubsuNewsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FD01E9E21E8448790005B456 /* KubsuNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KubsuNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD01E9E61E8448790005B456 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -108,9 +148,47 @@
 		FD145E9E1E86BFCF000F6B53 /* KUUITableViewNewsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUUITableViewNewsCell.h; sourceTree = "<group>"; };
 		FD145E9F1E86BFCF000F6B53 /* KUUITableViewNewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUUITableViewNewsCell.m; sourceTree = "<group>"; };
 		FD145EA01E86BFCF000F6B53 /* KUUITableViewNewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KUUITableViewNewsCell.xib; sourceTree = "<group>"; };
+		FD31E7741EA2AA8100A876AA /* KUUIDepartmentDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUUIDepartmentDetailViewController.h; sourceTree = "<group>"; };
+		FD31E7751EA2AA8100A876AA /* KUUIDepartmentDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUUIDepartmentDetailViewController.m; sourceTree = "<group>"; };
+		FD31E7761EA2AA8100A876AA /* KUUIDepartmentDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KUUIDepartmentDetailViewController.xib; sourceTree = "<group>"; };
+		FD31E7791EA2C55500A876AA /* KUPersonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUPersonItem.h; sourceTree = "<group>"; };
+		FD31E77A1EA2C55500A876AA /* KUPersonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUPersonItem.m; sourceTree = "<group>"; };
+		FD31E77D1EA2C80300A876AA /* KUUIPersonsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUUIPersonsTableViewController.h; sourceTree = "<group>"; };
+		FD31E77E1EA2C80300A876AA /* KUUIPersonsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUUIPersonsTableViewController.m; sourceTree = "<group>"; };
+		FD31E7801EA2C90A00A876AA /* KUUIPersonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUUIPersonCell.h; sourceTree = "<group>"; };
+		FD31E7811EA2C90A00A876AA /* KUUIPersonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUUIPersonCell.m; sourceTree = "<group>"; };
+		FD31E7821EA2C90A00A876AA /* KUUIPersonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KUUIPersonCell.xib; sourceTree = "<group>"; };
+		FD31E7851EA2D31700A876AA /* KUUIPersonDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUUIPersonDetailViewController.h; sourceTree = "<group>"; };
+		FD31E7861EA2D31700A876AA /* KUUIPersonDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUUIPersonDetailViewController.m; sourceTree = "<group>"; };
+		FD31E7871EA2D31700A876AA /* KUUIPersonDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KUUIPersonDetailViewController.xib; sourceTree = "<group>"; };
+		FD31E78C1EA2DA3A00A876AA /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
+		FD31E78D1EA2DA3A00A876AA /* Roboto-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BlackItalic.ttf"; sourceTree = "<group>"; };
+		FD31E78E1EA2DA3A00A876AA /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		FD31E78F1EA2DA3A00A876AA /* Roboto-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BoldItalic.ttf"; sourceTree = "<group>"; };
+		FD31E7901EA2DA3A00A876AA /* Roboto-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Italic.ttf"; sourceTree = "<group>"; };
+		FD31E7911EA2DA3A00A876AA /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
+		FD31E7921EA2DA3A00A876AA /* Roboto-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-LightItalic.ttf"; sourceTree = "<group>"; };
+		FD31E7931EA2DA3A00A876AA /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		FD31E7941EA2DA3A00A876AA /* Roboto-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-MediumItalic.ttf"; sourceTree = "<group>"; };
+		FD31E7951EA2DA3A00A876AA /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		FD31E7961EA2DA3A00A876AA /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
+		FD31E7971EA2DA3A00A876AA /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
+		FD31E7981EA2DA3A00A876AA /* RobotoCondensed-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Bold.ttf"; sourceTree = "<group>"; };
+		FD31E7991EA2DA3A00A876AA /* RobotoCondensed-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-BoldItalic.ttf"; sourceTree = "<group>"; };
+		FD31E79A1EA2DA3A00A876AA /* RobotoCondensed-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Italic.ttf"; sourceTree = "<group>"; };
+		FD31E79B1EA2DA3A00A876AA /* RobotoCondensed-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Light.ttf"; sourceTree = "<group>"; };
+		FD31E79C1EA2DA3A00A876AA /* RobotoCondensed-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-LightItalic.ttf"; sourceTree = "<group>"; };
+		FD31E79D1EA2DA3A00A876AA /* RobotoCondensed-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Regular.ttf"; sourceTree = "<group>"; };
 		FD6C271C1E8AF71E00B6B7B0 /* KUUIDetailNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUUIDetailNewsViewController.h; sourceTree = "<group>"; };
 		FD6C271D1E8AF71E00B6B7B0 /* KUUIDetailNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUUIDetailNewsViewController.m; sourceTree = "<group>"; };
 		FD6C271E1E8AF71E00B6B7B0 /* KUUIDetailNewsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KUUIDetailNewsViewController.xib; sourceTree = "<group>"; };
+		FD88113D1EA2A2C1009C079F /* KUUIDepartmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUUIDepartmentViewController.h; sourceTree = "<group>"; };
+		FD88113E1EA2A2C1009C079F /* KUUIDepartmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUUIDepartmentViewController.m; sourceTree = "<group>"; };
+		FD8811451EA2A339009C079F /* KUUIDepartmentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUUIDepartmentCell.h; sourceTree = "<group>"; };
+		FD8811461EA2A339009C079F /* KUUIDepartmentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUUIDepartmentCell.m; sourceTree = "<group>"; };
+		FD8811471EA2A339009C079F /* KUUIDepartmentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KUUIDepartmentCell.xib; sourceTree = "<group>"; };
+		FD8D541D1E9F52B500E66684 /* KUInfomationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUInfomationModel.h; sourceTree = "<group>"; };
+		FD8D541E1E9F52B500E66684 /* KUInfomationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUInfomationModel.m; sourceTree = "<group>"; };
 		FD970B961E90EB99008C15F6 /* KUUIEventsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUUIEventsCell.h; sourceTree = "<group>"; };
 		FD970B981E90EB99008C15F6 /* KUUIEventsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KUUIEventsCell.xib; sourceTree = "<group>"; };
 		FD970B9B1E90FA72008C15F6 /* KUEventItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUEventItem.h; sourceTree = "<group>"; };
@@ -128,6 +206,9 @@
 		FDAC27661E9058F7002AF259 /* GUITabPagerViewController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GUITabPagerViewController.framework; path = "Pods/../build/Debug-iphoneos/GUITabPagerViewController/GUITabPagerViewController.framework"; sourceTree = "<group>"; };
 		FDAC27681E905A4D002AF259 /* KUUIEventsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUUIEventsTableViewController.h; sourceTree = "<group>"; };
 		FDAC27691E905A4D002AF259 /* KUUIEventsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUUIEventsTableViewController.m; sourceTree = "<group>"; };
+		FDC63C2A1EA005D600416082 /* KUUIFacultyDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUUIFacultyDetailViewController.h; sourceTree = "<group>"; };
+		FDC63C2B1EA005D600416082 /* KUUIFacultyDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUUIFacultyDetailViewController.m; sourceTree = "<group>"; };
+		FDC63C2C1EA005D600416082 /* KUUIFacultyDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KUUIFacultyDetailViewController.xib; sourceTree = "<group>"; };
 		FDF304351E994B9D00D8F6B9 /* KUUIMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUUIMenuViewController.h; sourceTree = "<group>"; };
 		FDF304361E994B9D00D8F6B9 /* KUUIMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUUIMenuViewController.m; sourceTree = "<group>"; };
 		FDF3043C1E9950EC00D8F6B9 /* LGSideMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGSideMenuController.h; sourceTree = "<group>"; };
@@ -218,6 +299,19 @@
 			name = KUUIEventsDetailView;
 			sourceTree = "<group>";
 		};
+		EC0545E31E9B519600698CF8 /* Faculty  */ = {
+			isa = PBXGroup;
+			children = (
+				EC0545E41E9B54EE00698CF8 /* KUUIFacultyViewController.h */,
+				EC0545E51E9B54EE00698CF8 /* KUUIFacultyViewController.m */,
+				ECA4E3231E9F924200618560 /* KUUIFacultyCell.h */,
+				ECA4E3241E9F924200618560 /* KUUIFacultyCell.m */,
+				ECA4E3251E9F924200618560 /* KUUIFacultyCell.xib */,
+				FDC63C291EA0056F00416082 /* KUUIFacultyDetail */,
+			);
+			name = "Faculty ";
+			sourceTree = "<group>";
+		};
 		EFB4FAA7FCA519DFCDC917EC /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -256,11 +350,13 @@
 		FD01E9E41E8448790005B456 /* KubsuNews */ = {
 			isa = PBXGroup;
 			children = (
+				FD31E78B1EA2DA2600A876AA /* Fonts */,
 				FD9DEE751E916BE200446F7D /* Library */,
 				FD01E9E81E8448790005B456 /* AppDelegate.h */,
 				FD01E9E91E8448790005B456 /* AppDelegate.m */,
 				FDF304351E994B9D00D8F6B9 /* KUUIMenuViewController.h */,
 				FDF304361E994B9D00D8F6B9 /* KUUIMenuViewController.m */,
+				FD8811381EA2A1D0009C079F /* KUInformation views controller */,
 				FDF304571E995ECD00D8F6B9 /* Left View */,
 				FDF304531E995E9D00D8F6B9 /* NavigationController */,
 				FDF304521E995E8100D8F6B9 /* News and Events */,
@@ -309,6 +405,10 @@
 				FD01EA191E8448930005B456 /* KUNewsItem.m */,
 				FD970B9B1E90FA72008C15F6 /* KUEventItem.h */,
 				FD970B9C1E90FA72008C15F6 /* KUEventItem.m */,
+				FD8D541D1E9F52B500E66684 /* KUInfomationModel.h */,
+				FD8D541E1E9F52B500E66684 /* KUInfomationModel.m */,
+				FD31E7791EA2C55500A876AA /* KUPersonItem.h */,
+				FD31E77A1EA2C55500A876AA /* KUPersonItem.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -324,6 +424,87 @@
 				EC0156841E88E035002EEE9F /* News Detail */,
 			);
 			name = "News Table View";
+			sourceTree = "<group>";
+		};
+		FD31E7731EA2AA6200A876AA /* KUUIDepartmentDetail */ = {
+			isa = PBXGroup;
+			children = (
+				FD31E7741EA2AA8100A876AA /* KUUIDepartmentDetailViewController.h */,
+				FD31E7751EA2AA8100A876AA /* KUUIDepartmentDetailViewController.m */,
+				FD31E7761EA2AA8100A876AA /* KUUIDepartmentDetailViewController.xib */,
+			);
+			name = KUUIDepartmentDetail;
+			sourceTree = "<group>";
+		};
+		FD31E77C1EA2C7E600A876AA /* Persons */ = {
+			isa = PBXGroup;
+			children = (
+				FD31E77D1EA2C80300A876AA /* KUUIPersonsTableViewController.h */,
+				FD31E77E1EA2C80300A876AA /* KUUIPersonsTableViewController.m */,
+				FD31E7801EA2C90A00A876AA /* KUUIPersonCell.h */,
+				FD31E7811EA2C90A00A876AA /* KUUIPersonCell.m */,
+				FD31E7821EA2C90A00A876AA /* KUUIPersonCell.xib */,
+				FD31E78A1EA2D31900A876AA /* Person detail view */,
+			);
+			name = Persons;
+			sourceTree = "<group>";
+		};
+		FD31E78A1EA2D31900A876AA /* Person detail view */ = {
+			isa = PBXGroup;
+			children = (
+				FD31E7851EA2D31700A876AA /* KUUIPersonDetailViewController.h */,
+				FD31E7861EA2D31700A876AA /* KUUIPersonDetailViewController.m */,
+				FD31E7871EA2D31700A876AA /* KUUIPersonDetailViewController.xib */,
+			);
+			name = "Person detail view";
+			sourceTree = "<group>";
+		};
+		FD31E78B1EA2DA2600A876AA /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				FD31E78C1EA2DA3A00A876AA /* Roboto-Black.ttf */,
+				FD31E78D1EA2DA3A00A876AA /* Roboto-BlackItalic.ttf */,
+				FD31E78E1EA2DA3A00A876AA /* Roboto-Bold.ttf */,
+				FD31E78F1EA2DA3A00A876AA /* Roboto-BoldItalic.ttf */,
+				FD31E7901EA2DA3A00A876AA /* Roboto-Italic.ttf */,
+				FD31E7911EA2DA3A00A876AA /* Roboto-Light.ttf */,
+				FD31E7921EA2DA3A00A876AA /* Roboto-LightItalic.ttf */,
+				FD31E7931EA2DA3A00A876AA /* Roboto-Medium.ttf */,
+				FD31E7941EA2DA3A00A876AA /* Roboto-MediumItalic.ttf */,
+				FD31E7951EA2DA3A00A876AA /* Roboto-Regular.ttf */,
+				FD31E7961EA2DA3A00A876AA /* Roboto-Thin.ttf */,
+				FD31E7971EA2DA3A00A876AA /* Roboto-ThinItalic.ttf */,
+				FD31E7981EA2DA3A00A876AA /* RobotoCondensed-Bold.ttf */,
+				FD31E7991EA2DA3A00A876AA /* RobotoCondensed-BoldItalic.ttf */,
+				FD31E79A1EA2DA3A00A876AA /* RobotoCondensed-Italic.ttf */,
+				FD31E79B1EA2DA3A00A876AA /* RobotoCondensed-Light.ttf */,
+				FD31E79C1EA2DA3A00A876AA /* RobotoCondensed-LightItalic.ttf */,
+				FD31E79D1EA2DA3A00A876AA /* RobotoCondensed-Regular.ttf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
+		FD8811381EA2A1D0009C079F /* KUInformation views controller */ = {
+			isa = PBXGroup;
+			children = (
+				FD31E77C1EA2C7E600A876AA /* Persons */,
+				FD88113C1EA2A279009C079F /* Department */,
+				EC0545E31E9B519600698CF8 /* Faculty  */,
+			);
+			name = "KUInformation views controller";
+			sourceTree = "<group>";
+		};
+		FD88113C1EA2A279009C079F /* Department */ = {
+			isa = PBXGroup;
+			children = (
+				FD88113D1EA2A2C1009C079F /* KUUIDepartmentViewController.h */,
+				FD88113E1EA2A2C1009C079F /* KUUIDepartmentViewController.m */,
+				FD8811451EA2A339009C079F /* KUUIDepartmentCell.h */,
+				FD8811461EA2A339009C079F /* KUUIDepartmentCell.m */,
+				FD8811471EA2A339009C079F /* KUUIDepartmentCell.xib */,
+				FD31E7731EA2AA6200A876AA /* KUUIDepartmentDetail */,
+			);
+			name = Department;
 			sourceTree = "<group>";
 		};
 		FD970B951E90E621008C15F6 /* Events Table View */ = {
@@ -349,6 +530,16 @@
 				FDF304511E9950F400D8F6B9 /* LGSideMenuController */,
 			);
 			name = Library;
+			sourceTree = "<group>";
+		};
+		FDC63C291EA0056F00416082 /* KUUIFacultyDetail */ = {
+			isa = PBXGroup;
+			children = (
+				FDC63C2A1EA005D600416082 /* KUUIFacultyDetailViewController.h */,
+				FDC63C2B1EA005D600416082 /* KUUIFacultyDetailViewController.m */,
+				FDC63C2C1EA005D600416082 /* KUUIFacultyDetailViewController.xib */,
+			);
+			name = KUUIFacultyDetail;
 			sourceTree = "<group>";
 		};
 		FDF304511E9950F400D8F6B9 /* LGSideMenuController */ = {
@@ -521,14 +712,38 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD31E79E1EA2DA5300A876AA /* Roboto-Black.ttf in Resources */,
+				FD31E79F1EA2DA5300A876AA /* Roboto-BlackItalic.ttf in Resources */,
+				FD31E7A01EA2DA5300A876AA /* Roboto-Bold.ttf in Resources */,
+				FD31E7A11EA2DA5300A876AA /* Roboto-BoldItalic.ttf in Resources */,
+				FD31E7A21EA2DA5300A876AA /* Roboto-Italic.ttf in Resources */,
+				FD31E7A31EA2DA5300A876AA /* Roboto-Light.ttf in Resources */,
+				FD31E7A41EA2DA5300A876AA /* Roboto-LightItalic.ttf in Resources */,
+				FD31E7A51EA2DA5300A876AA /* Roboto-Medium.ttf in Resources */,
+				FD31E7A61EA2DA5300A876AA /* Roboto-MediumItalic.ttf in Resources */,
+				FD31E7A71EA2DA5300A876AA /* Roboto-Regular.ttf in Resources */,
+				FD31E7A81EA2DA5300A876AA /* Roboto-Thin.ttf in Resources */,
+				FD31E7A91EA2DA5300A876AA /* Roboto-ThinItalic.ttf in Resources */,
+				FD31E7AA1EA2DA5300A876AA /* RobotoCondensed-Bold.ttf in Resources */,
+				FD31E7AB1EA2DA5300A876AA /* RobotoCondensed-BoldItalic.ttf in Resources */,
+				FD31E7AC1EA2DA5300A876AA /* RobotoCondensed-Italic.ttf in Resources */,
+				FD31E7AD1EA2DA5300A876AA /* RobotoCondensed-Light.ttf in Resources */,
+				FD31E7AE1EA2DA5300A876AA /* RobotoCondensed-LightItalic.ttf in Resources */,
+				FD31E7AF1EA2DA5300A876AA /* RobotoCondensed-Regular.ttf in Resources */,
 				FD970B9A1E90EB99008C15F6 /* KUUIEventsCell.xib in Resources */,
 				FD145EA21E86BFCF000F6B53 /* KUUITableViewNewsCell.xib in Resources */,
 				FD6C27201E8AF71E00B6B7B0 /* KUUIDetailNewsViewController.xib in Resources */,
 				FDF3045C1E995F8900D8F6B9 /* KUUILeftViewController.xib in Resources */,
 				FD01E9F51E8448790005B456 /* LaunchScreen.storyboard in Resources */,
 				EC0545E21E9133A500698CF8 /* KUUIEventDetailViewController.xib in Resources */,
+				FDC63C2E1EA005D600416082 /* KUUIFacultyDetailViewController.xib in Resources */,
+				FD31E7781EA2AA8100A876AA /* KUUIDepartmentDetailViewController.xib in Resources */,
 				FD01E9F21E8448790005B456 /* Assets.xcassets in Resources */,
+				FD31E7841EA2C90A00A876AA /* KUUIPersonCell.xib in Resources */,
+				FD8811491EA2A339009C079F /* KUUIDepartmentCell.xib in Resources */,
 				FD01E9F01E8448790005B456 /* Main.storyboard in Resources */,
+				FD31E7891EA2D31700A876AA /* KUUIPersonDetailViewController.xib in Resources */,
+				ECA4E3271E9F924200618560 /* KUUIFacultyCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -691,22 +906,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDC63C2D1EA005D600416082 /* KUUIFacultyDetailViewController.m in Sources */,
+				FD8811481EA2A339009C079F /* KUUIDepartmentCell.m in Sources */,
 				EC75E9B61E8942460008FEC3 /* KUInteractionViewControllerProtocol.m in Sources */,
 				FD145E9C1E86BF9F000F6B53 /* KUUINewsTableViewController.m in Sources */,
 				FD145EA11E86BFCF000F6B53 /* KUUITableViewNewsCell.m in Sources */,
+				FD31E77F1EA2C80300A876AA /* KUUIPersonsTableViewController.m in Sources */,
 				FD9DEE741E916BDF00446F7D /* NSDate+Utilities.m in Sources */,
+				FD31E7771EA2AA8100A876AA /* KUUIDepartmentDetailViewController.m in Sources */,
 				FDF3044A1E9950EC00D8F6B9 /* LGSideMenuController.m in Sources */,
 				FDF3044F1E9950EC00D8F6B9 /* LGSideMenuView.m in Sources */,
 				FD01EA1E1E84499D0005B456 /* KUDataController.m in Sources */,
 				FDF304371E994B9D00D8F6B9 /* KUUIMenuViewController.m in Sources */,
 				FDF3044C1E9950EC00D8F6B9 /* LGSideMenuDrawer.m in Sources */,
 				FDAC276A1E905A4D002AF259 /* KUUIEventsTableViewController.m in Sources */,
+				FD31E7831EA2C90A00A876AA /* KUUIPersonCell.m in Sources */,
+				FD88113F1EA2A2C1009C079F /* KUUIDepartmentViewController.m in Sources */,
 				EC01568A1E88E550002EEE9F /* KUMainViewController.m in Sources */,
+				FD31E7881EA2D31700A876AA /* KUUIPersonDetailViewController.m in Sources */,
+				FD31E77B1EA2C55500A876AA /* KUPersonItem.m in Sources */,
+				EC0545E61E9B54EE00698CF8 /* KUUIFacultyViewController.m in Sources */,
 				FDF3045B1E995F8900D8F6B9 /* KUUILeftViewController.m in Sources */,
 				FD970B9D1E90FA72008C15F6 /* KUEventItem.m in Sources */,
 				EC0545E11E9133A500698CF8 /* KUUIEventDetailViewController.m in Sources */,
 				FD01E9EA1E8448790005B456 /* AppDelegate.m in Sources */,
 				FDF304501E9950EC00D8F6B9 /* UIViewController+LGSideMenuController.m in Sources */,
+				FD8D541F1E9F52B500E66684 /* KUInfomationModel.m in Sources */,
+				ECA4E3261E9F924200618560 /* KUUIFacultyCell.m in Sources */,
 				FDF3044E1E9950EC00D8F6B9 /* LGSideMenuSegue.m in Sources */,
 				FD01E9E71E8448790005B456 /* main.m in Sources */,
 				FDA38B171E957916008DB723 /* KUUIEventsCell.m in Sources */,

@@ -36,6 +36,8 @@ NSString *const IMAGES = @"images";
 -(void)appendDetail:(NSDictionary *)aDictionary {
     _detail = [aDictionary objectForKey:@"body"];
 }
-
+-(NSUInteger)hash {
+    return self.id_item.hash;
+}
 
 @end

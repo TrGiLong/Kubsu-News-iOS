@@ -20,9 +20,12 @@
     dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"dd MMMM yyyy в HH:mm"];
     
-    self.image.layer.cornerRadius = self.image.frame.size.width / 2;
-    self.image.layer.masksToBounds = YES;
-    self.image.contentMode = UIViewContentModeScaleAspectFill;
+    self.imageNews.layer.cornerRadius = self.imageNews.frame.size.width / 2;
+    self.imageNews.layer.masksToBounds = YES;
+    self.imageNews.contentMode = UIViewContentModeScaleAspectFill;
+    self.imageNews.layer.borderWidth = 0.5f;
+    self.imageNews.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    
     // Initialization code
 }
 
@@ -34,7 +37,7 @@
 -(void)setNewsItem:(KUNewsItem *)aNews {
     [self.title setText:aNews.title];
     
-    [self.image sd_setImageWithURL:aNews.thumbnailLink placeholderImage:[UIImage imageNamed:@"splash_logo"]];
+    [self.imageNews sd_setImageWithURL:aNews.thumbnailLink placeholderImage:[UIImage imageNamed:@"splash_logo"]];
     
     //Date + tag
     [self.info setText:[dateFormatter stringFromDate:aNews.dateTimeInner]];
