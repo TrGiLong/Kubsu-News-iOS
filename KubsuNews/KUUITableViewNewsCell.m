@@ -37,7 +37,7 @@
 -(void)setNewsItem:(KUNewsItem *)aNews {
     [self.title setText:aNews.title];
     
-    [self.imageNews sd_setImageWithURL:aNews.thumbnailLink placeholderImage:[UIImage imageNamed:@"splash_logo"]];
+    [self.imageNews sd_setImageWithURL:aNews.thumbnailLink];
     
     //Date + tag
     [self.info setText:[dateFormatter stringFromDate:aNews.dateTimeInner]];

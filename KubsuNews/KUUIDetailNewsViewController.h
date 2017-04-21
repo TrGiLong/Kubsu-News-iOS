@@ -10,8 +10,7 @@
 #import "KUDataController.h"
 
 
-@interface KUUIDetailNewsViewController : UIViewController  <KUNewsDetailControllerDataSource,UIViewControllerTransitioningDelegate> {
-
+@interface KUUIDetailNewsViewController : UIViewController  <UIViewControllerTransitioningDelegate> {
     UIImageView *imageView;
     KUNewsItem *news;
     

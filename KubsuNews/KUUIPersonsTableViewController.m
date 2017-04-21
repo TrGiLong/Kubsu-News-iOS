@@ -34,7 +34,7 @@ NSString *const CELL_PERSON = @"cell_person";
     
     refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(reloadDataAndUI) forControlEvents:UIControlEventValueChanged];
-    [self.tableView setRefreshControl:refreshControl];
+    [self setRefreshControl:refreshControl];
     
     
     [self reloadDataAndUI];
@@ -47,8 +47,18 @@ NSString *const CELL_PERSON = @"cell_person";
     [dataController getListPersonsBlock:^(NSArray<KUPersonItem *> * _Nullable aList, NSError * _Nullable error) {
         items = aList;
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self.tableView reloadData];
-            [refreshControl endRefreshing];
+            if (!error) {
+                [self.tableView reloadData];
+                [refreshControl endRefreshing];
+            } else {
+                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Упс!" message:@"Произошла ошибка подключения" preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                    [refreshControl endRefreshing];
+                }];
+                [alert addAction:cancelAction];
+                [self presentViewController:alert animated:YES completion:nil];
+            }
+          
         });
     }];
 }
@@ -71,7 +81,18 @@ NSString *const CELL_PERSON = @"cell_person";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
+    if ([items count] == 0) {
+        UILabel *noDataLabel         = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.tableView.bounds.size.width, self.tableView.bounds.size.height)];
+        noDataLabel.text             = @"Нет данных";
+        noDataLabel.textColor        = [UIColor grayColor];
+        noDataLabel.textAlignment    = NSTextAlignmentCenter;
+        [noDataLabel setFont:[UIFont systemFontOfSize:18]];
+        self.tableView.backgroundView = noDataLabel;
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        return 0;
+    }
+    self.tableView.backgroundView = nil;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     return [items count];
 }
 

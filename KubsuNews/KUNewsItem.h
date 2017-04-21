@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface KUNewsItem : NSObject
+@interface KUNewsItem : NSObject <NSCoding>
 
 -(id)initWithDictionary:(NSDictionary*)aDictionary;
 -(void)appendDetail:(NSDictionary*)aDictionary;

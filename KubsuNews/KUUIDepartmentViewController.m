@@ -31,16 +31,13 @@ NSString *const CELL_DEPARTMENT = @"cell_department";
     
     [self.navigationController.navigationBar setTitleTextAttributes:
      @{NSForegroundColorAttributeName:[UIColor whiteColor]}];
-    
-    [self.tableView setDelegate:self];
-    [self.tableView setDataSource:self];
-    
+   
     [self.tableView registerNib:[UINib nibWithNibName:@"KUUIDepartmentCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:CELL_DEPARTMENT];
     [self.tableView setRowHeight:88];
     
     refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(reloadDataAndUI) forControlEvents:UIControlEventValueChanged];
-    [self.tableView setRefreshControl:refreshControl];
+    [self setRefreshControl:refreshControl];
     
     [self reloadDataAndUI];
 
@@ -54,8 +51,17 @@ NSString *const CELL_DEPARTMENT = @"cell_department";
     [dataController getListDepartmentBlock:^(NSArray<KUDepartmentItem *> *anItems, NSError *error) {
         items = anItems;
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self.tableView reloadData];
-            [refreshControl endRefreshing];
+            if (error) {
+                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Упс!" message:@"Произошла ошибка подключения" preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                    [refreshControl endRefreshing];
+                }];
+                [alert addAction:cancelAction];
+                [self presentViewController:alert animated:YES completion:nil];
+            } else {
+                [self.tableView reloadData];
+                [refreshControl endRefreshing];
+            }
         });
     }];
 }
@@ -74,6 +80,18 @@ NSString *const CELL_DEPARTMENT = @"cell_department";
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if ([items count] == 0) {
+        UILabel *noDataLabel         = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.tableView.bounds.size.width, self.tableView.bounds.size.height)];
+        noDataLabel.text             = @"Нет данных";
+        noDataLabel.textColor        = [UIColor grayColor];
+        noDataLabel.textAlignment    = NSTextAlignmentCenter;
+        [noDataLabel setFont:[UIFont systemFontOfSize:18]];
+        self.tableView.backgroundView = noDataLabel;
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        return 0;
+    }
+    self.tableView.backgroundView = nil;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     return [items count];
 }
 

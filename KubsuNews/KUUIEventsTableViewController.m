@@ -26,7 +26,7 @@ NSString *const CELL_EVENTS = @"cell_events";
 -(instancetype)init {
     self = [super init];
     if (self) {
-        self.title = @"Мероприятие";
+        self.title = @"Мероприятия";
     }
     return self;
 }
@@ -34,13 +34,12 @@ NSString *const CELL_EVENTS = @"cell_events";
 -(id)initWithDataController:(KUDataController*)aDataController delegate:(id <KUInteractionViewControllerProtocol>)aDelegate {
     self = [super init];
     if (self) {
-       
+
         dataController = aDataController;
         dataController.delegateEvents = self;
         delegate = aDelegate;
-        
-        self.title = @"Мероприятие";
-        
+    
+        self.title = @"Мероприятия";
     }
     return self;
 }
@@ -53,7 +52,7 @@ NSString *const CELL_EVENTS = @"cell_events";
     [self.tableView registerNib:[UINib nibWithNibName:@"KUUIEventsCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:CELL_EVENTS];
     
     refrestControl = [[UIRefreshControl alloc] init];
-    [refrestControl setAttributedTitle:[[NSAttributedString alloc] initWithString:@"Loading..."]];
+    [refrestControl setAttributedTitle:[[NSAttributedString alloc] initWithString:@"Идет загрузка..."]];
     [refrestControl addTarget:self action:@selector(refrestEvents) forControlEvents:UIControlEventValueChanged];
     [self setRefreshControl:refrestControl];
     
@@ -78,6 +77,18 @@ NSString *const CELL_EVENTS = @"cell_events";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if ([items count] == 0) {
+        UILabel *noDataLabel         = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.tableView.bounds.size.width, self.tableView.bounds.size.height)];
+        noDataLabel.text             = @"Нет данных";
+        noDataLabel.textColor        = [UIColor grayColor];
+        noDataLabel.textAlignment    = NSTextAlignmentCenter;
+        [noDataLabel setFont:[UIFont systemFontOfSize:18]];
+        self.tableView.backgroundView = noDataLabel;
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        return 0;
+    }
+    self.tableView.backgroundView = nil;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     return [items count];
 }
 
@@ -125,6 +136,15 @@ NSString *const CELL_EVENTS = @"cell_events";
         
     }
 
+}
+
+-(void)KUDataController:(KUDataController *)controller eventError:(NSError *)error {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Упс!" message:@"Произошла ошибка подключения" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        [self.refreshControl endRefreshing];
+    }];
+    [alert addAction:cancelAction];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

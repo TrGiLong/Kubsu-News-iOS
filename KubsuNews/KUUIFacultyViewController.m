@@ -17,7 +17,8 @@
 
 NSString *const CELL_FACULTY = @"cell_faculty";
 
-@implementation KUUIFacultyViewController
+@implementation KUUIFacultyViewController {
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -42,17 +43,17 @@ NSString *const CELL_FACULTY = @"cell_faculty";
     [self.navigationController.navigationBar setTitleTextAttributes:
      @{NSForegroundColorAttributeName:[UIColor whiteColor]}];
     
-    [self.tableView setDelegate:self];
-    [self.tableView setDataSource:self];
+
     
     [self.tableView registerNib:[UINib nibWithNibName:@"KUUIFacultyCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:CELL_FACULTY];
     [self.tableView setRowHeight:88];
     
     refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(reloadDataAndUI) forControlEvents:UIControlEventValueChanged];
-    [self.tableView setRefreshControl:refreshControl];
+    [self setRefreshControl:refreshControl];
     
-    [refreshControl beginRefreshing];
+    [self setTitle:@"Факультеты"];
+
     [self reloadDataAndUI];
 
 }
@@ -60,14 +61,24 @@ NSString *const CELL_FACULTY = @"cell_faculty";
 
 
 -(void)reloadDataAndUI {
-
-    [dataController getListFacultyBlock:^(NSArray<KUFacultyItem *> *anItems) {
-        items = anItems;
+    [refreshControl beginRefreshing];
+    [dataController getListFacultyBlock:^(NSArray<KUFacultyItem *> * _Nullable aList, NSError * _Nullable error) {
+        items = aList;
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self.tableView reloadData];
-            [refreshControl endRefreshing];
+            if (!error) {
+                [self.tableView reloadData];
+                [refreshControl endRefreshing];
+            } else {
+                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Упс!" message:@"Произошла ошибка подключения" preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                    [refreshControl endRefreshing];
+                }];
+                [alert addAction:cancelAction];
+                [self presentViewController:alert animated:YES completion:nil];
+            }
+        
         });
-    }];
+    } ];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -84,7 +95,20 @@ NSString *const CELL_FACULTY = @"cell_faculty";
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if ([items count] == 0) {
+        UILabel *noDataLabel         = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.tableView.bounds.size.width, self.tableView.bounds.size.height)];
+        noDataLabel.text             = @"Нет данных";
+        noDataLabel.textColor        = [UIColor grayColor];
+        noDataLabel.textAlignment    = NSTextAlignmentCenter;
+        [noDataLabel setFont:[UIFont systemFontOfSize:18]];
+        self.tableView.backgroundView = noDataLabel;
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        return 0;
+    }
+    self.tableView.backgroundView = nil;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     return [items count];
+
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

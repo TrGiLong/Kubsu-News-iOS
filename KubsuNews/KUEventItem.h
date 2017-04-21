@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface KUEventItem : NSObject
+@interface KUEventItem : NSObject <NSCoding>
 
 -(id)initWithDictionary:(NSDictionary*)aDict;
 

@@ -25,8 +25,11 @@
     NSOperationQueue *queue;
     
     NSArray *cache_list_news;
+    
+    NSMutableSet <KUFavouriteItem*> *favouriteList;
 }
 
+NSString *const FAVOURITE_SET = @"favouriteSet";
 
 -(instancetype)init {
     self = [super init];
@@ -35,8 +38,21 @@
         
         NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
         sessionNews = [NSURLSession sessionWithConfiguration:sessionConfig delegate:self delegateQueue:queue];
+        
+        NSUserDefaults *userDf = [NSUserDefaults standardUserDefaults];
+        if ([userDf objectForKey:FAVOURITE_SET]) {
+            favouriteList = [NSKeyedUnarchiver unarchiveObjectWithData:[userDf objectForKey:FAVOURITE_SET]];
+        } else {
+            favouriteList = [NSMutableSet set];
+        }
+        
     }
     return self;
+}
+
+-(NSArray<KUFavouriteItem *> *)listFavouriteByData {
+    NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"addingDate" ascending:YES];
+    return [favouriteList sortedArrayUsingDescriptors:@[sort]];
 }
 
 
@@ -63,6 +79,8 @@ NSString *const CASE_FACULTY = @"2";
 NSString *const CASE_DEPARTMENT = @"3";
 NSString *const CASE_PERSON = @"4";
 NSString *const SERVER_ADRESS = @"77.246.159.212";
+
+
 
 -(void)getNumberOfType:(KUTypeData)aType {
     switch (aType) {
@@ -102,12 +120,21 @@ NSString *const SERVER_ADRESS = @"77.246.159.212";
         
         numberOfNewsTask = [sessionNews dataTaskWithURL:[NSURL URLWithString:urlStr] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
             NSError *tempError;
-            NSDictionary *dataDict = (NSDictionary*)[NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&tempError];
-            if ([self.delegateNews conformsToProtocol:@protocol(KUNewsControllerDataSource)]) {
-                NSString *value = [[dataDict objectForKey:COUNT_PARSE] objectForKey:RESULT_PARSE];
-                [self.delegateNews KUDataController:self numberOfNews:[value integerValue]]; //unsigned value here. Fix next
-                numberOfNewsTask = nil;
+            NSDictionary *dataDict;
+            if (!error) {
+                if (data != nil) {
+                    dataDict = (NSDictionary*)[NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&tempError];
+                    if ([self.delegateNews conformsToProtocol:@protocol(KUNewsControllerDataSource)] & !tempError) {
+                        NSString *value = [[dataDict objectForKey:COUNT_PARSE] objectForKey:RESULT_PARSE];
+                        [self.delegateNews KUDataController:self numberOfNews:[value integerValue]]; //unsigned value here. Fix next
+                    } else {
+                        [self.delegateNews KUDataController:self newsError:tempError];
+                    }
+                }
+            } else {
+                 [self.delegateNews KUDataController:self newsError:error];
             }
+            numberOfNewsTask = nil;
         }];
         [numberOfNewsTask resume];
     }
@@ -119,11 +146,20 @@ NSString *const SERVER_ADRESS = @"77.246.159.212";
         
         newsDataTask = [sessionNews dataTaskWithURL:[NSURL URLWithString:urlStr] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
             NSError *tempError;
-            NSDictionary *dataDict = (NSDictionary*)[NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&tempError];
-            if ([self.delegateNews conformsToProtocol:@protocol(KUNewsControllerDataSource)] &&
-                [[dataDict objectForKey:ITEMS_PARSE] count] > 0) {
-                [self.delegateNews KUDataController:self receiveNewsList:[self parseListNews:dataDict]];
-                newsDataTask = nil;
+            NSDictionary *dataDict;
+            if (!error) {
+                if (data != nil) {
+                    dataDict = (NSDictionary*)[NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&tempError];
+                    if ([self.delegateNews conformsToProtocol:@protocol(KUNewsControllerDataSource)] &&
+                        [[dataDict objectForKey:ITEMS_PARSE] count] > 0 && !tempError) {
+                        [self.delegateNews KUDataController:self receiveNewsList:[self parseListNews:dataDict]];
+                        newsDataTask = nil;
+                    } else {
+                        [self.delegateEvents KUDataController:self eventError:error];
+                    }
+                }
+            } else {
+                [self.delegateEvents KUDataController:self eventError:error];
             }
         }];
         [newsDataTask resume];
@@ -157,16 +193,23 @@ NSString *const RESULT_PARSE = @"result";
 NSString *const TEXT = @"text";
 NSString *const TEXT_PARSE = @"TEXT";
 
--(void)getFullNews:(KUNewsItem *)item {
+-(void)getFullNews:(KUNewsItem *)item completion:(void (^ _Nullable)(KUNewsItem *, NSError * _Nullable))completion{
     NSString *urlStr = [NSString stringWithFormat:@"http://%@/informer/get.php?datatype=%@&client=%@&platform=%@&version=%@&id=%@",SERVER_ADRESS,TEXT,CLIENT,PLATFORM,VERSION,item.id_item]
     ;
     
     NSURLSessionDataTask *detailNewsTask = [sessionNews dataTaskWithURL:[NSURL URLWithString:urlStr] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         NSError *tempError;
-        NSDictionary *dataDict = (NSDictionary*)[NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&tempError];
-        [item appendDetail:[[dataDict objectForKey:TEXT_PARSE] firstObject]];
-        [self.delegateDetailNews KUDataController:self receiveNewsDetail:item];
-        
+        if (!error) {
+            NSDictionary *dataDict = (NSDictionary*)[NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&tempError];
+            [item appendDetail:[[dataDict objectForKey:TEXT_PARSE] firstObject]];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completion(item,nil);
+            });
+        } else {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completion(nil,error);
+            });
+        }
     }];
     [detailNewsTask resume];
 }
@@ -179,14 +222,18 @@ NSString *const TEXT_PARSE = @"TEXT";
         
         numberOfEventsTask = [sessionNews dataTaskWithURL:[NSURL URLWithString:urlStr] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
             NSError *tempError;
-            NSDictionary *dataDict = (NSDictionary*)[NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&tempError];
-            if ([self.delegateNews conformsToProtocol:@protocol(KUNewsControllerDataSource)]) {
-                
-                NSString *value = [[dataDict objectForKey:COUNT_PARSE] objectForKey:RESULT_PARSE];
-                [self.delegateEvents KUDataController:self numberOfEvents:[value integerValue]]; //unsigned value here. Fix next
-                numberOfEventsTask = nil;
+            if (data !=nil) {
+                NSDictionary *dataDict = (NSDictionary*)[NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&tempError];
+                if ([self.delegateNews conformsToProtocol:@protocol(KUNewsControllerDataSource)] && !tempError) {
+                    NSString *value = [[dataDict objectForKey:COUNT_PARSE] objectForKey:RESULT_PARSE];
+                    [self.delegateEvents KUDataController:self numberOfEvents:[value integerValue]]; //unsigned value here. Fix next
+                } else {
+                    [self.delegateEvents KUDataController:self eventError:tempError];
+                }
+            } else if (error) {
+                [self.delegateEvents KUDataController:self eventError:error];
             }
-            
+            numberOfEventsTask = nil;
         }];
         [numberOfEventsTask resume];
     }
@@ -198,12 +245,25 @@ NSString *const TEXT_PARSE = @"TEXT";
         
         eventsDataTask = [sessionNews dataTaskWithURL:[NSURL URLWithString:urlStr] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
             NSError *tempError;
-            NSDictionary *dataDict = (NSDictionary*)[NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&tempError];
-            if ([self.delegateEvents conformsToProtocol:@protocol(KUEventsControllerDataSource)] &&
-                [[dataDict objectForKey:ITEMS_PARSE] count] > 0) {
-                [self.delegateEvents KUDataController:self receiveEventsList:[self parseListEvents:dataDict]];
-                eventsDataTask = nil;
+            NSDictionary *dataDict;
+            if (data !=nil) {
+                dataDict = (NSDictionary*)[NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&tempError];
+                if ([self.delegateNews conformsToProtocol:@protocol(KUNewsControllerDataSource)] && !tempError) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self.delegateEvents KUDataController:self receiveEventsList:[self parseListEvents:dataDict]];
+                    });
+                    
+                } else {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self.delegateEvents KUDataController:self eventError:tempError];
+                    });
+                }
+            } else if (error) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.delegateEvents KUDataController:self eventError:error];
+                });
             }
+            eventsDataTask = nil;
         }];
         [eventsDataTask resume];
     }
@@ -221,17 +281,23 @@ NSString *const TEXT_PARSE = @"TEXT";
     return list;
 }
 
--(void)getFullEvent:(KUEventItem *)event completion:(void (^)(KUEventItem *))completion {
+-(void)getFullEvent:(KUEventItem *)event  completion:(void (^ __nullable)(KUEventItem*, NSError* _Nullable error))completion {
     NSString *urlStr = [NSString stringWithFormat:@"http://%@/informer/get.php?datatype=%@&client=%@&platform=%@&version=%@&id=%@",SERVER_ADRESS,TEXT,CLIENT,PLATFORM,[self getVersionRequest],event.idItem]
     ;
     
     NSURLSessionDataTask *detailNewsTask = [sessionNews dataTaskWithURL:[NSURL URLWithString:urlStr] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         NSError *tempError;
-        NSDictionary *dataDict = (NSDictionary*)[NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&tempError];
-        [event appendDetail:[[dataDict objectForKey:TEXT_PARSE] firstObject]];
-        
-        if (completion != NULL) {
-            completion(event);
+        if (!error) {
+            NSDictionary *dataDict = (NSDictionary*)[NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&tempError];
+            [event appendDetail:[[dataDict objectForKey:TEXT_PARSE] firstObject]];
+            
+            if (completion != NULL) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    completion(event,error);
+                });
+            }
+        } else {
+            completion(nil,error);
         }
         
     }];
@@ -240,17 +306,22 @@ NSString *const TEXT_PARSE = @"TEXT";
 
 #pragma mark - Faculty Item
 
--(void)getListFacultyBlock:(void (^)(NSArray<KUFacultyItem *> *))completion {
+-(void)getListFacultyBlock:(void (^)(NSArray<KUFacultyItem *> * _Nullable, NSError * _Nullable))completion {
     NSString *urlStr = [NSString stringWithFormat:@"http://%@/informer/get.php?datatype=%@&client=%@&platform=%@&case=%@&version=%@",SERVER_ADRESS,ITEMS,CLIENT,PLATFORM,CASE_FACULTY,[self getVersionRequest]];
     
     listFacultyTask = [sessionNews dataTaskWithURL:[NSURL URLWithString:urlStr] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        NSError *tempError;
-        NSDictionary *dataDict = (NSDictionary*)[NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&tempError];
-        if ([self.delegateEvents conformsToProtocol:@protocol(KUEventsControllerDataSource)] &&
-            [[dataDict objectForKey:ITEMS_PARSE] count] > 0) {
-            completion([self parseListFaculty:dataDict]);
-            listFacultyTask = nil;
+        if (!error) {
+            NSError *tempError;
+            NSDictionary *dataDict = (NSDictionary*)[NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&tempError];
+            if ([self.delegateEvents conformsToProtocol:@protocol(KUEventsControllerDataSource)] &&
+                [[dataDict objectForKey:ITEMS_PARSE] count] > 0) {
+                completion([self parseListFaculty:dataDict], nil);
+                listFacultyTask = nil;
+            }
+        } else {
+            completion(nil,error);
         }
+        
     }];
     [listFacultyTask resume];
     
@@ -276,12 +347,17 @@ NSString *const TEXT_PARSE = @"TEXT";
     
     listDepartmentsTask = [sessionNews dataTaskWithURL:[NSURL URLWithString:urlStr] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         NSError *tempError;
-        NSDictionary *dataDict = (NSDictionary*)[NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&tempError];
-        if ([self.delegateEvents conformsToProtocol:@protocol(KUEventsControllerDataSource)] &&
-            [[dataDict objectForKey:ITEMS_PARSE] count] > 0) {
-            completion([self parseListDepartment:dataDict], error != nil ? error : tempError);
-            listDepartmentsTask = nil;
+        if (!error) {
+            NSDictionary *dataDict = (NSDictionary*)[NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&tempError];
+            if ([self.delegateEvents conformsToProtocol:@protocol(KUEventsControllerDataSource)] &&
+                [[dataDict objectForKey:ITEMS_PARSE] count] > 0) {
+                completion([self parseListDepartment:dataDict], error != nil ? error : tempError);
+                listDepartmentsTask = nil;
+            }
+        } else {
+            completion(nil, error);
         }
+        
     }];
     [listDepartmentsTask resume];
 
@@ -304,12 +380,17 @@ NSString *const TEXT_PARSE = @"TEXT";
     
     listPersonsTask = [sessionNews dataTaskWithURL:[NSURL URLWithString:urlStr] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         NSError *tempError;
-        NSDictionary *dataDict = (NSDictionary*)[NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&tempError];
-        if ([self.delegateEvents conformsToProtocol:@protocol(KUEventsControllerDataSource)] &&
-            [[dataDict objectForKey:ITEMS_PARSE] count] > 0) {
-            completion([self parseListPerson:dataDict], error != nil ? error : tempError);
-            listPersonsTask = nil;
+        if (!error) {
+            NSDictionary *dataDict = (NSDictionary*)[NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&tempError];
+            if ([self.delegateEvents conformsToProtocol:@protocol(KUEventsControllerDataSource)] &&
+                [[dataDict objectForKey:ITEMS_PARSE] count] > 0) {
+                completion([self parseListPerson:dataDict], error != nil ? error : tempError);
+                listPersonsTask = nil;
+            }
+        } else {
+            completion(nil,error);
         }
+        
     }];
     [listPersonsTask resume];
 
@@ -325,5 +406,25 @@ NSString *const TEXT_PARSE = @"TEXT";
         }
     }
     return list;
+}
+
+#pragma mark - Favourite
+-(void)addItemIntoFavourite:(NSObject *)anItem {
+    [favouriteList addObject:[[KUFavouriteItem alloc] initWithItem:anItem]];
+    [self saveFavouriteSet];
+}
+
+-(void)removeItemFromFavourite:(NSObject*)anItem {
+    [favouriteList removeObject:anItem];
+    [self saveFavouriteSet];
+}
+
+-(BOOL)isInFavourite:(NSObject *)anItem {
+    return [favouriteList containsObject:anItem];
+}
+
+-(void)saveFavouriteSet {
+    NSUserDefaults *userDf = [NSUserDefaults standardUserDefaults];
+    [userDf setObject:[NSKeyedArchiver archivedDataWithRootObject:favouriteList] forKey:FAVOURITE_SET];
 }
 @end

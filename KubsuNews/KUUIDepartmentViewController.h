@@ -8,12 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "KUDataController.h"
-@interface KUUIDepartmentViewController : UIViewController <UITableViewDelegate,UITableViewDataSource> {
+@interface KUUIDepartmentViewController : UITableViewController {
     NSArray <KUDepartmentItem*> *items;
     KUDataController *dataController;
     
     UIRefreshControl *refreshControl;
 }
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end

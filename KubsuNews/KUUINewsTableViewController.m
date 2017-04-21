@@ -22,7 +22,6 @@ NSString *const CELL_NEWS_ITEM = @"CELL_NEWS_ITEM";
     UIRefreshControl *refrestControl;
     id <KUInteractionViewControllerProtocol> delegate;
     NSUInteger numberOfNews;
-    
 }
 
 -(id)initWithDataController:(KUDataController *)dataController delegate:(id)aDelegate {
@@ -31,6 +30,7 @@ NSString *const CELL_NEWS_ITEM = @"CELL_NEWS_ITEM";
         _dataController = dataController;
         dataController.delegateNews = self;
         delegate = aDelegate;
+
         
         self.title = @"Новости";
     }
@@ -44,7 +44,7 @@ NSString *const CELL_NEWS_ITEM = @"CELL_NEWS_ITEM";
     [self.tableView registerNib:[UINib nibWithNibName:@"KUUITableViewNewsCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:CELL_NEWS_ITEM];
     
     refrestControl = [[UIRefreshControl alloc] init];
-    [refrestControl setAttributedTitle:[[NSAttributedString alloc] initWithString:@"Loading..."]];
+    [refrestControl setAttributedTitle:[[NSAttributedString alloc] initWithString:@"Идет загрузка..."]];
     [refrestControl addTarget:self action:@selector(refrestNews) forControlEvents:UIControlEventValueChanged];
     [self setRefreshControl:refrestControl];
     
@@ -77,7 +77,20 @@ NSString *const CELL_NEWS_ITEM = @"CELL_NEWS_ITEM";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if ([items count] == 0) {
+        UILabel *noDataLabel         = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.tableView.bounds.size.width, self.tableView.bounds.size.height)];
+        noDataLabel.text             = @"Нет данных";
+        noDataLabel.textColor        = [UIColor grayColor];
+        noDataLabel.textAlignment    = NSTextAlignmentCenter;
+        [noDataLabel setFont:[UIFont systemFontOfSize:18]];
+        self.tableView.backgroundView = noDataLabel;
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        return 0;
+    }
+    self.tableView.backgroundView = nil;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     return [items count];
+
 }
 
 
@@ -94,7 +107,6 @@ NSString *const CELL_NEWS_ITEM = @"CELL_NEWS_ITEM";
         KUUIDetailNewsViewController *detailVC = [[KUUIDetailNewsViewController alloc] initWithNibName:@"KUUIDetailNewsViewController" bundle:[NSBundle mainBundle] news:itemNews dataController:self.dataController];
         if ([delegate conformsToProtocol:@protocol(KUInteractionViewControllerProtocol)]) {
             [delegate viewController:self present:detailVC completion:nil];
-    
         }
         
     }
@@ -112,8 +124,11 @@ NSString *const CELL_NEWS_ITEM = @"CELL_NEWS_ITEM";
         if ([refrestControl isRefreshing]) {
             [items removeAllObjects];
             [items addObjectsFromArray:anItems];
-            [self.tableView reloadData];
-            [refrestControl endRefreshing];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.tableView reloadData];
+                [refrestControl endRefreshing];
+            });
+           
         } else {
             NSMutableArray <NSIndexPath*> *listRows = [NSMutableArray arrayWithCapacity:[anItems count]];
             for (NSInteger row = [items count]; row < [anItems count] + [items count]; row++) {
@@ -129,6 +144,18 @@ NSString *const CELL_NEWS_ITEM = @"CELL_NEWS_ITEM";
         }
         
     }
+}
+
+-(void)KUDataController:(KUDataController *)controller newsError:(NSError *)error {
+
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Упс!" message:@"Произошла ошибка подключения" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        [self.refreshControl endRefreshing];
+    }];
+    [alert addAction:cancelAction];
+    [self presentViewController:alert animated:YES completion:nil];
+
+
 }
 
 -(void)refrestNews {
