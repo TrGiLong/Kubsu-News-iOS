@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="KUUIDetailNewsViewController">
+            <connections>
+                <outlet property="author" destination="zWX-yB-kP3" id="6Ix-WI-gUN"/>
+                <outlet property="detailTextView" destination="0jz-Xg-RyG" id="rlc-6B-sqi"/>
+                <outlet property="scrollView" destination="CpQ-2Y-dCw" id="d4g-5Y-1So"/>
+                <outlet property="titleLabel" destination="hDK-cr-aht" id="eQ4-q3-WJK"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="THG-tH-FM6"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CpQ-2Y-dCw">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="eNN-YX-zwJ">
+                            <rect key="frame" x="10" y="15" width="355" height="99"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hDK-cr-aht">
+                                    <rect key="frame" x="0.0" y="0.0" width="355" height="26.5"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Detail" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="0jz-Xg-RyG">
+                                    <rect key="frame" x="0.0" y="36.5" width="355" height="33"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
+                                </textView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zWX-yB-kP3">
+                                    <rect key="frame" x="0.0" y="79.5" width="355" height="19.5"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="16"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="eNN-YX-zwJ" secondAttribute="bottom" constant="10" id="5rv-6B-1Jb"/>
+                        <constraint firstItem="eNN-YX-zwJ" firstAttribute="width" secondItem="CpQ-2Y-dCw" secondAttribute="width" constant="-20" id="TcI-Wg-HIj"/>
+                        <constraint firstAttribute="trailing" secondItem="eNN-YX-zwJ" secondAttribute="trailing" constant="10" id="amw-RO-ip2"/>
+                        <constraint firstItem="eNN-YX-zwJ" firstAttribute="top" secondItem="CpQ-2Y-dCw" secondAttribute="top" constant="15" id="gWt-gd-t1i"/>
+                        <constraint firstItem="eNN-YX-zwJ" firstAttribute="leading" secondItem="CpQ-2Y-dCw" secondAttribute="leading" constant="10" id="nDD-9B-TmT"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="CpQ-2Y-dCw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="HvC-OJ-Yzm"/>
+                <constraint firstAttribute="trailing" secondItem="CpQ-2Y-dCw" secondAttribute="trailing" id="Tl9-7C-bZq"/>
+                <constraint firstAttribute="bottom" secondItem="CpQ-2Y-dCw" secondAttribute="bottom" id="d2b-Oq-K7g"/>
+                <constraint firstItem="CpQ-2Y-dCw" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="qNV-8W-BQX"/>
+            </constraints>
+            <point key="canvasLocation" x="-39.5" y="118.5"/>
+        </view>
+    </objects>
+</document>

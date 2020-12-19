@@ -32,4 +32,40 @@ NSString *const IMAGES = @"images";
 -(NSString *)description {
     return [NSString stringWithFormat:@"id = %@ \n title = %@ \n publisher = %@ \n thumbnail link = %@ \n image link = %@",self.id_item, self.title, self.publisher, [self.thumbnailLink absoluteString], [self.imageLink absoluteString]];
 }
+
+-(void)appendDetail:(NSDictionary *)aDictionary {
+    _detail = [aDictionary objectForKey:@"body"];
+}
+-(NSUInteger)hash {
+    return self.id_item.hash;
+}
+
+-(instancetype)initWithCoder:(NSCoder *)aDecoder {
+    self =  [super init];
+    if (self) {
+        _id_item = [aDecoder decodeObjectForKey:@"id"];
+        _title = [aDecoder decodeObjectForKey:@"title"];
+        _thumbnailLink = [aDecoder decodeObjectForKey:@"thumbnailLink"];
+        _imageLink = [aDecoder decodeObjectForKey:@"imageLink"];
+        _webLink = [aDecoder decodeObjectForKey:@"webLink"];
+        _dateTimeInner = [aDecoder decodeObjectForKey:@"dateTimeInner"];
+        _publisher = [aDecoder decodeObjectForKey:@"publisher"];
+        _category = [aDecoder decodeObjectForKey:@"category"];
+        _colorStr = [aDecoder decodeObjectForKey:@"colorStr"];
+    }
+    return self;
+}
+
+-(void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeObject:self.id_item forKey:@"id"];
+    [aCoder encodeObject:self.title forKey:@"title"];
+    [aCoder encodeObject:self.thumbnailLink forKey:@"thumbnailLink"];
+    [aCoder encodeObject:self.imageLink forKey:@"imageLink"];
+    [aCoder encodeObject:self.webLink forKey:@"webLink"];
+    [aCoder encodeObject:self.dateTimeInner forKey:@"dateTimeInner"];
+    [aCoder encodeObject:self.publisher forKey:@"publisher"];
+    [aCoder encodeObject:self.category forKey:@"category"];
+    [aCoder encodeObject:self.colorStr forKey:@"colorStr"];
+}
+
 @end

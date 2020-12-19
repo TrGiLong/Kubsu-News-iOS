@@ -9,19 +9,23 @@
 #import "KUUITableViewNewsCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
-#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
-
 @implementation KUUITableViewNewsCell {
     NSDateFormatter *dateFormatter;
+    
+
 }
 
 - (void)awakeFromNib {
     [super awakeFromNib];
     dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"dd MM yyyy в HH:mm"];
+    [dateFormatter setDateFormat:@"dd MMMM yyyy в HH:mm"];
     
-    self.image.layer.cornerRadius = self.image.frame.size.width / 2;
-    self.image.layer.masksToBounds = YES;
+    self.imageNews.layer.cornerRadius = self.imageNews.frame.size.width / 2;
+    self.imageNews.layer.masksToBounds = YES;
+    self.imageNews.contentMode = UIViewContentModeScaleAspectFill;
+    self.imageNews.layer.borderWidth = 0.5f;
+    self.imageNews.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    
     // Initialization code
 }
 
@@ -33,15 +37,12 @@
 -(void)setNewsItem:(KUNewsItem *)aNews {
     [self.title setText:aNews.title];
     
-    [self.image sd_setImageWithURL:aNews.thumbnailLink];
+    [self.imageNews sd_setImageWithURL:aNews.thumbnailLink];
     
-    NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:[dateFormatter stringFromDate:aNews.dateTimeInner]];
-    NSString *category = [NSString stringWithFormat:@"  %@ ",aNews.category];
-    NSMutableAttributedString *attrCategory = [[NSMutableAttributedString alloc] initWithString:category];
-    [attrCategory addAttribute:NSBackgroundColorAttributeName value:[KUUITableViewNewsCell colorFromHexString:(aNews.colorStr)] range:NSMakeRange(1, [category length] -1)];
-    [attrCategory addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, [category length])];
-    [attrStr appendAttributedString:attrCategory];
-    [self.info setAttributedText:attrStr];
+    //Date + tag
+    [self.info setText:[dateFormatter stringFromDate:aNews.dateTimeInner]];
+    [self.category setText:[NSString stringWithFormat:@" %@ ",aNews.category]];
+    [self.category setBackgroundColor:[KUUITableViewNewsCell colorFromHexString:aNews.colorStr]];
 }
 
 + (UIColor *)colorFromHexString:(NSString *)hexString {

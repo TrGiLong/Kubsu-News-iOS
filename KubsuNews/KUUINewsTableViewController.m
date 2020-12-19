@@ -8,38 +8,64 @@
 
 #import "KUUINewsTableViewController.h"
 #import "KUUITableViewNewsCell.h"
+#import "KUUIDetailNewsViewController.h"
+
 @interface KUUINewsTableViewController ()
 
 @end
 
 NSString *const CELL_NEWS_ITEM = @"CELL_NEWS_ITEM";
-#define DEFAULT_HEIGHT_CELL 88;
+#define DEFAULT_HEIGHT_CELL 88
+#define PRELOAD_NEWS_BEFORE_ENDING_LIST 5
 
-@implementation KUUINewsTableViewController
+@implementation KUUINewsTableViewController {
+    UIRefreshControl *refrestControl;
+    id <KUInteractionViewControllerProtocol> delegate;
+    NSUInteger numberOfNews;
+}
+
+-(id)initWithDataController:(KUDataController *)dataController delegate:(id)aDelegate {
+    self = [super initWithStyle:UITableViewStylePlain];
+    if (self) {
+        _dataController = dataController;
+        dataController.delegateNews = self;
+        delegate = aDelegate;
+
+        
+        self.title = @"Новости";
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self.tableView setRowHeight:88];
     [self.tableView registerNib:[UINib nibWithNibName:@"KUUITableViewNewsCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:CELL_NEWS_ITEM];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    refrestControl = [[UIRefreshControl alloc] init];
+    [refrestControl setAttributedTitle:[[NSAttributedString alloc] initWithString:@"Идет загрузка..."]];
+    [refrestControl addTarget:self action:@selector(refrestNews) forControlEvents:UIControlEventValueChanged];
+    [self setRefreshControl:refrestControl];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    items = [NSMutableArray array];
+    if (self.dataController != nil) {
+        [refrestControl beginRefreshing];
+        [self refrestNews];
+    }
 }
 
-
+-(void)setDataController:(KUDataController *)dataController {
+    dataController.delegateNews = self;
+    _dataController = dataController;
+    [self refrestNews];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
--(void)setItems:(NSArray<KUNewsItem *> *)anItems {
-    items = anItems;
-    [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
-}
 
 #pragma mark - Table view data source
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -47,13 +73,24 @@ NSString *const CELL_NEWS_ITEM = @"CELL_NEWS_ITEM";
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
+    if ([items count] == 0) {
+        UILabel *noDataLabel         = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.tableView.bounds.size.width, self.tableView.bounds.size.height)];
+        noDataLabel.text             = @"Нет данных";
+        noDataLabel.textColor        = [UIColor grayColor];
+        noDataLabel.textAlignment    = NSTextAlignmentCenter;
+        [noDataLabel setFont:[UIFont systemFontOfSize:18]];
+        self.tableView.backgroundView = noDataLabel;
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        return 0;
+    }
+    self.tableView.backgroundView = nil;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     return [items count];
+
 }
 
 
@@ -64,48 +101,74 @@ NSString *const CELL_NEWS_ITEM = @"CELL_NEWS_ITEM";
 }
 
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ([delegate conformsToProtocol:@protocol(KUInteractionViewControllerProtocol)]) {
+        KUNewsItem *itemNews = [items objectAtIndex:indexPath.row];
+        KUUIDetailNewsViewController *detailVC = [[KUUIDetailNewsViewController alloc] initWithNibName:@"KUUIDetailNewsViewController" bundle:[NSBundle mainBundle] news:itemNews dataController:self.dataController];
+        if ([delegate conformsToProtocol:@protocol(KUInteractionViewControllerProtocol)]) {
+            [delegate viewController:self present:detailVC completion:nil];
+        }
+        
+    }
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+-(void)KUDataController:(KUDataController *)controller numberOfNews:(NSUInteger)anNumberOfNews {
+    numberOfNews = anNumberOfNews;
+    [self.dataController getMoreOffset:0 forType:KUTypeDataNews];
 }
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+-(void)KUDataController:(KUDataController *)controller receiveNewsList:(NSArray<KUNewsItem *> *)anItems {
+    if ([anItems count] > 0) {
+        
+        if ([refrestControl isRefreshing]) {
+            [items removeAllObjects];
+            [items addObjectsFromArray:anItems];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.tableView reloadData];
+                [refrestControl endRefreshing];
+            });
+           
+        } else {
+            NSMutableArray <NSIndexPath*> *listRows = [NSMutableArray arrayWithCapacity:[anItems count]];
+            for (NSInteger row = [items count]; row < [anItems count] + [items count]; row++) {
+                [listRows addObject:[NSIndexPath indexPathForRow:row inSection:0]];
+            }
+            [items addObjectsFromArray:anItems];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.tableView beginUpdates];
+                [self.tableView insertRowsAtIndexPaths:listRows withRowAnimation:UITableViewRowAnimationAutomatic];
+                [self.tableView endUpdates];
+            });
+
+        }
+        
+    }
 }
-*/
 
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
+-(void)KUDataController:(KUDataController *)controller newsError:(NSError *)error {
+
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Упс!" message:@"Произошла ошибка подключения" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        [self.refreshControl endRefreshing];
+    }];
+    [alert addAction:cancelAction];
+    [self presentViewController:alert animated:YES completion:nil];
+
+
 }
-*/
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)refrestNews {
+    numberOfNews = 0;
+    [self.dataController getNumberOfType:KUTypeDataNews];
 }
-*/
 
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    CGFloat currentOffset = scrollView.contentOffset.y;
+    CGFloat maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height;
+    
+    if ([items count] < numberOfNews && (maximumOffset - currentOffset <= DEFAULT_HEIGHT_CELL * PRELOAD_NEWS_BEFORE_ENDING_LIST)) {
+        [self.dataController getMoreOffset:[items count] forType:KUTypeDataNews];
+    }
+}
 @end

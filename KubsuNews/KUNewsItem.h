@@ -8,20 +8,24 @@
 
 #import <Foundation/Foundation.h>
 
-@interface KUNewsItem : NSObject
+@interface KUNewsItem : NSObject <NSCoding>
 
 -(id)initWithDictionary:(NSDictionary*)aDictionary;
+-(void)appendDetail:(NSDictionary*)aDictionary;
 
 @property (nonatomic,strong,readonly) NSString *id_item;
 @property (nonatomic,strong,readonly) NSString *title;
+@property (nonatomic,strong,readonly) NSString *detail;
 @property (nonatomic,strong,readonly) NSURL *thumbnailLink;
 @property (nonatomic,strong,readonly) NSURL *imageLink;
 @property (nonatomic,strong,readonly) NSURL *webLink;
 @property (nonatomic,strong,readonly) NSDate *dateTimeInner;
-//@property (nonatomic,strong,readonly) NSDate *datetimeDisplayable;
-//@property (nonatomic,strong,readonly) NSDate *deadlineDisplayable;
 @property (nonatomic,strong,readonly) NSString *publisher;
 @property (nonatomic,strong,readonly) NSString *category;
 @property (nonatomic,strong,readonly) NSString *colorStr;
+
+
+//@property (nonatomic,strong,readonly) NSDate *datetimeDisplayable;
+//@property (nonatomic,strong,readonly) NSDate *deadlineDisplayable;
 
 @end
